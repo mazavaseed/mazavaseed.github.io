@@ -87,6 +87,35 @@ h1, h2 {
     height: auto;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+   .value-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 50%;
+}
+
+.value-box {
+    border: 2px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.value-title {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.value-text {
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 5px;
+}
+    
     </style>
 </head>
 <body>
@@ -135,13 +164,23 @@ h1, h2 {
     
     <p><span class="green-italic">"D"</span> pour Deed, car nous agissons, oui, nous sommes sur le terrain pour changer et faire évoluer les choses dans le bon sens.</p>
 <h1>Nos valeurs</h1>
-<h2>Initiative</h2>
-    <p>Nous sommes convaincus que pour atteindre un but ou un objectif, il faut d’abord commencer : ne pas attendre après quelqu’un ou quelque chose mais débuter l’action avec ce qu’on a.</p>
-<h2>Intégrité</h2> 
-    <p>Poussé par la seule volonté de faire évoluer les choses, chaque membre est conscient et volontaire pour donner le meilleur de lui-même afin de mener à bien tous les projets de l’association.</p>
-<h2>Partage</h2>
-    <p>Parce que “Partager donne la paix”, nous sommes convaincus qu’aider et donner aux autres sont les seuls moyens qui nous aideront à sortir de la pauvreté. C’est par le partage que nous saurions mieux vivre.</p>
-<h1>Notre équipe</h1>
+<div class="value-container">
+    <div class="value-box">
+        <h2 class="value-title">Initiative</h2>
+        <p class="value-text">Nous sommes convaincus que pour atteindre un but ou un objectif, il faut d’abord commencer : ne pas attendre après quelqu’un ou quelque chose mais débuter l’action avec ce qu’on a.</p>
+    </div>
+
+    <div class="value-box">
+        <h2 class="value-title">Intégrité</h2>
+        <p class="value-text">Poussé par la seule volonté de faire évoluer les choses, chaque membre est conscient et volontaire pour donner le meilleur de lui-même afin de mener à bien tous les projets de l’association.</p>
+    </div>
+
+    <div class="value-box">
+        <h2 class="value-title">Partage</h2>
+        <p class="value-text">Parce que “Partager donne la paix”, nous sommes convaincus qu’aider et donner aux autres sont les seuls moyens qui nous aideront à sortir de la pauvreté. C’est par le partage que nous saurions mieux vivre.</p>
+    </div>
+</div>
+    <h1>Notre équipe</h1>
 
 <div class="team-container">
     <img src="prez.jpg" alt="Membre équipe 1">
