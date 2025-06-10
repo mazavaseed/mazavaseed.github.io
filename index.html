@@ -119,6 +119,32 @@ h1, h2 {
     font-size: 10px; /* Ajuste la taille */
     font-weight: bold;
 }
+.title-container {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.big-title {
+    font-size: 50px; /* Ajuste indépendamment la taille */
+    font-weight: bold;
+    line-height: 1;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.blue-dark {
+    color: darkblue;
+}
+
+.small-text {
+    font-size: 20px; /* Taille différente pour les autres lignes */
+}
+
     </style>
 </head>
 <body>
@@ -144,10 +170,12 @@ h1, h2 {
             <li><a href="contact.html">CONTACT</a></li>
         </ul>
     </nav>
-<div class="header-overlay">
-    <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span>
-    <p><strong>Social, Economic and Environment Deed</strong></p>
-    <em>Bring light everywhere!!!</em>
+<div class="title-container">
+    <span class="big-title">
+        <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span>
+    </span>
+    <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p>
+    <em class="small-text">Bring light everywhere!!!</em>
 </div>
 
     <script>
