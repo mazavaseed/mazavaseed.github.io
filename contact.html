@@ -8,11 +8,37 @@
 </head>
 <body>
     <nav>
-        <a href="index.html">Accueil</a>
-        <a href="presentation.html">Qui nous sommes?</a>
-        <a href="projects.html">Nos Projets</a>
-        <a href="contact.html">Contact</a>
+ <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="presentation.html">Qui nous sommes?</a></li>
+            <li>
+                <a id="projectsToggle">Nos Projets ▼</a>
+                <ul id="projectsMenu">
+                    <li><a href="mazavair.html">Mazav'air</a></li>
+                    <li><a href="mizara_mazava.html">Mizara Mazava</a></li>
+                    <li><a href="tantsaha_mazava.html">Tantsaha Mazava</a></li>
+                    <li><a href="femme_mazava_arahaba_ririnina.html">Femme Mazava & Arahaba Ririnina</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
+
+    <h1>Mazava SEED</h1>
+    <h2><p><strong>Social, Environment and Economic Deed</strong></p> <h2>
+    <em>Bring light everywhere!!!</em>
+
+    <script>
+        document.getElementById("projectsToggle").addEventListener("click", function() {
+            var menu = document.getElementById("projectsMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        });
+    </script>
 
     <h1>Contact</h1>
     <p>Email : <a href="mailto:association.mazavaseed@gmail.com">association.mazavaseed@gmail.com</a></p>
