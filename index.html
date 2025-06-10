@@ -11,16 +11,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
     background-color: #f9f9f9;
     color: #333;
 }
 
 .header-image {
-    position: relative;
     width: 100%;
     height: 300px; 
-    object-fit: block; 
+    object-fit: cover; /* Corrigé */
 }
 
 nav {
@@ -42,7 +40,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: black; /* Navigation en noir */
+    color: black;
     font-weight: bold;
     padding: 10px 15px;
     display: block;
@@ -70,54 +68,19 @@ nav ul li ul li a:hover {
     text-align: center;
 }
 
-h1, h2 {
-    color: #006699;
-}
 .logo {
     position: absolute;
     top: 40px;
     left: 20px;
-    width: 200px; /* Ajuste la taille selon ton besoin */
+    width: 200px;
     height: 200px;
-    border-radius: 50%; /* Rend l’image circulaire */
+    border-radius: 50%;
     object-fit: cover;
-    cursor: pointer; /* Affiche le curseur "main" au survol */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère */
-}
-.title-container {
-    font-size: 100px; /* Ajuste la taille */
-    font-weight: bold;
-    line-height: 0.5; /* Supprime l'espacement vertical */
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
-    margin-top: 40px; /* Ajuste la hauteur */
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.yellow {
-    color: yellow;
-}
-
-.blue-dark {
-    color: darkblue;
-}
-
-.text-container {
-    display: flex;
-    flex-direction: column; /* Affiche les éléments en colonne */
-    align-items: center; /* Centre horizontalement */
-    margin-top: 10px; /* Ajuste l'espace entre les sections */
-}
-.header-overlay {
-    position: absolute;
-    top: 200px; /* Ajuste pour bien superposer */
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: black; /* Garde le contraste si sur une image */
-    font-size: 10px; /* Ajuste la taille */
-    font-weight: bold;
-}
+/* Gestion du titre */
 .title-container {
     position: absolute;
     top: 50px;
@@ -127,7 +90,7 @@ h1, h2 {
 }
 
 .big-title {
-    font-size: 100px; /* Ajuste indépendamment la taille */
+    font-size: 100px;
     font-weight: bold;
     line-height: 1;
 }
@@ -141,34 +104,33 @@ h1, h2 {
 }
 
 .small-text {
-    font-size: 20px; /* Taille différente pour les autres lignes */
+    font-size: 20px;
 }
-
     </style>
 </head>
 <body>
 <a href="index.html">
     <img src="Logo.jpg" alt="Logo Mazava SEED" class="logo">
 </a>
-    <img src="slogan2.jpg" alt="Bannière Mazava SEED" class="header-image">
+<img src="slogan2.jpg" alt="Bannière Mazava SEED" class="header-image">
 
-    <!-- Navigation alignée à droite -->
-    <nav>
-        <ul>
-            <li><a href="index.html">ACCUEIL</a></li>
-            <li><a href="presentation.html">QUI NOUS SOMMES?</a></li>
-            <li>
-                <a id="projectsToggle">NOS PROJETS ▼</a>
-                <ul id="projectsMenu">
-                    <li><a href="mazavair.html">Mazav'air</a></li>
-                    <li><a href="mizara_mazava.html">Mizara Mazava</a></li>
-                    <li><a href="tantsaha_mazava.html">Tantsaha Mazava</a></li>
-                    <li><a href="femme_mazava_arahaba_ririnina.html">Femme Mazava & Arahaba Ririnina</a></li>
-                </ul>
-            </li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
+<nav>
+    <ul>
+        <li><a href="index.html">ACCUEIL</a></li>
+        <li><a href="presentation.html">QUI NOUS SOMMES?</a></li>
+        <li>
+            <a id="projectsToggle">NOS PROJETS ▼</a>
+            <ul id="projectsMenu">
+                <li><a href="mazavair.html">Mazav'air</a></li>
+                <li><a href="mizara_mazava.html">Mizara Mazava</a></li>
+                <li><a href="tantsaha_mazava.html">Tantsaha Mazava</a></li>
+                <li><a href="femme_mazava_arahaba_ririnina.html">Femme Mazava & Arahaba Ririnina</a></li>
+            </ul>
+        </li>
+        <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+</nav>
+
 <div class="title-container">
     <span class="big-title">
         <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span>
@@ -177,30 +139,27 @@ h1, h2 {
     <em class="small-text">Bring light everywhere!!!</em>
 </div>
 
-    <script>
-        document.getElementById("projectsToggle").addEventListener("click", function() {
-            var menu = document.getElementById("projectsMenu");
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "block";
-            }
-        });
-    </script>
+<script>
+    document.getElementById("projectsToggle").addEventListener("click", function() {
+        var menu = document.getElementById("projectsMenu");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    });
+</script>
 
-    <h2>Nos projets</h2>
-    <ul>
-        <p><strong>Environnement</strong> : <em>Mazav'air</em><p>
-        <p><strong>Éducation</strong> : <em>Mizara Mazava</em><p>
-        <p><strong>Développement Rural</strong> : <em>Tantsaha Mazava</em><p>
-        <p><strong>Appui aux communautés vulnérables</strong> : <em>Femme Mazava & Arahaba Ririnina</em><p>
-    </ul>
+<h2>Nos projets</h2>
+<ul>
+    <li><strong>Environnement</strong> : <em>Mazav'air</em></li>
+    <li><strong>Éducation</strong> : <em>Mizara Mazava</em></li>
+    <li><strong>Développement Rural</strong> : <em>Tantsaha Mazava</em></li>
+    <li><strong>Appui aux communautés vulnérables</strong> : <em>Femme Mazava & Arahaba Ririnina</em></li>
+</ul>
 
-    <footer class="footer">
-        <h2>Contact</h2>
-        <p>Email : <a href="mailto:association.mazavaseed@gmail.com">association.mazavaseed@gmail.com</a></p>
-        <p>Téléphone : +261 32 82 497 10 / +261 34 89 318 38</p>
-    </footer>
+<footer class="footer">
+    <h2>Contact</h2>
+    <p>Email : <a href="mailto:association.mazavaseed@gmail.com">association.mazavaseed@gmail.com</a></p>
+    <p>Téléphone : +261 32 82 497 10 / +261 34 89 318 38</p>
+</footer>
 
 </body>
 </html>
+
