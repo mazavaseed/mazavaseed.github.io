@@ -84,13 +84,13 @@ h1, h2 {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère */
 }
 .title-container {
-    font-size: 100px; /* Augmente la taille du texte */
+    font-size: 40px; /* Ajuste la taille */
     font-weight: bold;
     line-height: 1; /* Supprime l'espacement vertical */
-}
-
-.title-container span {
-    display: inline-block;
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    margin-top: 20px; /* Ajuste la hauteur */
 }
 
 .yellow {
@@ -100,6 +100,14 @@ h1, h2 {
 .blue-dark {
     color: darkblue;
 }
+
+.text-container {
+    display: flex;
+    flex-direction: column; /* Affiche les éléments en colonne */
+    align-items: center; /* Centre horizontalement */
+    margin-top: 10px; /* Ajuste l'espace entre les sections */
+}
+
     </style>
 </head>
 <body>
@@ -128,8 +136,11 @@ h1, h2 {
 <div class="title-container">
     <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span>
 </div>
-<p><strong>Social, Economic and Environment Deed</strong></p>
-<em>Bring light everywhere!!!</em>
+
+<div class="text-container">
+    <p><strong>Social, Economic and Environment Deed</strong></p>
+    <em>Bring light everywhere!!!</em>
+</div>
 
     <script>
         document.getElementById("projectsToggle").addEventListener("click", function() {
