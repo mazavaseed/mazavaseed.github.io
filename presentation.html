@@ -91,33 +91,34 @@ h1, h2 {
 .value-container {
     display: flex;
     justify-content: space-around; /* Aligne les blocs sur une seule ligne */
-    gap: 10px; /* Espacement entre les blocs */
+    gap: 10px;
     margin: 20px auto;
     width: 90%;
 }
 
 .value-box {
-    border: 2px solid #ccc;
+    position: relative;
     width: 30%;
-    display: flex;
-    flex-direction: column;
     text-align: center;
-    border-radius: 10px;
-    overflow: hidden; /* Évite les marges internes */
 }
 
-.value-title {
-    background-color: green;
-    color: white;
-    padding: 10px;
+.value-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .value-text {
-    background-color: yellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond transparent pour la lisibilité */
+    color: white;
     padding: 10px;
-    flex-grow: 1; /* Prend toute la place disponible */
-}
-    
+    border-radius: 5px;
+}    
     </style>
 </head>
 <body>
@@ -168,18 +169,27 @@ h1, h2 {
 <h1>Nos valeurs</h1>
 <div class="value-container">
     <div class="value-box">
-        <h2 class="value-title">Initiative</h2>
-        <p class="value-text">Nous sommes convaincus que pour atteindre un but ou un objectif, il faut d’abord commencer : ne pas attendre après quelqu’un ou quelque chose mais débuter l’action avec ce qu’on a.</p>
+        <img src="initiative.jpg" alt="Initiative">
+        <div class="value-text">
+            <h2>Initiative</h2>
+            <p>Nous sommes convaincus que pour atteindre un but ou un objectif, il faut d’abord commencer...</p>
+        </div>
     </div>
 
     <div class="value-box">
-        <h2 class="value-title">Intégrité</h2>
-        <p class="value-text">Poussé par la seule volonté de faire évoluer les choses, chaque membre est conscient et volontaire pour donner le meilleur de lui-même afin de mener à bien tous les projets de l’association.</p>
+        <img src="integrite.jpg" alt="Intégrité">
+        <div class="value-text">
+            <h2>Intégrité</h2>
+            <p>Poussé par la seule volonté de faire évoluer les choses, chaque membre est conscient et volontaire...</p>
+        </div>
     </div>
 
     <div class="value-box">
-        <h2 class="value-title">Partage</h2>
-        <p class="value-text">Parce que “Partager donne la paix”, nous sommes convaincus qu’aider et donner aux autres sont les seuls moyens qui nous aideront à sortir de la pauvreté. C’est par le partage que nous saurions mieux vivre.</p>
+        <img src="partage.jpg" alt="Partage">
+        <div class="value-text">
+            <h2>Partage</h2>
+            <p>Parce que “Partager donne la paix”, nous sommes convaincus qu’aider et donner aux autres...</p>
+        </div>
     </div>
 </div>
     <h1>Notre équipe</h1>
