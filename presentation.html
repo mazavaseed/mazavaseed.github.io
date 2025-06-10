@@ -88,33 +88,34 @@ h1, h2 {
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-   .value-container {
+.value-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-around; /* Aligne les blocs sur une seule ligne */
+    gap: 10px; /* Espacement entre les blocs */
     margin: 20px auto;
-    width: 50%;
+    width: 90%;
 }
 
 .value-box {
     border: 2px solid #ccc;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 10px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    border-radius: 10px;
+    overflow: hidden; /* Évite les marges internes */
 }
 
 .value-title {
     background-color: green;
     color: white;
     padding: 10px;
-    border-radius: 5px;
 }
 
 .value-text {
     background-color: yellow;
     padding: 10px;
-    border-radius: 5px;
+    flex-grow: 1; /* Prend toute la place disponible */
 }
     
     </style>
