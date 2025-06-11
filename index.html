@@ -138,27 +138,7 @@ h1, h2 { color: #006699; }
     if (menu.style.display === "block") {menu.style.display = "none";}
     else {menu.style.display = "block";}});
 
- document.querySelectorAll(".main-img").forEach((img) => {
-        img.addEventListener("mouseenter", function() {
-            let textImg = this.parentElement.querySelector(".text-img");
-            textImg.style.opacity = "1";
-            textImg.style.transform = "translateY(520px)";
-
-            // Ajuste le footer en ajoutant un espace en haut
-            document.querySelector(".footer").style.paddingTop = "520px";
-        });
-
-        img.addEventListener("mouseleave", function() {
-            let textImg = this.parentElement.querySelector(".text-img");
-            textImg.style.opacity = "0";
-            textImg.style.transform = "translateY(0)";
-
-            // Réinitialise le footer quand l'explication disparaît
-            document.querySelector(".footer").style.paddingTop = "15px";
-        });
-    });
-
-     document.querySelectorAll(".main-img").forEach((img) => {
+        document.querySelectorAll(".main-img").forEach((img) => {
         img.addEventListener("mouseenter", function() {
             let textImg = this.parentElement.querySelector(".text-img");
             textImg.style.opacity = "1";
