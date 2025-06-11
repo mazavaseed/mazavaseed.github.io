@@ -56,18 +56,14 @@ body {
 
 /* Explication sous forme d'image, cachée sous le projet */
 .project .text-img {
-    position: relative;
-    bottom: -520px; /* Cachée sous le projet */
-    left: 0;
+    position: relative; /* Permet aux explications d’être dans le flux de la page */
     width: 100%;
     height: 500px;
-    opacity: 0;
-    transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    margin-top: 20px; /* Ajuste l’espace sous l’image principale */
+    display: none; /* Caché par défaut */
 }
-
 /* Effet au survol : apparition de l'explication sous le projet */
 .project:hover .text-img {
-    opacity: 1;
     display: block;
 }
 
