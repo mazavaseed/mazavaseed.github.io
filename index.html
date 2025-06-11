@@ -202,7 +202,7 @@ h1, h2 {
 </nav>
     <div class="title-container"> <span class="big-title"> <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span> </span> <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> <em class="small-text">Bring light everywhere!!!</em> </div>
     <script>
-       document.getElementById("projectsToggle").addEventListener("click", function() {
+    document.getElementById("projectsToggle").addEventListener("click", function() {
         var menu = document.getElementById("projectsMenu");
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     });
@@ -214,8 +214,8 @@ h1, h2 {
         mainImg.addEventListener("mousemove", (event) => {
             let rect = mainImg.getBoundingClientRect();
             let cursorX = event.clientX - rect.left;
-            let centerStart = rect.width * 0.40;
-            let centerEnd = rect.width * 0.60;
+            let centerStart = rect.width * 0.45; // Zone centrale réduite pour plus de précision
+            let centerEnd = rect.width * 0.55;   // Ajustement de la précision
 
             if (cursorX >= centerStart && cursorX <= centerEnd) {
                 textImg.style.opacity = "1";
@@ -234,32 +234,14 @@ h1, h2 {
                 if (index === 3 && projects[2]) {
                     projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air vers la gauche
                 }
-            } else {
-                textImg.style.opacity = "0";
-                textImg.style.left = "-300px"; // Explication disparaît
-
-                // Réinitialisation des projets adjacents
-                if (index === 0 && projects[1]) {
-                    projects[1].style.transform = "translateX(0)";
-                }
-                if (index === 1 && projects[0]) {
-                    projects[0].style.transform = "translateX(0)";
-                }
-                if (index === 2 && projects[3]) {
-                    projects[3].style.transform = "translateX(0)";
-                }
-                if (index === 3 && projects[2]) {
-                    projects[2].style.transform = "translateX(0)";
-                }
             }
         });
 
-        mainImg.addEventListener("mouseleave", () => {
+        mainImg.addEventListener("mouseout", () => {
             textImg.style.opacity = "0";
-            textImg.style.left = "-300px";
-            project.style.transform = "translateX(0)"; // Réinitialise le projet
+            textImg.style.left = "-300px"; // Explication disparaît
 
-            // Remettre les projets voisins à leur position d'origine
+            // Réinitialisation des projets adjacents
             if (index === 0 && projects[1]) {
                 projects[1].style.transform = "translateX(0)";
             }
