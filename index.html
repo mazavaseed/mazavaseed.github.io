@@ -52,10 +52,12 @@ h1, h2 { color: #006699; }
     <em class="small-text">Bring light everywhere!!!</em> 
   </div> 
 <script> 
-  document
-    .getElementById("projectsToggle")
-    .addEventListener("click", function() { var menu = document
-    .getElementById("projectsMenu"); menu.style.display = (menu.style.display === "block") ? "none" : "block"; }); document
+document.getElementById("projectsToggle").addEventListener("click", 
+    function() {
+    var menu = document.getElementById("projectsMenu");
+    if (menu.style.display === "block") {menu.style.display = "none";}
+    else {menu.style.display = "block";}});
+document
     .querySelectorAll(".project").forEach((project, index, projects) => { const mainImg = project
     .querySelector(".main-img"); const textImg = project.querySelector(".text-img"); 
   mainImg.addEventListener("mousemove", (event) => { let rect = mainImg
