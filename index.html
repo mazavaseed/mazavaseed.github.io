@@ -201,12 +201,14 @@ h1, h2 {
     </ul>
 </nav>
     <div class="title-container"> <span class="big-title"> <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span> </span> <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> <em class="small-text">Bring light everywhere!!!</em> </div>
-    <script>
+<script>
+    // Gestion du menu déroulant "Nos Projets"
     document.getElementById("projectsToggle").addEventListener("click", function() {
         var menu = document.getElementById("projectsMenu");
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     });
 
+    // Gestion de l'affichage des explications et déplacement des projets voisins
     document.querySelectorAll(".project").forEach((project, index, projects) => {
         const mainImg = project.querySelector(".main-img");
         const textImg = project.querySelector(".text-img");
@@ -214,34 +216,52 @@ h1, h2 {
         mainImg.addEventListener("mousemove", (event) => {
             let rect = mainImg.getBoundingClientRect();
             let cursorX = event.clientX - rect.left;
-            let centerStart = rect.width * 0.45; // Zone centrale réduite pour plus de précision
-            let centerEnd = rect.width * 0.55;   // Ajustement de la précision
+            let centerStart = rect.width * 0.45; // Réduit la zone centrale pour une meilleure précision
+            let centerEnd = rect.width * 0.55;
 
             if (cursorX >= centerStart && cursorX <= centerEnd) {
                 textImg.style.opacity = "1";
                 textImg.style.left = "520px"; // Explication glisse à droite
 
-                // Déplacement des projets adjacents
+                // Déplacement des projets voisins en fonction de leur position
                 if (index === 0 && projects[1]) {
-                    projects[1].style.transform = "translateX(520px)"; // Mizara pousse Femme vers la droite
+                    projects[1].style.transform = "translateX(520px)"; // Mizara pousse Femme à droite
                 }
                 if (index === 1 && projects[0]) {
-                    projects[0].style.transform = "translateX(-520px)"; // Femme pousse Mizara vers la gauche
+                    projects[0].style.transform = "translateX(-520px)"; // Femme pousse Mizara à gauche
                 }
                 if (index === 2 && projects[3]) {
-                    projects[3].style.transform = "translateX(520px)"; // Mazav'air pousse Tantsaha vers la droite
+                    projects[3].style.transform = "translateX(520px)"; // Mazav'air pousse Tantsaha à droite
                 }
                 if (index === 3 && projects[2]) {
-                    projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air vers la gauche
+                    projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air à gauche
+                }
+            } else {
+                textImg.style.opacity = "0";
+                textImg.style.left = "-300px"; // Explication disparaît
+
+                // Réinitialisation des projets adjacents
+                if (index === 0 && projects[1]) {
+                    projects[1].style.transform = "translateX(0)";
+                }
+                if (index === 1 && projects[0]) {
+                    projects[0].style.transform = "translateX(0)";
+                }
+                if (index === 2 && projects[3]) {
+                    projects[3].style.transform = "translateX(0)";
+                }
+                if (index === 3 && projects[2]) {
+                    projects[2].style.transform = "translateX(0)";
                 }
             }
         });
 
-        mainImg.addEventListener("mouseout", () => {
+        mainImg.addEventListener("mouseleave", () => {
             textImg.style.opacity = "0";
             textImg.style.left = "-300px"; // Explication disparaît
+            project.style.transform = "translateX(0)"; // Réinitialise le projet
 
-            // Réinitialisation des projets adjacents
+            // Réinitialisation des projets voisins
             if (index === 0 && projects[1]) {
                 projects[1].style.transform = "translateX(0)";
             }
@@ -256,7 +276,8 @@ h1, h2 {
             }
         });
     });
-    </script>
+</script>
+
 <div class="projects-container">
 
     <!-- Mizara Mazava -->
