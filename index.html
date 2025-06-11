@@ -208,18 +208,16 @@ h1, h2 {
 </nav>
     <div class="title-container"> <span class="big-title"> <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span> </span> <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> <em class="small-text">Bring light everywhere!!!</em> </div>
     <script>
-       // Gestion du menu déroulant "Nos Projets"
     document.getElementById("projectsToggle").addEventListener("click", function() {
         var menu = document.getElementById("projectsMenu");
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     });
 
-    // Gestion de l'affichage des explications uniquement quand le curseur est centré
     document.querySelectorAll(".project").forEach(project => {
         const mainImg = project.querySelector(".main-img");
         const textImg = project.querySelector(".text-img");
 
-        mainImg.addEventListener("mousemove", (event) => {
+        mainImg.addEventListener("mouseenter", (event) => {
             let rect = mainImg.getBoundingClientRect();
             let cursorX = event.clientX - rect.left;
 
@@ -229,10 +227,12 @@ h1, h2 {
             if (cursorX >= centerStart && cursorX <= centerEnd) {
                 textImg.style.opacity = "1";
                 textImg.style.left = "520px"; // Déplacement vers la droite
-            } else {
-                textImg.style.opacity = "0";
-                textImg.style.left = "-320px"; // Caché à gauche
             }
+        });
+
+        mainImg.addEventListener("mouseleave", () => {
+            textImg.style.opacity = "0";
+            textImg.style.left = "-320px"; // Retour à la position cachée
         });
     });
     </script>
