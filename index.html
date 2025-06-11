@@ -57,6 +57,74 @@ h1, h2 { color: #006699; }
     var menu = document.getElementById("projectsMenu");
     if (menu.style.display === "block") {menu.style.display = "none";}
     else {menu.style.display = "block";}});
+
+     document.querySelectorAll(".project").forEach((project, index, projects) => {
+        const mainImg = project.querySelector(".main-img");
+        const textImg = project.querySelector(".text-img");
+
+        mainImg.addEventListener("mousemove", (event) => {
+            let rect = mainImg.getBoundingClientRect();
+            let cursorX = event.clientX - rect.left;
+            let centerStart = rect.width * 0.45;
+            let centerEnd = rect.width * 0.55;
+
+            if (cursorX >= centerStart && cursorX <= centerEnd) {
+                textImg.style.opacity = "1";
+                textImg.style.left = "520px"; // Explication glisse à droite
+
+                // Déplacement des projets adjacents selon les nouvelles règles
+                if (index === 0 && projects[1]) {
+                    projects[1].style.transform = "translateX(520px)"; // Mizara pousse Femme vers la droite
+                }
+                if (index === 2 && projects[3]) {
+                    projects[3].style.transform = "translateX(520px)"; // Mazav'air pousse Tantsaha vers la droite
+                }
+                if (index === 1 && projects[0]) {
+                    projects[0].style.transform = "translateX(-520px)"; // Femme pousse Mizara vers la gauche
+                }
+                if (index === 3 && projects[2]) {
+                    projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air vers la gauche
+                }
+            } else {
+                textImg.style.opacity = "0";
+                textImg.style.left = "-300px"; // Explication disparaît
+
+                // Réinitialisation des projets déplacés
+                if (index === 0 && projects[1]) {
+                    projects[1].style.transform = "translateX(0)";
+                }
+                if (index === 2 && projects[3]) {
+                    projects[3].style.transform = "translateX(0)";
+                }
+                if (index === 1 && projects[0]) {
+                    projects[0].style.transform = "translateX(0)";
+                }
+                if (index === 3 && projects[2]) {
+                    projects[2].style.transform = "translateX(0)";
+                }
+            }
+        });
+
+        mainImg.addEventListener("mouseleave", () => {
+            textImg.style.opacity = "0";
+            textImg.style.left = "-300px";
+            project.style.transform = "translateX(0)"; // Réinitialisation
+
+            // Remettre les projets déplacés à leur position normale
+            if (index === 0 && projects[1]) {
+                projects[1].style.transform = "translateX(0)";
+            }
+            if (index === 2 && projects[3]) {
+                projects[3].style.transform = "translateX(0)";
+            }
+            if (index === 1 && projects[0]) {
+                projects[0].style.transform = "translateX(0)";
+            }
+            if (index === 3 && projects[2]) {
+                projects[2].style.transform = "translateX(0)";
+            }
+        });
+    });
   </script> 
   <div class="projects-container">
   <div class="project"> <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img"> 
