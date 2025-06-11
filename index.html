@@ -112,6 +112,73 @@ h1, h2 { color: #006699; }
     var menu = document.getElementById("projectsMenu");
     if (menu.style.display === "block") {menu.style.display = "none";}
     else {menu.style.display = "block";}});
+     document.querySelectorAll(".project").forEach((project, index, projects) => {
+        const mainImg = project.querySelector(".main-img");
+        const textImg = project.querySelector(".text-img");
+
+        mainImg.addEventListener("mousemove", (event) => {
+            let rect = mainImg.getBoundingClientRect();
+            let cursorX = event.clientX - rect.left;
+            let centerStart = rect.width * 0.45;
+            let centerEnd = rect.width * 0.55;
+
+            if (cursorX >= centerStart && cursorX <= centerEnd) {
+                textImg.style.opacity = "1";
+                textImg.style.left = "520px";
+
+                // Déplacement des projets adjacents
+                if (index === 0 && projects[1]) {
+                    projects[1].style.transform = "translateX(520px)"; // Mizara pousse Femme à droite
+                }
+                if (index === 2 && projects[3]) {
+                    projects[3].style.transform = "translateX(520px)"; // Mazav'air pousse Tantsaha à droite
+                }
+                if (index === 1 && projects[0]) {
+                    projects[0].style.transform = "translateX(-520px)"; // Femme pousse Mizara à gauche
+                }
+                if (index === 3 && projects[2]) {
+                    projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air à gauche
+                }
+            } else {
+                textImg.style.opacity = "0";
+                textImg.style.left = "-320px";
+
+                // Réinitialisation des projets déplacés
+                if (index === 0 && projects[1]) {
+                    projects[1].style.transform = "translateX(0)";
+                }
+                if (index === 2 && projects[3]) {
+                    projects[3].style.transform = "translateX(0)";
+                }
+                if (index === 1 && projects[0]) {
+                    projects[0].style.transform = "translateX(0)";
+                }
+                if (index === 3 && projects[2]) {
+                    projects[2].style.transform = "translateX(0)";
+                }
+            }
+        });
+
+        mainImg.addEventListener("mouseleave", () => {
+            textImg.style.opacity = "0";
+            textImg.style.left = "-320px";
+            project.style.transform = "translateX(0)";
+
+            // Réinitialisation des projets adjacents
+            if (index === 0 && projects[1]) {
+                projects[1].style.transform = "translateX(0)";
+            }
+            if (index === 2 && projects[3]) {
+                projects[3].style.transform = "translateX(0)";
+            }
+            if (index === 1 && projects[0]) {
+                projects[0].style.transform = "translateX(0)";
+            }
+            if (index === 3 && projects[2]) {
+                projects[2].style.transform = "translateX(0)";
+            }
+        });
+    });
   </script> 
 <div class="projects-container">
 
