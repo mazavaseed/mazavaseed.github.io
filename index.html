@@ -14,6 +14,7 @@ body {
     background-color: #f9f9f9;
     color: #333;
 }
+
 .projects-container {
     display: flex;
     flex-wrap: wrap;
@@ -56,6 +57,7 @@ body {
     left: 520px;
 }
 
+        
 .header-image {
     width: 100%;
     height: 300px; 
@@ -178,6 +180,7 @@ h1, h2 {
     </ul>
 </nav>
     <div class="title-container"> <span class="big-title"> <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span> </span> <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> <em class="small-text">Bring light everywhere!!!</em> </div>
+
 <script>
     document.getElementById("projectsToggle").addEventListener("click", function() {
         var menu = document.getElementById("projectsMenu");
@@ -198,18 +201,30 @@ h1, h2 {
                 textImg.style.opacity = "1";
                 textImg.style.left = "520px"; // Explication glisse à droite
 
-                // Déplacement des projets adjacents selon les nouvelles règles
+                // Déplacement des projets voisins selon les nouvelles règles
+                if (index === 0 && projects[1]) {
+                    projects[1].style.transform = "translateX(520px)"; // Mizara pousse Femme vers la droite
+                }
+                if (index === 2 && projects[3]) {
+                    projects[3].style.transform = "translateX(520px)"; // Mazav'air pousse Tantsaha vers la droite
+                }
                 if (index === 1 && projects[0]) {
-                    projects[0].style.transform = "translateX(-520px)"; // Femme Mazava → pousse Mizara Mazava vers la gauche
+                    projects[0].style.transform = "translateX(-520px)"; // Femme pousse Mizara vers la gauche
                 }
                 if (index === 3 && projects[2]) {
-                    projects[2].style.transform = "translateX(-520px)"; // Tantsaha Mazava → pousse Mazav'air vers la gauche
+                    projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air vers la gauche
                 }
             } else {
                 textImg.style.opacity = "0";
                 textImg.style.left = "-300px"; // Explication disparaît
 
                 // Réinitialisation des projets déplacés
+                if (index === 0 && projects[1]) {
+                    projects[1].style.transform = "translateX(0)";
+                }
+                if (index === 2 && projects[3]) {
+                    projects[3].style.transform = "translateX(0)";
+                }
                 if (index === 1 && projects[0]) {
                     projects[0].style.transform = "translateX(0)";
                 }
@@ -225,6 +240,12 @@ h1, h2 {
             project.style.transform = "translateX(0)"; // Réinitialisation
 
             // Remettre les projets déplacés à leur position normale
+            if (index === 0 && projects[1]) {
+                projects[1].style.transform = "translateX(0)";
+            }
+            if (index === 2 && projects[3]) {
+                projects[3].style.transform = "translateX(0)";
+            }
             if (index === 1 && projects[0]) {
                 projects[0].style.transform = "translateX(0)";
             }
@@ -234,6 +255,7 @@ h1, h2 {
         });
     });
 </script>
+
 
 <div class="projects-container">
 
