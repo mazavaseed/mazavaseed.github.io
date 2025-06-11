@@ -15,8 +15,8 @@ body {
 
 .projects-container {
     display: flex;
-    justify-content: center; /* Centre les projets horizontalement */
-    align-items: flex-start; /* Assure que les projets restent bien alignés */
+    justify-content: center;
+    align-items: flex-start;
     gap: 30px;
     margin-top: 50px;
 }
@@ -53,21 +53,24 @@ body {
     border-radius: 0 0 10px 10px;
 }
 
-/* Explication sous forme d'image, cachée sous le projet */
+/* Explication sous forme d'image, cachée derrière le projet */
 .project .text-img {
     position: absolute;
-    bottom: -520px; /* Cachée sous le projet */
-    left: 0;
     width: 100%;
     height: 500px;
+    left: 0;
+    bottom: 0;
+    z-index: -1; /* Cachée derrière */
     opacity: 0;
-    transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transform: translateY(0);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 /* Effet au survol : apparition de l'explication sous le projet */
 .project:hover .text-img {
     opacity: 1;
-    bottom: -500px; /* Elle remonte légèrement */
+    z-index: 1; /* Passe devant */
+    transform: translateY(520px); /* Descend sous le projet */
 }
 
 
