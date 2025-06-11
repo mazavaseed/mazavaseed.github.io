@@ -27,8 +27,9 @@ body {
 .project {
     position: relative;
     width: 500px;
-    height: 550px; /* Inclut la zone du nom */
+    height: 550px;
     text-align: center;
+    transition: transform 0.5s ease-in-out; /* Ajoute une animation de déplacement */
 }
 
 /* Images principales */
@@ -57,7 +58,7 @@ body {
 /* Explication sous forme d'image, cachée à gauche au départ */
 .project .text-img {
     position: absolute;
-    left: -320px; /* Cachée à gauche */
+    left: -320px;
     top: 0;
     width: 500px;
     height: 500px;
@@ -65,10 +66,23 @@ body {
     transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Effet au survol : apparition de l'explication qui glisse vers la droite */
+/* Effet au survol : apparition de l'explication et déplacement des images de projet */
 .project:hover .text-img {
     opacity: 1;
-    left: 520px; /* Position finale à droite de l'image */
+    left: 520px;
+}
+
+/* Déplacement des autres projets lors de l'affichage de l'explication */
+.project:hover + .project {
+    transform: translateX(520px); /* Pousse vers la droite */
+}
+
+.project:nth-child(2):hover {
+    transform: translateX(-520px); /* Pousse vers la gauche */
+}
+
+.project:nth-child(4):hover {
+    transform: translateX(-520px); /* Pousse vers la gauche */
 }
 
 .header-image {
@@ -193,6 +207,9 @@ h1, h2 {
     </ul>
 </nav>
 <div class="projects-container">
+
+    <!-- Mizara Mazava -->
+    <div class="projects-container">
 
     <!-- Mizara Mazava -->
     <div class="project">
