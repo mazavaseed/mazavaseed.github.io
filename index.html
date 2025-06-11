@@ -14,35 +14,6 @@ body {
     background-color: #f9f9f9;
     color: #333;
 }
-/* Conteneur général en grille (2 colonnes, 2 lignes) */
-.projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centre les projets horizontalement */
-    gap: 30px;
-    margin-top: 50px;
-    max-width: 1100px; /* Limite la largeur */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Style des projets */
-.project {
-    position: relative;
-    width: 500px;
-    height: 550px;
-    text-align: center;
-    transition: transform 0.5s ease-in-out; /* Ajoute une animation de déplacement */
-}
-
-/* Images principales */
-.project img.main-img {
-    width: 100%;
-    height: 500px;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
 /* Zone de texte sous l'image */
 .project-name {
     background-color: #006699;
@@ -58,10 +29,31 @@ body {
     border-radius: 0 0 10px 10px;
 }
 
-/* Explication sous forme d'image, cachée à gauche au départ */
+/* Conteneur général en grille (2 colonnes, 2 lignes) */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Style des projets */
+.project {
+    position: relative;
+    width: 500px;
+    height: 550px;
+    text-align: center;
+    transition: transform 0.5s ease-in-out; /* Ajoute une animation de déplacement */
+}
+
+/* Explication cachée à gauche au départ */
 .project .text-img {
     position: absolute;
-    left: -320px;
+    left: -320px; /* Cachée initialement */
     top: 0;
     width: 500px;
     height: 500px;
@@ -69,23 +61,27 @@ body {
     transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Effet au survol : apparition de l'explication et déplacement des images de projet */
+/* Effet au survol : apparition de l'explication */
 .project:hover .text-img {
     opacity: 1;
-    left: 520px;
+    left: 520px; /* Déplacement vers la droite */
 }
 
 /* Déplacement des autres projets lors de l'affichage de l'explication */
-.project:hover + .project {
-    transform: translateX(520px); /* Pousse vers la droite */
+.project:nth-child(1):hover + .project {
+    transform: translateX(520px); /* Mizara pousse Femme vers la droite */
 }
 
 .project:nth-child(2):hover {
-    transform: translateX(-520px); /* Pousse vers la gauche */
+    transform: translateX(-520px); /* Femme pousse Mizara vers la gauche */
+}
+
+.project:nth-child(3):hover + .project {
+    transform: translateX(520px); /* Mazav'air pousse Tantsaha vers la droite */
 }
 
 .project:nth-child(4):hover {
-    transform: translateX(-520px); /* Pousse vers la gauche */
+    transform: translateX(-520px); /* Tantsaha pousse Mazav'air vers la gauche */
 }
 
 .header-image {
