@@ -15,38 +15,50 @@ body {
     color: #333;
 }
 .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centre les projets horizontalement */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    justify-content: center;
     margin-top: 50px;
-    max-width: 1100px; /* Limite la largeur */
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/* Effet d'apparition avec positionnement précis */
+/* Style des projets */
 .project {
     position: relative;
     width: 500px;
-    height: 550px;
-    text-align: center;
+    height: 500px;
 }
 
-/* Explication qui glisse de gauche à droite */
-.project .text-img {
+/* Images principales */
+.project img.main-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Logo et explication (cachés au départ) */
+.project img.logo,
+.project img.text {
     position: absolute;
-    left: -320px;
-    top: 0;
-    width: 500px;
+    right: -320px;
+    top: 50%;
+    width: 300px;
     height: 500px;
     opacity: 0;
-    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transform: translateY(-50%);
+    transition: opacity 0.5s ease-in-out, right 0.5s ease-in-out;
 }
 
-.project:hover .text-img {
+/* Effet de cascade au survol */
+.project:hover img.logo {
     opacity: 1;
-    left: 520px;
+    right: -250px;
+}
+
+.project:hover img.text {
+    opacity: 1;
+    right: -180px;
 }
 
 .header-image {
@@ -224,40 +236,35 @@ h1, h2 {
     });
     </script>
 <div class="projects-container">
-
-    <!-- Mizara Mazava -->
-    <div class="projects-container">
-
     <!-- Mizara Mazava -->
     <div class="project">
         <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
-        <div class="project-name">Mizara Mazava</div>
-        <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img">
+        <img src="mizara.jpg" alt="Logo Mizara Mazava" class="logo">
+        <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text">
     </div>
 
     <!-- Femme Mazava -->
     <div class="project">
         <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
-        <div class="project-name">Femme Mazava</div>
-        <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img">
+        <img src="femme.jpg" alt="Logo Femme Mazava" class="logo">
+        <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text">
     </div>
 
     <!-- Mazav'air -->
     <div class="project">
         <img src="airimg.jpg" alt="Mazav'air" class="main-img">
-        <div class="project-name">Mazav'air</div>
-        <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img">
+        <img src="air.jpg" alt="Logo Mazav'air" class="logo">
+        <img src="airtxt.jpg" alt="Explication Mazav'air" class="text">
     </div>
 
     <!-- Tantsaha Mazava -->
     <div class="project">
         <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
-        <div class="project-name">Tantsaha Mazava</div>
-        <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img">
+        <img src="tantsaha.jpg" alt="Logo Tantsaha Mazava" class="logo">
+        <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text">
     </div>
-
 </div>
-
+    
 <footer class="footer">
     <h2>Contact</h2>
     <p>Email : <a href="mailto:association.mazavaseed@gmail.com">association.mazavaseed@gmail.com</a></p>
