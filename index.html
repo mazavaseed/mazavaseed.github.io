@@ -19,8 +19,8 @@ body {
     align-items: flex-start;
     gap: 30px;
     margin-top: 50px;
-    margin-bottom: 0; /* Ajusté dynamiquement */
-    transition: margin-bottom 0.5s ease-in-out;
+    transition: min-height 0.5s ease-in-out;
+    min-height: 600px; /* Hauteur minimale ajustable dynamiquement */
 }
 
 /* Style des projets */
@@ -71,19 +71,14 @@ body {
 /* Effet au survol : apparition de l'explication sous le projet */
 .project:hover .text-img {
     opacity: 1;
-    z-index: 1; /* Passe devant */
-    transform: translateY(520px); /* Descend sous le projet */
+    z-index: 1;
+    transform: translateY(520px);
 }
-/* Créer un espace sous les projets lorsqu'une explication est affichée */
+/* Ajustement dynamique de la taille de la page */
 .project:hover ~ .projects-container {
-    margin-bottom: 520px;
+    min-height: 1200px; /* La section grandit pour accueillir l’explication */
 }
-/* Faire bouger le footer quand une explication apparaît */
-.project:hover ~ .footer {
-    position: absolute; /* Rend le footer adaptable */
-    bottom: -520px; /* Pousse le footer vers le bas */
-}
-    
+
 .text-img { opacity: 1; left: 520px; } 
 .header-image { width: 100%; height: 300px; object-fit: block; /* Corrigé */ } 
 nav { position: absolute; top: 20px; right: 20px; } 
