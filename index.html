@@ -5,7 +5,21 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <title>Mazava SEED</title> 
 <style>
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    min-height: 100vh; /* Assure que la page prend toute la hauteur */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container principal pour éviter que le footer flotte */
+.main-content {
+    flex: 1; /* Permet au contenu de prendre l'espace disponible */
+}
 
 .projects-container {
     display: flex;
@@ -74,8 +88,10 @@ nav ul li a { text-decoration: none; color: black; font-weight: bold; padding: 1
 nav ul li ul { display: none; position: absolute; background-color: #f9f9f9; list-style-type: none; padding: 0; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); width: 200px; }
 nav ul li ul li a:hover { background-color: #ddd; }
 h1, h2 { color: #006699; }
+/* Footer bien positionné */
 .footer {
-    position: relative; /* Change de "fixed" à "relative" */
+    position: absolute; /* Fixe le footer en bas uniquement si nécessaire */
+    bottom: 0;
     width: 100%;
     background-color: #f1f1f1;
     text-align: center;
