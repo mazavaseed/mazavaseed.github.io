@@ -128,6 +128,20 @@ h1, h2 { color: #006699; }
     var menu = document.getElementById("projectsMenu");
     if (menu.style.display === "block") {menu.style.display = "none";}
     else {menu.style.display = "block";}});
+
+        document.querySelectorAll(".main-img").forEach((img) => {
+        img.addEventListener("mouseenter", function() {
+            let textImg = this.parentElement.querySelector(".text-img");
+            textImg.style.opacity = "1";
+            textImg.style.bottom = "-500px"; // Affichage correct
+        });
+
+        img.addEventListener("mouseleave", function() {
+            let textImg = this.parentElement.querySelector(".text-img");
+            textImg.style.opacity = "0";
+            textImg.style.bottom = "-520px"; // Réinitialisation
+        });
+    });
   </script> 
     
 <div class="projects-container">
