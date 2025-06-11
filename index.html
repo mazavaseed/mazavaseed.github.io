@@ -21,6 +21,20 @@ body {
     justify-content: center;
     margin-top: 50px;
 }
+/* Limite la taille des images de projet */
+.project img.main-img {
+    width: 400px; /* Réduction de la largeur */
+    height: 400px; /* Réduction de la hauteur */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Ajuste la taille des explications pour qu'elles restent cohérentes */
+.project .text-img {
+    width: 400px; /* Largeur alignée avec les images */
+    height: 400px; /* Hauteur alignée */
+    left: -280px; /* Positionnement ajusté */
+}
 
 /* Style des projets */
 .project {
