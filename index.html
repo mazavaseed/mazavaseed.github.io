@@ -66,11 +66,11 @@ h1, h2 {
 .footer {
     position: fixed; /* Fixe le footer au bas de la page */
     bottom: 0;
-    width: 100%; /* Assure qu'il occupe toute la largeur */
+    width: 100%;
     background-color: #f1f1f1;
     text-align: center;
-    padding: 10px 0;
-    border-top: 2px solid #ccc; /* Séparation visuelle */
+    padding: 15px 0; /* Augmente le padding pour un meilleur rendu */
+    border-top: 2px solid #ccc;
 }
 .logo {
     position: absolute;
@@ -87,11 +87,12 @@ h1, h2 {
 /* Gestion du titre */
 .title-container {
     position: absolute;
-    top: 50; /* Aligné avec le bas de l'image */
+    top: 250px; /* Aligné en bas de l'image */
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     width: 100%;
+    z-index: 10; /* Assure que le texte passe au-dessus */
 }
 .big-title {
     font-size: 100px;
