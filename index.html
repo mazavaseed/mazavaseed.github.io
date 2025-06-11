@@ -19,7 +19,6 @@ body {
     align-items: flex-start; /* Assure que les projets restent bien alignés */
     gap: 30px;
     margin-top: 50px;
-    margin-bottom: 250px; /* Ajoute un espace sous les projets */
 }
 
 /* Style des projets */
@@ -63,7 +62,6 @@ body {
     height: 500px;
     opacity: 0;
     transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    z-index: 100; /* Garde les explications visibles */
 }
 
 /* Effet au survol : apparition de l'explication sous le projet */
@@ -93,7 +91,6 @@ h1, h2 { color: #006699; }
     text-align: center;
     padding: 15px 0;
     border-top: 2px solid #ccc;
-    z-index: 99; /* Garde le footer sous les explications */
 }
 .logo { position: absolute; top: 40px; left: 20px; width: 150px; height: 150px; border-radius: 50%; object-fit: cover; cursor: pointer; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); } /* Gestion du titre */ 
 .title-container { position: absolute; top: 250px; /* Aligné en bas de l'image */ left: 50%; transform: translateX(-50%); text-align: center; width: 100%; z-index: 10; /* Assure que le texte passe au-dessus */ } 
