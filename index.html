@@ -28,32 +28,10 @@ body {
     width: 500px;
     height: 500px;
     text-align: center;
+    transition: transform 0.5s ease-in-out;
 }
 
-/* Images principales */
-.project img.main-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Zone de texte sous l'image */
-.project-name {
-    background-color: #006699;
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 10px;
-    width: 100%;
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    text-align: center;
-    border-radius: 5px;
-}
-
-/* Explication sous forme d'image */
+/* Explication sous forme d'image (cachée à gauche) */
 .project .text-img {
     position: absolute;
     left: -300px;
@@ -64,10 +42,27 @@ body {
     transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Effet au survol : apparition de l'image explicative */
+/* Effet au survol : apparition et déplacement des explications */
 .project:hover .text-img {
     opacity: 1;
-    left: 0;
+    left: 520px;
+}
+
+/* Déplacement des projets voisins lors de l'affichage des explications */
+.project:nth-child(1):hover + .project {
+    transform: translateX(520px); /* Mizara pousse Femme vers la droite */
+}
+
+.project:nth-child(2):hover {
+    transform: translateX(-520px); /* Femme pousse Mizara vers la gauche */
+}
+
+.project:nth-child(3):hover + .project {
+    transform: translateX(520px); /* Mazav'air pousse Tantsaha vers la droite */
+}
+
+.project:nth-child(4):hover {
+    transform: translateX(-520px); /* Tantsaha pousse Mazav'air vers la gauche */
 }
 
 .header-image {
@@ -193,7 +188,7 @@ h1, h2 {
 </nav>
     <div class="title-container"> <span class="big-title"> <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span> </span> <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> <em class="small-text">Bring light everywhere!!!</em> </div>
     <script>
-   document.getElementById("projectsToggle").addEventListener("click", function() {
+       document.getElementById("projectsToggle").addEventListener("click", function() {
         var menu = document.getElementById("projectsMenu");
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     });
@@ -210,36 +205,58 @@ h1, h2 {
 
             if (cursorX >= centerStart && cursorX <= centerEnd) {
                 textImg.style.opacity = "1";
-                textImg.style.left = "520px";
+                textImg.style.left = "520px"; // Explication glisse à droite
 
-                // Déplacer le projet voisin correctement
-                if (index % 2 === 0 && projects[index + 1]) {
-                    projects[index + 1].style.transform = "translateX(520px)";
-                } else if (index % 2 !== 0 && projects[index - 1]) {
-                    projects[index - 1].style.transform = "translateX(-520px)";
+                // Déplacement des projets adjacents
+                if (index === 0 && projects[1]) {
+                    projects[1].style.transform = "translateX(520px)"; // Mizara pousse Femme vers la droite
+                }
+                if (index === 1 && projects[0]) {
+                    projects[0].style.transform = "translateX(-520px)"; // Femme pousse Mizara vers la gauche
+                }
+                if (index === 2 && projects[3]) {
+                    projects[3].style.transform = "translateX(520px)"; // Mazav'air pousse Tantsaha vers la droite
+                }
+                if (index === 3 && projects[2]) {
+                    projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air vers la gauche
                 }
             } else {
                 textImg.style.opacity = "0";
-                textImg.style.left = "-320px";
+                textImg.style.left = "-300px"; // Explication disparaît
 
-                // Remettre les projets adjacents à leur position d'origine
-                if (index % 2 === 0 && projects[index + 1]) {
-                    projects[index + 1].style.transform = "translateX(0)";
-                } else if (index % 2 !== 0 && projects[index - 1]) {
-                    projects[index - 1].style.transform = "translateX(0)";
+                // Réinitialisation des projets adjacents
+                if (index === 0 && projects[1]) {
+                    projects[1].style.transform = "translateX(0)";
+                }
+                if (index === 1 && projects[0]) {
+                    projects[0].style.transform = "translateX(0)";
+                }
+                if (index === 2 && projects[3]) {
+                    projects[3].style.transform = "translateX(0)";
+                }
+                if (index === 3 && projects[2]) {
+                    projects[2].style.transform = "translateX(0)";
                 }
             }
         });
 
         mainImg.addEventListener("mouseleave", () => {
             textImg.style.opacity = "0";
-            textImg.style.left = "-320px";
+            textImg.style.left = "-300px";
             project.style.transform = "translateX(0)"; // Réinitialise le projet
 
-            if (index % 2 === 0 && projects[index + 1]) {
-                projects[index + 1].style.transform = "translateX(0)";
-            } else if (index % 2 !== 0 && projects[index - 1]) {
-                projects[index - 1].style.transform = "translateX(0)";
+            // Remettre les projets voisins à leur position d'origine
+            if (index === 0 && projects[1]) {
+                projects[1].style.transform = "translateX(0)";
+            }
+            if (index === 1 && projects[0]) {
+                projects[0].style.transform = "translateX(0)";
+            }
+            if (index === 2 && projects[3]) {
+                projects[3].style.transform = "translateX(0)";
+            }
+            if (index === 3 && projects[2]) {
+                projects[2].style.transform = "translateX(0)";
             }
         });
     });
