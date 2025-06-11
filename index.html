@@ -27,7 +27,7 @@ body {
 .project {
     position: relative;
     width: 500px;
-    height: 550px; /* Augmenté pour inclure la zone du nom */
+    height: 550px; /* Inclut la zone du nom */
     text-align: center;
 }
 
@@ -39,36 +39,36 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Zone de texte sous l'image (même largeur que l'image) */
+/* Zone de texte sous l'image */
 .project-name {
     background-color: #006699;
     color: white;
     font-size: 22px;
     font-weight: bold;
     padding: 10px;
-    width: 100%; /* Assure que la largeur correspond à l'image */
+    width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
     text-align: center;
-    border-radius: 0 0 10px 10px; /* Coins arrondis en bas */
+    border-radius: 0 0 10px 10px;
 }
 
-/* Explication sous forme d'image, cachée à droite au départ */
+/* Explication sous forme d'image, cachée à gauche au départ */
 .project .text-img {
     position: absolute;
-    right: -520px;
+    left: -320px; /* Cachée à gauche */
     top: 0;
     width: 500px;
     height: 500px;
     opacity: 0;
-    transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Effet au survol : apparition de l'explication depuis l'arrière */
+/* Effet au survol : apparition de l'explication qui glisse vers la droite */
 .project:hover .text-img {
     opacity: 1;
-    right: 10px;
+    left: 520px; /* Position finale à droite de l'image */
 }
 
 .header-image {
