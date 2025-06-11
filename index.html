@@ -11,14 +11,12 @@ body {
     padding: 0;
     background-color: #f9f9f9;
     color: #333;
-    min-height: 100vh; /* Assure que la page prend toute la hauteur */
-    display: flex;
-    flex-direction: column;
 }
 
-/* Container principal pour éviter que le footer flotte */
+/* Container principal qui s’adapte dynamiquement */
 .main-content {
-    flex: 1; /* Permet au contenu de prendre l'espace disponible */
+    min-height: 100vh; /* La hauteur s'adapte au contenu */
+    padding-bottom: 100px; /* Ajoute de l'espace pour éviter que le footer recouvre le contenu */
 }
 
 .projects-container {
@@ -88,10 +86,12 @@ nav ul li a { text-decoration: none; color: black; font-weight: bold; padding: 1
 nav ul li ul { display: none; position: absolute; background-color: #f9f9f9; list-style-type: none; padding: 0; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); width: 200px; }
 nav ul li ul li a:hover { background-color: #ddd; }
 h1, h2 { color: #006699; }
-/* Footer bien positionné */
+
+/* Footer fixé en bas */
 .footer {
-    position: absolute; /* Fixe le footer en bas uniquement si nécessaire */
+    position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
     background-color: #f1f1f1;
     text-align: center;
