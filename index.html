@@ -215,24 +215,24 @@ h1, h2 {
                 menu.style.display = "block";
             }
         });
-        document.querySelectorAll(".project").forEach(project => {
+    document.querySelectorAll(".project").forEach(project => {
     const mainImg = project.querySelector(".main-img");
     const textImg = project.querySelector(".text-img");
 
     mainImg.addEventListener("mousemove", (event) => {
-        let rect = mainImg.getBoundingClientRect();
-        let cursorX = event.clientX - rect.left;
+    let rect = mainImg.getBoundingClientRect();
+    let cursorX = event.clientX - rect.left;
 
-        let centerStart = rect.width * 0.35; /* Zone centrale début */
-        let centerEnd = rect.width * 0.65; /* Zone centrale fin */
+    let centerStart = rect.width * 0.35; /* Zone centrale début */
+    let centerEnd = rect.width * 0.65; /* Zone centrale fin */
 
-        if (cursorX >= centerStart && cursorX <= centerEnd) {
-            textImg.style.opacity = "1";
-            textImg.style.left = "520px"; /* Déplacement vers la droite */
-        } else {
-            textImg.style.opacity = "0";
-            textImg.style.left = "-320px"; /* Caché à gauche */
-        }
+    if (cursorX >= centerStart && cursorX <= centerEnd) {
+    textImg.style.opacity = "1";
+    textImg.style.left = "520px"; /* Déplacement vers la droite */
+    } else {
+    textImg.style.opacity = "0";
+    textImg.style.left = "-320px"; /* Caché à gauche */
+    }
     });
 });
     </script>
