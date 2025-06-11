@@ -18,22 +18,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Centre les projets horizontalement */
-    gap: 30px; /* Espacement uniforme */
+    gap: 30px;
     margin-top: 50px;
-}
-/* Limite la taille des images de projet */
-.project img.main-img {
-    width: 400px; /* Réduction de la largeur */
-    height: 400px; /* Réduction de la hauteur */
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Ajuste la taille des explications pour qu'elles restent cohérentes */
-.project .text-img {
-    width: 400px; /* Largeur alignée avec les images */
-    height: 400px; /* Hauteur alignée */
-    left: -280px; /* Positionnement ajusté */
 }
 
 /* Style des projets */
@@ -43,6 +29,14 @@ body {
     height: 500px;
     text-align: center;
     transition: transform 0.5s ease-in-out;
+}
+
+/* Limite la taille des images de projet */
+.project img.main-img {
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Explication sous forme d'image (cachée à gauche) */
@@ -56,27 +50,10 @@ body {
     transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Effet au survol : apparition et déplacement des explications */
+/* Effet au survol : apparition des explications */
 .project:hover .text-img {
     opacity: 1;
     left: 520px;
-}
-
-/* Déplacement des projets voisins lors de l'affichage des explications */
-.project:nth-child(1):hover + .project {
-    transform: translateX(520px); /* Mizara pousse Femme vers la droite */
-}
-
-.project:nth-child(2):hover {
-    transform: translateX(-520px); /* Femme pousse Mizara vers la gauche */
-}
-
-.project:nth-child(3):hover + .project {
-    transform: translateX(520px); /* Mazav'air pousse Tantsaha vers la droite */
-}
-
-.project:nth-child(4):hover {
-    transform: translateX(-520px); /* Tantsaha pousse Mazav'air vers la gauche */
 }
 
 .header-image {
@@ -221,7 +198,7 @@ h1, h2 {
                 textImg.style.opacity = "1";
                 textImg.style.left = "520px"; // Explication glisse à droite
 
-                // Déplacement des projets adjacents selon la nouvelle règle
+                // Déplacement des projets adjacents selon les nouvelles règles
                 if (index === 1 && projects[0]) {
                     projects[0].style.transform = "translateX(-520px)"; // Femme Mazava → pousse Mizara Mazava vers la gauche
                 }
