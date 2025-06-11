@@ -18,7 +18,7 @@ body {
 .header-image {
     width: 100%;
     height: 300px; 
-    object-fit: cover; /* Corrigé */
+    object-fit: block; /* Corrigé */
 }
 
 nav {
@@ -92,7 +92,7 @@ nav ul li ul li a:hover {
 .big-title {
     font-size: 100px;
     font-weight: bold;
-    line-height: 1;
+    line-height: 0; /* Supprime l'espacement */
 }
 
 .yellow {
@@ -105,6 +105,8 @@ nav ul li ul li a:hover {
 
 .small-text {
     font-size: 20px;
+    line-height: 0; /* Supprime l'espacement */
+    margin: 0; /* Supprime les marges par défaut */
 }
     </style>
 </head>
