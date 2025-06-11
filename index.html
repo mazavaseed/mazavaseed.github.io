@@ -221,32 +221,20 @@ h1, h2 {
                 textImg.style.opacity = "1";
                 textImg.style.left = "520px"; // Explication glisse à droite
 
-                // Correction du déplacement des projets adjacents
-                if (index === 0 && projects[1]) {
-                    projects[1].style.transform = "translateX(520px)"; // Mizara pousse Femme Mazava vers la droite
-                }
+                // Déplacement des projets adjacents selon la nouvelle règle
                 if (index === 1 && projects[0]) {
-                    projects[0].style.transform = "translateX(-520px)"; // Femme pousse Mizara Mazava vers la gauche
-                }
-                if (index === 2 && projects[3]) {
-                    projects[3].style.transform = "translateX(520px)"; // Mazav'air pousse Tantsaha Mazava vers la droite
+                    projects[0].style.transform = "translateX(-520px)"; // Femme Mazava → pousse Mizara Mazava vers la gauche
                 }
                 if (index === 3 && projects[2]) {
-                    projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air vers la gauche
+                    projects[2].style.transform = "translateX(-520px)"; // Tantsaha Mazava → pousse Mazav'air vers la gauche
                 }
             } else {
                 textImg.style.opacity = "0";
                 textImg.style.left = "-300px"; // Explication disparaît
 
-                // Réinitialisation des projets adjacents
-                if (index === 0 && projects[1]) {
-                    projects[1].style.transform = "translateX(0)";
-                }
+                // Réinitialisation des projets déplacés
                 if (index === 1 && projects[0]) {
                     projects[0].style.transform = "translateX(0)";
-                }
-                if (index === 2 && projects[3]) {
-                    projects[3].style.transform = "translateX(0)";
                 }
                 if (index === 3 && projects[2]) {
                     projects[2].style.transform = "translateX(0)";
@@ -257,17 +245,11 @@ h1, h2 {
         mainImg.addEventListener("mouseleave", () => {
             textImg.style.opacity = "0";
             textImg.style.left = "-300px";
-            project.style.transform = "translateX(0)";
+            project.style.transform = "translateX(0)"; // Réinitialisation
 
-            // Remettre les projets voisins à leur position normale
-            if (index === 0 && projects[1]) {
-                projects[1].style.transform = "translateX(0)";
-            }
+            // Remettre les projets déplacés à leur position normale
             if (index === 1 && projects[0]) {
                 projects[0].style.transform = "translateX(0)";
-            }
-            if (index === 2 && projects[3]) {
-                projects[3].style.transform = "translateX(0)";
             }
             if (index === 3 && projects[2]) {
                 projects[2].style.transform = "translateX(0)";
