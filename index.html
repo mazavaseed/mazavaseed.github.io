@@ -19,6 +19,7 @@ body {
     align-items: flex-start; /* Assure que les projets restent bien alignés */
     gap: 30px;
     margin-top: 50px;
+    min-height: 600px; /* Ajuste la hauteur en fonction des explications */
 }
 
 /* Style des projets */
@@ -55,7 +56,7 @@ body {
 
 /* Explication sous forme d'image, cachée sous le projet */
 .project .text-img {
-    position: absolute;
+    position: relative;
     bottom: -520px; /* Cachée sous le projet */
     left: 0;
     width: 100%;
@@ -67,7 +68,7 @@ body {
 /* Effet au survol : apparition de l'explication sous le projet */
 .project:hover .text-img {
     opacity: 1;
-    bottom: -500px; /* Elle remonte légèrement */
+    display: block;
 }
 
 
@@ -134,25 +135,33 @@ h1, h2 { color: #006699; }
     <div class="project">
         <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
         <div class="project-name">Mizara Mazava</div>
-        <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img">
+        <div class="text-img">
+            <img src="mizaratxt.jpg" alt="Explication Mizara Mazava">
+        </div>
     </div>
 
     <div class="project">
         <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
         <div class="project-name">Femme Mazava</div>
-        <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img">
+        <div class="text-img">
+            <img src="femmetxt.jpg" alt="Explication Femme Mazava">
+        </div>
     </div>
 
     <div class="project">
         <img src="airimg.jpg" alt="Mazav'air" class="main-img">
         <div class="project-name">Mazav'air</div>
-        <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img">
+        <div class="text-img">
+            <img src="airtxt.jpg" alt="Explication Mazav'air">
+        </div>
     </div>
 
     <div class="project">
         <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
         <div class="project-name">Tantsaha Mazava</div>
-        <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img">
+        <div class="text-img">
+            <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava">
+        </div>
     </div>
 </div>
 
