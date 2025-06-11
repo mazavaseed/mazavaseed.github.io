@@ -79,15 +79,21 @@ body {
     min-height: 1200px; /* La section grandit pour accueillir l’explication */
 }
 .info-box {
-    width: 100%; /* Pleine largeur */
+    width: 100%;
     background-color: #FFC107; /* Jaune mat */
-    color: black;
+    color: white;
     text-align: center;
-    padding: 10px; /* Réduction de la hauteur */
+    padding: 10px;
     font-size: 22px;
     font-weight: bold;
     border-radius: 10px;
-    line-height: 0.3; /* Espacement réduit entre les lignes */
+    line-height: 0.3;
+    transition: margin-top 0.5s ease-in-out; /* Effet fluide pour le déplacement */
+}
+
+/* Ajustement dynamique lorsque l’explication apparaît */
+.project:hover ~ .info-box {
+    margin-top: 520px; /* L’info-box est déplacée vers le bas */
 }
 
 .text-img { opacity: 1; left: 520px; } 
@@ -182,6 +188,26 @@ h1, h2 { color: #006699; }
             // Remet le footer en position normale
             document.querySelector(".footer").style.position = "fixed";
             document.querySelector(".footer").style.bottom = "0";
+        });
+    });
+
+            document.querySelectorAll(".main-img").forEach((img) => {
+        img.addEventListener("mouseenter", function() {
+            let textImg = this.parentElement.querySelector(".text-img");
+            textImg.style.opacity = "1";
+            textImg.style.transform = "translateY(520px)";
+
+            // Déplacer l’info-box vers le bas
+            document.querySelector(".info-box").style.marginTop = "520px";
+        });
+
+        img.addEventListener("mouseleave", function() {
+            let textImg = this.parentElement.querySelector(".text-img");
+            textImg.style.opacity = "0";
+            textImg.style.transform = "translateY(0)";
+
+            // Réinitialiser l’info-box
+            document.querySelector(".info-box").style.marginTop = "0";
         });
     });
   </script> 
