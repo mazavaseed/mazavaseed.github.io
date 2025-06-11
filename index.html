@@ -13,19 +13,12 @@ body {
     color: #333;
 }
 
-/* Container principal qui s’adapte dynamiquement */
-.main-content {
-    min-height: 100vh; /* La hauteur s'adapte au contenu */
-    padding-bottom: 100px; /* Ajoute de l'espace pour éviter que le footer recouvre le contenu */
-}
-
 .projects-container {
     display: flex;
     justify-content: center; /* Centre les projets horizontalement */
     align-items: flex-start; /* Assure que les projets restent bien alignés */
     gap: 30px;
     margin-top: 50px;
-    margin-bottom: 250px; /* Ajoute un espace sous les projets pour éviter le chevauchement */
 }
 
 /* Style des projets */
@@ -52,7 +45,7 @@ body {
     font-size: 22px;
     font-weight: bold;
     padding: 10px;
-    width: 95%;
+    width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -63,14 +56,12 @@ body {
 /* Explication sous forme d'image, cachée sous le projet */
 .project .text-img {
     position: absolute;
-    bottom: -500px; /* Alignée sous le projet */
+    bottom: -520px; /* Cachée sous le projet */
     left: 0;
-    width: 100%; /* Rend la largeur identique à .main-img */
-    height: 500px; /* Même hauteur que l'image principale */
+    width: 500px;
+    height: 500px;
     opacity: 0;
     transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    z-index: 100; /* Assure que les explications passent AU-DESSUS du footer */
-}
 }
 
 /* Effet au survol : apparition de l'explication sous le projet */
@@ -78,6 +69,7 @@ body {
     opacity: 1;
     bottom: -500px; /* Elle remonte légèrement */
 }
+
 
 .text-img { opacity: 1; left: 520px; } 
 .header-image { width: 100%; height: 300px; object-fit: block; /* Corrigé */ } 
@@ -138,28 +130,29 @@ h1, h2 { color: #006699; }
     else {menu.style.display = "block";}});
   </script> 
     
-<div class="main-content">
-    <div class="projects-container">
-        <div class="project">
-            <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
-            <div class="project-name">Mizara Mazava</div>
-            <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img">
-        </div>
-        <div class="project">
-            <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
-            <div class="project-name">Femme Mazava</div>
-            <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img">
-        </div>
-        <div class="project">
-            <img src="airimg.jpg" alt="Mazav'air" class="main-img">
-            <div class="project-name">Mazav'air</div>
-            <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img">
-        </div>
-        <div class="project">
-            <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
-            <div class="project-name">Tantsaha Mazava</div>
-            <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img">
-        </div>
+<div class="projects-container">
+    <div class="project">
+        <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
+        <div class="project-name">Mizara Mazava</div>
+        <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img">
+    </div>
+
+    <div class="project">
+        <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
+        <div class="project-name">Femme Mazava</div>
+        <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img">
+    </div>
+
+    <div class="project">
+        <img src="airimg.jpg" alt="Mazav'air" class="main-img">
+        <div class="project-name">Mazav'air</div>
+        <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img">
+    </div>
+
+    <div class="project">
+        <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
+        <div class="project-name">Tantsaha Mazava</div>
+        <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img">
     </div>
 </div>
 
