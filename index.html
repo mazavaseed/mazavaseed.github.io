@@ -34,8 +34,65 @@ h1, h2 { color: #006699; }
 <img src="Logo.jpg" alt="Logo Mazava SEED" class="logo"> </a> 
 <img src="slogan2.jpg" alt="Bannière Mazava SEED" class="header-image"> 
 <nav>
-<ul> <li><a href="index.html">ACCUEIL</a></li> 
-<li><a href="presentation.html">QUI NOUS SOMMES?</a></li> <li> <a id="projectsToggle">NOS PROJETS ▼</a> <ul id="projectsMenu"> <li><a href="mazavair.html">Mazav'air</a></li> <li><a href="mizara_mazava.html">Mizara Mazava</a></li> <li><a href="tantsaha_mazava.html">Tantsaha Mazava</a></li> <li><a href="femme_mazava_arahaba_ririnina.html">Femme Mazava</a></li> </ul> </li> <li><a href="contact.html">CONTACT</a></li> </ul> </nav> <div class="title-container"> <span class="big-title"> <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span> </span> <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> <em class="small-text">Bring light everywhere!!!</em> </div> <script> document.getElementById("projectsToggle").addEventListener("click", function() { var menu = document.getElementById("projectsMenu"); menu.style.display = (menu.style.display === "block") ? "none" : "block"; }); document.querySelectorAll(".project").forEach((project, index, projects) => { const mainImg = project.querySelector(".main-img"); const textImg = project.querySelector(".text-img"); mainImg.addEventListener("mousemove", (event) => { let rect = mainImg.getBoundingClientRect(); let cursorX = event.clientX - rect.left; let centerStart = rect.width * 0.45; let centerEnd = rect.width * 0.55; if (cursorX >= centerStart && cursorX <= centerEnd) { textImg.style.opacity = "1"; textImg.style.left = "520px"; // Appliquer le déplacement correct aux projets adjacents if (index === 0 && projects[1]) { projects[1].style.transition = "transform 0.5s ease-in-out"; projects[1].style.transform = "translateX(520px)"; // Mizara pousse Femme à droite } if (index === 2 && projects[3]) { projects[3].style.transition = "transform 0.5s ease-in-out"; projects[3].style.transform = "translateX(520px)"; // Mazav'air pousse Tantsaha à droite } if (index === 1 && projects[0]) { projects[0].style.transition = "transform 0.5s ease-in-out"; projects[0].style.transform = "translateX(-520px)"; // Femme pousse Mizara à gauche } if (index === 3 && projects[2]) { projects[2].style.transition = "transform 0.5s ease-in-out"; projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air à gauche } } else { textImg.style.opacity = "0"; textImg.style.left = "-300px"; // Réinitialisation des projets déplacés if (index === 0 && projects[1]) { projects[1].style.transform = "translateX(0)"; } if (index === 2 && projects[3]) { projects[3].style.transform = "translateX(0)"; } if (index === 1 && projects[0]) { projects[0].style.transform = "translateX(0)"; } if (index === 3 && projects[2]) { projects[2].style.transform = "translateX(0)"; } } }); mainImg.addEventListener("mouseleave", () => { textImg.style.opacity = "0"; textImg.style.left = "-300px"; project.style.transform = "translateX(0)"; // Remettre les projets voisins à leur position normale if (index === 0 && projects[1]) { projects[1].style.transform = "translateX(0)"; } if (index === 2 && projects[3]) { projects[3].style.transform = "translateX(0)"; } if (index === 1 && projects[0]) { projects[0].style.transform = "translateX(0)"; } if (index === 3 && projects[2]) { projects[2].style.transform = "translateX(0)"; } }); }); </script> <div class="projects-container"> <!-- Mizara Mazava --> <div class="project"> <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img"> <div class="project-name">Mizara Mazava</div> <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img"> </div> <!-- Femme Mazava --> <div class="project"> <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img"> <div class="project-name">Femme Mazava</div> <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img"> </div> <!-- Mazav'air --> <div class="project"> <img src="airimg.jpg" alt="Mazav'air" class="main-img"> <div class="project-name">Mazav'air</div> <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img"> </div> <!-- Tantsaha Mazava --> <div class="project"> <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img"> <div class="project-name">Tantsaha Mazava</div> <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img"> </div> </div> <footer class="footer"> <h2>Contact</h2> <p>Email : <a href="mailto:association.mazavaseed@gmail.com">association.mazavaseed@gmail.com</a></p> <p>Téléphone : +261 32 82 497 10 / +261 34 89 318 38</p> </footer> </body> </html>
-
-
-
+    <ul> <li><a href="index.html">ACCUEIL</a></li> 
+    <li><a href="presentation.html">QUI NOUS SOMMES?</a></li>
+    <li> <a id="projectsToggle">NOS PROJETS ▼</a> 
+    <ul id="projectsMenu"> <li>
+        <a href="mazavair.html">Mazav'air</a>
+        </li> <li><a href="mizara_mazava.html">Mizara Mazava</a></li>
+        <li><a href="tantsaha_mazava.html">Tantsaha Mazava</a></li> 
+        <li><a href="femme_mazava.html">Femme Mazava</a></li> 
+        </ul> </li> <li><a href="contact.html">CONTACT</a></li> 
+    </ul> 
+</nav> 
+  <div class="title-container"> 
+    <span class="big-title"> <span class="yellow">Mazava</span> 
+    <span class="blue-dark">SEED</span> </span> 
+    <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> 
+    <em class="small-text">Bring light everywhere!!!</em> 
+  </div> 
+<script> 
+  document
+    .getElementById("projectsToggle")
+    .addEventListener("click", function() { var menu = document
+    .getElementById("projectsMenu"); menu.style.display = (menu.style.display === "block") ? "none" : "block"; }); document
+    .querySelectorAll(".project").forEach((project, index, projects) => { const mainImg = project
+    .querySelector(".main-img"); const textImg = project.querySelector(".text-img"); 
+  mainImg.addEventListener("mousemove", (event) => { let rect = mainImg
+    .getBoundingClientRect(); let cursorX = event.clientX - rect.left; let centerStart = rect
+    .width * 0.45; let centerEnd = rect.width * 0.55; if (cursorX >= centerStart && cursorX <= centerEnd) { 
+  textImg.style.opacity = "1"; 
+  textImg.style.left = "520px"; // Appliquer le déplacement correct aux projets adjacents 
+    if (index === 0 && projects[1]) { projects[1].style.transition = "transform 0.5s ease-in-out"; projects[1].style.transform = "translateX(520px)"; // Mizara pousse Femme à droite } 
+    if (index === 2 && projects[3]) { projects[3].style.transition = "transform 0.5s ease-in-out"; projects[3].style.transform = "translateX(520px)"; // Mazav'air pousse Tantsaha à droite } 
+    if (index === 1 && projects[0]) { projects[0].style.transition = "transform 0.5s ease-in-out"; projects[0].style.transform = "translateX(-520px)"; // Femme pousse Mizara à gauche } 
+    if (index === 3 && projects[2]) { projects[2].style.transition = "transform 0.5s ease-in-out"; projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air à gauche } } 
+    else { textImg.style.opacity = "0"; textImg.style.left = "-300px"; // Réinitialisation des projets déplacés 
+    if (index === 0 && projects[1]) { projects[1].style.transform = "translateX(0)"; } 
+    if (index === 2 && projects[3]) { projects[3].style.transform = "translateX(0)"; } 
+    if (index === 1 && projects[0]) { projects[0].style.transform = "translateX(0)"; } 
+    if (index === 3 && projects[2]) { projects[2].style.transform = "translateX(0)"; } } }); 
+mainImg.addEventListener("mouseleave", () => { textImg.style.opacity = "0"; 
+textImg.style.left = "-300px"; project.style.transform = "translateX(0)"; // Remettre les projets voisins à leur position normale 
+    if (index === 0 && projects[1]) { projects[1].style.transform = "translateX(0)"; } 
+    if (index === 2 && projects[3]) { projects[3].style.transform = "translateX(0)"; } 
+    if (index === 1 && projects[0]) { projects[0].style.transform = "translateX(0)"; } 
+    if (index === 3 && projects[2]) { projects[2].style.transform = "translateX(0)"; } }); }); 
+  </script> 
+  <div class="projects-container">
+  <div class="project"> <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img"> 
+  <div class="project-name">Mizara Mazava</div> <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img"> 
+  </div>
+  <div class="project"> <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
+  <div class="project-name">Femme Mazava</div> <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img"> </div>
+  <div class="project"> <img src="airimg.jpg" alt="Mazav'air" class="main-img"> 
+  <div class="project-name">Mazav'air</div> <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img">
+  </div> <!-- Tantsaha Mazava --> <div class="project"> <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img"> 
+  <div class="project-name">Tantsaha Mazava</div> <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img"> 
+  </div> </div> <footer class="footer"> 
+  <h2>Contact</h2> 
+  <p>Email : <a href="mailto:association.mazavaseed@gmail.com">association.mazavaseed@gmail.com</a></p>
+  <p>Téléphone : +261 32 82 497 10 / +261 34 89 318 38</p> 
+  </footer> 
+</body> 
+</html>
