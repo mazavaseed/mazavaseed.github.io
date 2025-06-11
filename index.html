@@ -136,20 +136,25 @@ h1, h2 { color: #006699; }
     <em class="small-text">Bring light everywhere!!!</em> 
   </div> 
     
-<script> 
-    document.getElementById("projectsToggle").addEventListener("click", 
-    function() {
-    var menu = document.getElementById("projectsMenu");
-    if (menu.style.display === "block") {menu.style.display = "none";}
-    else {menu.style.display = "block";}});
+<script>
+    document.getElementById("projectsToggle").addEventListener("click", function() {
+        var menu = document.getElementById("projectsMenu");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    });
 
- document.querySelectorAll(".main-img").forEach((img) => {
+    document.querySelectorAll(".main-img").forEach((img) => {
         img.addEventListener("mouseenter", function() {
             let textImg = this.parentElement.querySelector(".text-img");
             textImg.style.opacity = "1";
             textImg.style.transform = "translateY(520px)";
 
-            // Ajuste le footer en ajoutant un espace en haut
+            // Ajuster la hauteur de la section pour éviter le chevauchement
+            document.querySelector(".projects-container").style.paddingBottom = "520px";
+
+            // Déplacer l’info-box vers le bas
+            document.querySelector(".info-box").style.marginTop = "520px";
+
+            // Ajuste le footer
             document.querySelector(".footer").style.paddingTop = "520px";
         });
 
@@ -158,59 +163,18 @@ h1, h2 { color: #006699; }
             textImg.style.opacity = "0";
             textImg.style.transform = "translateY(0)";
 
-            // Réinitialise le footer quand l'explication disparaît
+            // Réinitialiser la hauteur de la section
+            document.querySelector(".projects-container").style.paddingBottom = "0";
+
+            // Remettre l’info-box en place
+            document.querySelector(".info-box").style.marginTop = "0";
+
+            // Réinitialise le footer
             document.querySelector(".footer").style.paddingTop = "15px";
         });
     });
+</script>
 
-     document.querySelectorAll(".main-img").forEach((img) => {
-        img.addEventListener("mouseenter", function() {
-            let textImg = this.parentElement.querySelector(".text-img");
-            textImg.style.opacity = "1";
-            textImg.style.transform = "translateY(520px)";
-
-            // Ajuste la hauteur de la section pour éviter que le footer recouvre le contenu
-            document.querySelector(".projects-container").style.paddingBottom = "520px";
-
-            // Déplace le footer vers le bas
-            document.querySelector(".footer").style.position = "absolute";
-            document.querySelector(".footer").style.bottom = "-520px";
-        });
-
-        img.addEventListener("mouseleave", function() {
-            let textImg = this.parentElement.querySelector(".text-img");
-            textImg.style.opacity = "0";
-            textImg.style.transform = "translateY(0)";
-
-            // Réinitialise la hauteur de la section
-            document.querySelector(".projects-container").style.paddingBottom = "0";
-
-            // Remet le footer en position normale
-            document.querySelector(".footer").style.position = "fixed";
-            document.querySelector(".footer").style.bottom = "0";
-        });
-    });
-
-            document.querySelectorAll(".main-img").forEach((img) => {
-        img.addEventListener("mouseenter", function() {
-            let textImg = this.parentElement.querySelector(".text-img");
-            textImg.style.opacity = "1";
-            textImg.style.transform = "translateY(520px)";
-
-            // Déplacer l’info-box vers le bas
-            document.querySelector(".info-box").style.marginTop = "520px";
-        });
-
-        img.addEventListener("mouseleave", function() {
-            let textImg = this.parentElement.querySelector(".text-img");
-            textImg.style.opacity = "0";
-            textImg.style.transform = "translateY(0)";
-
-            // Réinitialiser l’info-box
-            document.querySelector(".info-box").style.marginTop = "0";
-        });
-    });
-  </script> 
 <h1>Nos projets à long terme</h1>    
 <div class="projects-container">
     <div class="project">
