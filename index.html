@@ -14,7 +14,53 @@ body {
     background-color: #f9f9f9;
     color: #333;
 }
+/* Conteneur général en grille (2 colonnes, 2 lignes) */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
 
+/* Style de chaque projet */
+.project {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+/* Images principales */
+.project img.main-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Images de logo et explication (cachées au départ) */
+.project img.logo,
+.project img.text {
+    position: absolute;
+    right: -320px;
+    top: 50%;
+    width: 300px;
+    height: 500px;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 0.5s ease-in-out, right 0.5s ease-in-out;
+}
+
+/* Effet cascade : affichage des éléments au survol */
+.project:hover img.logo {
+    opacity: 1;
+    right: -250px;
+}
+
+.project:hover img.text {
+    opacity: 1;
+    right: -180px;
+}
 .header-image {
     width: 100%;
     height: 300px; 
@@ -149,7 +195,35 @@ h1, h2 {
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     });
 </script>
+<div class="projects-container">
+    <!-- Mizara Mazava -->
+    <div class="project">
+        <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
+        <img src="mizara.jpg" alt="Logo Mizara Mazava" class="logo">
+        <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text">
+    </div>
 
+    <!-- Femme Mazava -->
+    <div class="project">
+        <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
+        <img src="femme.jpg" alt="Logo Femme Mazava" class="logo">
+        <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text">
+    </div>
+
+    <!-- Mazav'air -->
+    <div class="project">
+        <img src="airimg.jpg" alt="Mazav'air" class="main-img">
+        <img src="air.jpg" alt="Logo Mazav'air" class="logo">
+        <img src="airtxt.jpg" alt="Explication Mazav'air" class="text">
+    </div>
+
+    <!-- Tantsaha Mazava -->
+    <div class="project">
+        <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
+        <img src="tantsaha.jpg" alt="Logo Tantsaha Mazava" class="logo">
+        <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text">
+    </div>
+</div>
 <footer class="footer">
     <h2>Contact</h2>
     <p>Email : <a href="mailto:association.mazavaseed@gmail.com">association.mazavaseed@gmail.com</a></p>
