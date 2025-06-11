@@ -207,34 +207,54 @@ h1, h2 {
 </nav>
     <div class="title-container"> <span class="big-title"> <span class="yellow">Mazava</span> <span class="blue-dark">SEED</span> </span> <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> <em class="small-text">Bring light everywhere!!!</em> </div>
     <script>
-    document.getElementById("projectsToggle").addEventListener("click", function() {
+   document.getElementById("projectsToggle").addEventListener("click", function() {
         var menu = document.getElementById("projectsMenu");
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     });
 
-    document.querySelectorAll(".project").forEach(project => {
+    document.querySelectorAll(".project").forEach((project, index, projects) => {
         const mainImg = project.querySelector(".main-img");
         const textImg = project.querySelector(".text-img");
 
         mainImg.addEventListener("mousemove", (event) => {
             let rect = mainImg.getBoundingClientRect();
             let cursorX = event.clientX - rect.left;
-
-            let centerStart = rect.width * 0.40; // Début de la zone centrale
-            let centerEnd = rect.width * 0.60;   // Fin de la zone centrale
+            let centerStart = rect.width * 0.40;
+            let centerEnd = rect.width * 0.60;
 
             if (cursorX >= centerStart && cursorX <= centerEnd) {
                 textImg.style.opacity = "1";
-                textImg.style.left = "520px"; // Déplacement vers la droite
+                textImg.style.left = "520px";
+
+                // Déplacer le projet voisin correctement
+                if (index % 2 === 0 && projects[index + 1]) {
+                    projects[index + 1].style.transform = "translateX(520px)";
+                } else if (index % 2 !== 0 && projects[index - 1]) {
+                    projects[index - 1].style.transform = "translateX(-520px)";
+                }
             } else {
                 textImg.style.opacity = "0";
-                textImg.style.left = "-320px"; // Caché à gauche
+                textImg.style.left = "-320px";
+
+                // Remettre les projets adjacents à leur position d'origine
+                if (index % 2 === 0 && projects[index + 1]) {
+                    projects[index + 1].style.transform = "translateX(0)";
+                } else if (index % 2 !== 0 && projects[index - 1]) {
+                    projects[index - 1].style.transform = "translateX(0)";
+                }
             }
         });
 
         mainImg.addEventListener("mouseleave", () => {
             textImg.style.opacity = "0";
-            textImg.style.left = "-320px"; // Retour à la position cachée
+            textImg.style.left = "-320px";
+            project.style.transform = "translateX(0)"; // Réinitialise le projet
+
+            if (index % 2 === 0 && projects[index + 1]) {
+                projects[index + 1].style.transform = "translateX(0)";
+            } else if (index % 2 !== 0 && projects[index - 1]) {
+                projects[index - 1].style.transform = "translateX(0)";
+            }
         });
     });
     </script>
