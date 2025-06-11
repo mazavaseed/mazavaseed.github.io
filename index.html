@@ -19,6 +19,8 @@ body {
     align-items: flex-start;
     gap: 30px;
     margin-top: 50px;
+    margin-bottom: 0; /* Ajusté dynamiquement */
+    transition: margin-bottom 0.5s ease-in-out;
 }
 
 /* Style des projets */
@@ -72,7 +74,10 @@ body {
     z-index: 1; /* Passe devant */
     transform: translateY(520px); /* Descend sous le projet */
 }
-
+/* Créer un espace sous les projets lorsqu'une explication est affichée */
+.project:hover ~ .projects-container {
+    margin-bottom: 520px;
+}
 
 .text-img { opacity: 1; left: 520px; } 
 .header-image { width: 100%; height: 300px; object-fit: block; /* Corrigé */ } 
