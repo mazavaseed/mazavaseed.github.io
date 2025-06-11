@@ -64,13 +64,14 @@ h1, h2 {
     color: #006699;
 }
 .footer {
-    margin-top: 50px;
-    padding: 20px;
-    bottom: 100px
+    position: fixed; /* Fixe le footer au bas de la page */
+    bottom: 0;
+    width: 100%; /* Assure qu'il occupe toute la largeur */
     background-color: #f1f1f1;
     text-align: center;
+    padding: 10px 0;
+    border-top: 2px solid #ccc; /* Séparation visuelle */
 }
-
 .logo {
     position: absolute;
     top: 40px;
