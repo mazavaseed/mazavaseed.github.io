@@ -38,7 +38,7 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Zone de texte solide sous l'image */
+/* Zone de texte sous l'image */
 .project-name {
     background-color: #006699;
     color: white;
@@ -53,25 +53,19 @@ body {
     border-radius: 5px;
 }
 
-/* Explications cachées derrière l’image */
-.project .text {
+/* Explication sous forme d'image */
+.project .text-img {
     position: absolute;
     left: -300px;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     opacity: 0;
     transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Effet au survol : apparition des explications */
-.project:hover .text {
+/* Effet au survol : apparition de l'image explicative */
+.project:hover .text-img {
     opacity: 1;
     left: 0;
 }
@@ -256,28 +250,28 @@ h1, h2 {
     <div class="project">
         <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
         <div class="project-name">Mizara Mazava</div>
-        <div class="text">Texte explicatif de Mizara Mazava...</div>
+        <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img">
     </div>
 
     <!-- Femme Mazava -->
     <div class="project">
         <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
         <div class="project-name">Femme Mazava</div>
-        <div class="text">Texte explicatif de Femme Mazava...</div>
+        <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img">
     </div>
 
     <!-- Mazav'air -->
     <div class="project">
         <img src="airimg.jpg" alt="Mazav'air" class="main-img">
         <div class="project-name">Mazav'air</div>
-        <div class="text">Texte explicatif de Mazav'air...</div>
+        <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img">
     </div>
 
     <!-- Tantsaha Mazava -->
     <div class="project">
         <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
         <div class="project-name">Tantsaha Mazava</div>
-        <div class="text">Texte explicatif de Tantsaha Mazava...</div>
+        <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img">
     </div>
 
 </div>
