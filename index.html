@@ -9,9 +9,9 @@ body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: 
 
 .projects-container {
     display: flex;
-    grid-template-columns: repeat(2, 1fr);
+    justify-content: center; /* Centre les projets horizontalement */
+    align-items: flex-start; /* Assure que les projets restent bien alignés */
     gap: 30px;
-    justify-content: center;
     margin-top: 50px;
 }
 
@@ -21,7 +21,7 @@ body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: 
     width: 500px;
     height: 550px;
     text-align: center;
-    transition: transform 0.5s ease-in-out; /* Animation fluide */
+    transition: transform 0.5s ease-in-out;
 }
 
 /* Images principales */
@@ -32,40 +32,37 @@ body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: 
     transition: transform 0.3s ease-in-out;
 }
 
-/* Explication sous forme d'image (cachée à gauche) */
+/* Zone de texte sous l'image */
+.project-name {
+    background-color: #006699;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Explication sous forme d'image, cachée sous le projet */
 .project .text-img {
     position: absolute;
-    left: -320px;
-    top: 0;
+    bottom: -520px; /* Cachée sous le projet */
+    left: 0;
     width: 500px;
     height: 500px;
     opacity: 0;
-    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Effet au survol : apparition de l'explication */
+/* Effet au survol : apparition de l'explication sous le projet */
 .project:hover .text-img {
     opacity: 1;
-    left: 520px;
+    bottom: -500px; /* Elle remonte légèrement */
 }
-
-/* Déplacement des projets voisins */
-.project:nth-child(1):hover + .project {
-    transform: translateX(520px); /* Mizara pousse Femme vers la droite */
-}
-
-.project:nth-child(3):hover + .project {
-    transform: translateX(520px); /* Mazav'air pousse Tantsaha vers la droite */
-}
-
-.project:nth-child(2):hover {
-    transform: translateX(-520px); /* Femme pousse Mizara vers la gauche */
-}
-
-.project:nth-child(4):hover {
-    transform: translateX(-520px); /* Tantsaha pousse Mazav'air vers la gauche */
-}
-
 
 .text-img { opacity: 1; left: 520px; } 
 .header-image { width: 100%; height: 300px; object-fit: block; /* Corrigé */ } 
@@ -106,110 +103,39 @@ h1, h2 { color: #006699; }
     <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> 
     <em class="small-text">Bring light everywhere!!!</em> 
   </div> 
+    
 <script> 
     document.getElementById("projectsToggle").addEventListener("click", 
     function() {
     var menu = document.getElementById("projectsMenu");
     if (menu.style.display === "block") {menu.style.display = "none";}
     else {menu.style.display = "block";}});
-     document.querySelectorAll(".project").forEach((project, index, projects) => {
-        const mainImg = project.querySelector(".main-img");
-        const textImg = project.querySelector(".text-img");
-
-        mainImg.addEventListener("mousemove", (event) => {
-            let rect = mainImg.getBoundingClientRect();
-            let cursorX = event.clientX - rect.left;
-            let centerStart = rect.width * 0.45;
-            let centerEnd = rect.width * 0.55;
-
-            if (cursorX >= centerStart && cursorX <= centerEnd) {
-                textImg.style.opacity = "1";
-                textImg.style.left = "520px";
-
-                // Déplacement des projets adjacents
-                if (index === 0 && projects[1]) {
-                    projects[1].style.transform = "translateX(520px)"; // Mizara pousse Femme à droite
-                }
-                if (index === 2 && projects[3]) {
-                    projects[3].style.transform = "translateX(520px)"; // Mazav'air pousse Tantsaha à droite
-                }
-                if (index === 1 && projects[0]) {
-                    projects[0].style.transform = "translateX(-520px)"; // Femme pousse Mizara à gauche
-                }
-                if (index === 3 && projects[2]) {
-                    projects[2].style.transform = "translateX(-520px)"; // Tantsaha pousse Mazav'air à gauche
-                }
-            } else {
-                textImg.style.opacity = "0";
-                textImg.style.left = "-320px";
-
-                // Réinitialisation des projets déplacés
-                if (index === 0 && projects[1]) {
-                    projects[1].style.transform = "translateX(0)";
-                }
-                if (index === 2 && projects[3]) {
-                    projects[3].style.transform = "translateX(0)";
-                }
-                if (index === 1 && projects[0]) {
-                    projects[0].style.transform = "translateX(0)";
-                }
-                if (index === 3 && projects[2]) {
-                    projects[2].style.transform = "translateX(0)";
-                }
-            }
-        });
-
-        mainImg.addEventListener("mouseleave", () => {
-            textImg.style.opacity = "0";
-            textImg.style.left = "-320px";
-            project.style.transform = "translateX(0)";
-
-            // Réinitialisation des projets adjacents
-            if (index === 0 && projects[1]) {
-                projects[1].style.transform = "translateX(0)";
-            }
-            if (index === 2 && projects[3]) {
-                projects[3].style.transform = "translateX(0)";
-            }
-            if (index === 1 && projects[0]) {
-                projects[0].style.transform = "translateX(0)";
-            }
-            if (index === 3 && projects[2]) {
-                projects[2].style.transform = "translateX(0)";
-            }
-        });
-    });
   </script> 
+    
 <div class="projects-container">
-
-    <!-- Mizara Mazava -->
     <div class="project">
         <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
         <div class="project-name">Mizara Mazava</div>
         <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img">
     </div>
 
-    <!-- Femme Mazava -->
     <div class="project">
         <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
         <div class="project-name">Femme Mazava</div>
         <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img">
     </div>
 
-    <!-- Mazav'air -->
     <div class="project">
         <img src="airimg.jpg" alt="Mazav'air" class="main-img">
         <div class="project-name">Mazav'air</div>
         <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img">
     </div>
 
-    <!-- Tantsaha Mazava -->
     <div class="project">
         <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
         <div class="project-name">Tantsaha Mazava</div>
         <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img">
     </div>
-
 </div>
 
 <footer class="footer"> 
