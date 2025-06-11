@@ -27,48 +27,48 @@ body {
 .project {
     position: relative;
     width: 500px;
-    height: 500px;
+    height: 550px; /* Augmenté pour inclure la zone du nom */
     text-align: center;
 }
 
 /* Images principales */
 .project img.main-img {
     width: 100%;
-    height: 100%;
+    height: 500px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Zone de texte sous l'image */
+/* Zone de texte sous l'image (même largeur que l'image) */
 .project-name {
     background-color: #006699;
     color: white;
     font-size: 22px;
     font-weight: bold;
     padding: 10px;
-    width: 100%;
+    width: 100%; /* Assure que la largeur correspond à l'image */
     position: absolute;
-    bottom: -50px;
+    bottom: 0;
     left: 0;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 0 0 10px 10px; /* Coins arrondis en bas */
 }
 
-/* Explication sous forme d'image */
+/* Explication sous forme d'image, cachée à droite au départ */
 .project .text-img {
     position: absolute;
-    left: -300px;
+    right: -520px;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: 500px;
+    height: 500px;
     opacity: 0;
-    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Effet au survol : apparition de l'image explicative */
+/* Effet au survol : apparition de l'explication depuis l'arrière */
 .project:hover .text-img {
     opacity: 1;
-    left: 0;
+    right: 10px;
 }
 
 .header-image {
