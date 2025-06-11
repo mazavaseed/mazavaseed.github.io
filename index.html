@@ -23,7 +23,39 @@ body {
     transition: margin-bottom 0.5s ease-in-out;
 }
 
-/* Explication cachée derrière l’image de projet */
+/* Style des projets */
+.project {
+    position: relative;
+    width: 500px;
+    height: 550px;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Images principales */
+.project img.main-img {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Zone de texte sous l'image */
+.project-name {
+    background-color: #006699;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px;
+    width: 95%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Explication sous forme d'image, cachée derrière le projet */
 .project .text-img {
     position: absolute;
     width: 100%;
@@ -36,23 +68,20 @@ body {
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Effet au survol : apparition de l'explication sous le projet et agrandissement de la section */
+/* Effet au survol : apparition de l'explication sous le projet */
 .project:hover .text-img {
     opacity: 1;
     z-index: 1; /* Passe devant */
     transform: translateY(520px); /* Descend sous le projet */
 }
-
-/* Ajuster dynamiquement la hauteur des projets */
+/* Créer un espace sous les projets lorsqu'une explication est affichée */
 .project:hover ~ .projects-container {
-    margin-bottom: 520px; /* Ajoute de l'espace sous les projets */
+    margin-bottom: 520px;
 }
-
-/* Adapter le footer à l’expansion de la page */
+/* Faire bouger le footer quand une explication apparaît */
 .project:hover ~ .footer {
-    position: relative; /* Permet au footer de se déplacer */
-    padding-top: 520px; /* Création d'un espace en haut du footer */
-    transition: padding-top 0.5s ease-in-out;
+    position: absolute; /* Rend le footer adaptable */
+    bottom: -520px; /* Pousse le footer vers le bas */
 }
     
 .text-img { opacity: 1; left: 520px; } 
@@ -67,7 +96,7 @@ h1, h2 { color: #006699; }
 
 /* Footer fixé en bas */
 .footer {
-    position: relative;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -120,10 +149,7 @@ h1, h2 { color: #006699; }
             textImg.style.opacity = "1";
             textImg.style.transform = "translateY(520px)";
 
-            // Ajuste la hauteur de la section pour éviter que le footer recouvre le contenu
-            document.querySelector(".projects-container").style.marginBottom = "520px";
-
-            // Ajuste le footer en créant un espace en haut
+            // Ajuste le footer en ajoutant un espace en haut
             document.querySelector(".footer").style.paddingTop = "520px";
         });
 
@@ -132,11 +158,36 @@ h1, h2 { color: #006699; }
             textImg.style.opacity = "0";
             textImg.style.transform = "translateY(0)";
 
-            // Réinitialise la hauteur de la section
-            document.querySelector(".projects-container").style.marginBottom = "0";
-
-            // Réinitialise le footer
+            // Réinitialise le footer quand l'explication disparaît
             document.querySelector(".footer").style.paddingTop = "15px";
+        });
+    });
+
+     document.querySelectorAll(".main-img").forEach((img) => {
+        img.addEventListener("mouseenter", function() {
+            let textImg = this.parentElement.querySelector(".text-img");
+            textImg.style.opacity = "1";
+            textImg.style.transform = "translateY(520px)";
+
+            // Ajuste la hauteur de la section pour éviter que le footer recouvre le contenu
+            document.querySelector(".projects-container").style.paddingBottom = "520px";
+
+            // Déplace le footer vers le bas
+            document.querySelector(".footer").style.position = "absolute";
+            document.querySelector(".footer").style.bottom = "-520px";
+        });
+
+        img.addEventListener("mouseleave", function() {
+            let textImg = this.parentElement.querySelector(".text-img");
+            textImg.style.opacity = "0";
+            textImg.style.transform = "translateY(0)";
+
+            // Réinitialise la hauteur de la section
+            document.querySelector(".projects-container").style.paddingBottom = "0";
+
+            // Remet le footer en position normale
+            document.querySelector(".footer").style.position = "fixed";
+            document.querySelector(".footer").style.bottom = "0";
         });
     });
   </script> 
