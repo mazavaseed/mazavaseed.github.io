@@ -99,6 +99,7 @@ h1, h2 { color: #006699; }
     text-align: center;
     padding: 15px 0;
     border-top: 2px solid #ccc;
+    transition: padding-top 0.5s ease-in-out; /* Effet fluide */
 }
 .logo { position: absolute; top: 40px; left: 20px; width: 150px; height: 150px; border-radius: 50%; object-fit: cover; cursor: pointer; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); } /* Gestion du titre */ 
 .title-container { position: absolute; top: 250px; /* Aligné en bas de l'image */ left: 50%; transform: translateX(-50%); text-align: center; width: 100%; z-index: 10; /* Assure que le texte passe au-dessus */ } 
@@ -137,17 +138,23 @@ h1, h2 { color: #006699; }
     if (menu.style.display === "block") {menu.style.display = "none";}
     else {menu.style.display = "block";}});
 
-        document.querySelectorAll(".main-img").forEach((img) => {
+ document.querySelectorAll(".main-img").forEach((img) => {
         img.addEventListener("mouseenter", function() {
             let textImg = this.parentElement.querySelector(".text-img");
             textImg.style.opacity = "1";
-            textImg.style.bottom = "-500px"; // Affichage correct
+            textImg.style.transform = "translateY(520px)";
+
+            // Ajuste le footer en ajoutant un espace en haut
+            document.querySelector(".footer").style.paddingTop = "520px";
         });
 
         img.addEventListener("mouseleave", function() {
             let textImg = this.parentElement.querySelector(".text-img");
             textImg.style.opacity = "0";
-            textImg.style.bottom = "-520px"; // Réinitialisation
+            textImg.style.transform = "translateY(0)";
+
+            // Réinitialise le footer quand l'explication disparaît
+            document.querySelector(".footer").style.paddingTop = "15px";
         });
     });
   </script> 
