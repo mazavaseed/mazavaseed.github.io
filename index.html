@@ -26,6 +26,7 @@ body {
     margin-bottom: 100px; /* Ajoute de l'espace sous les projets */
     gap: 30px;
     margin-top: 50px;
+    margin-bottom: 250px; /* Ajoute un espace sous les projets pour éviter le chevauchement */
 }
 
 /* Style des projets */
@@ -69,6 +70,8 @@ body {
     height: 500px; /* Même hauteur que l'image principale */
     opacity: 0;
     transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 100; /* Assure que les explications passent AU-DESSUS du footer */
+}
 }
 
 /* Effet au survol : apparition de l'explication sous le projet */
