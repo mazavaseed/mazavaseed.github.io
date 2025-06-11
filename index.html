@@ -88,14 +88,8 @@ body {
     font-weight: bold;
     border-radius: 10px;
     line-height: 0.3;
-    transition: transform 0.5s ease-in-out; /* Effet fluide */
+    transition: transform 0.5s ease-in-out; /* Animation fluide */
 }
-
-/* Lorsque l’explication apparaît, l’info-box est déplacée */
-.project:hover ~ .info-box {
-    transform: translateY(520px); /* Pousse l’info-box vers le bas */
-}
-
 .text-img { opacity: 1; left: 520px; } 
 .header-image { width: 100%; height: 300px; object-fit: block; /* Corrigé */ } 
 nav { position: absolute; top: 20px; right: 20px; } 
@@ -142,14 +136,14 @@ h1, h2 { color: #006699; }
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     });
 
-  document.querySelectorAll(".main-img").forEach((img) => {
+    document.querySelectorAll(".main-img").forEach((img) => {
         img.addEventListener("mouseenter", function() {
             let textImg = this.parentElement.querySelector(".text-img");
             textImg.style.opacity = "1";
             textImg.style.transform = "translateY(520px)";
 
             // Déplacer l’info-box vers le bas
-            document.querySelector(".info-box").style.transform = "translateY(520px)";
+            document.querySelector(".info-box").style.marginTop = "520px";
         });
 
         img.addEventListener("mouseleave", function() {
@@ -158,7 +152,7 @@ h1, h2 { color: #006699; }
             textImg.style.transform = "translateY(0)";
 
             // Réinitialiser l’info-box
-            document.querySelector(".info-box").style.transform = "translateY(0)";
+            document.querySelector(".info-box").style.marginTop = "0";
         });
     });
 </script>
