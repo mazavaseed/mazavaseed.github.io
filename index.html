@@ -88,8 +88,7 @@ body {
     font-weight: bold;
     border-radius: 10px;
     line-height: 0.3;
-    position: absolute; /* Permet le déplacement */
-    transition: bottom 0.5s ease-in-out; /* Effet fluide */
+    transition: padding-top 0.5s ease-in-out; /* Effet fluide */
 }
 
 .text-img { opacity: 1; left: 520px; } 
@@ -138,14 +137,14 @@ h1, h2 { color: #006699; }
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     });
 
-       document.querySelectorAll(".main-img").forEach((img) => {
+    document.querySelectorAll(".main-img").forEach((img) => {
         img.addEventListener("mouseenter", function() {
             let textImg = this.parentElement.querySelector(".text-img");
             textImg.style.opacity = "1";
             textImg.style.transform = "translateY(520px)";
 
-            // Déplacer l’info-box vers le bas
-            document.querySelector(".info-box").style.bottom = "-520px";
+            // Pousser l’info-box vers le bas en augmentant son padding
+            document.querySelector(".info-box").style.paddingTop = "520px";
         });
 
         img.addEventListener("mouseleave", function() {
@@ -154,7 +153,7 @@ h1, h2 { color: #006699; }
             textImg.style.transform = "translateY(0)";
 
             // Réinitialiser l’info-box
-            document.querySelector(".info-box").style.bottom = "10px";
+            document.querySelector(".info-box").style.paddingTop = "10px";
         });
     });
 </script>
