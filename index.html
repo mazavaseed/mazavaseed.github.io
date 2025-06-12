@@ -15,18 +15,15 @@ body {
 
 .projects-container {
     display: flex;
-    flex-wrap: wrap; /* Permet un affichage adaptable */
+    justify-content: center;
+    align-items: flex-start;
     gap: 30px;
     margin-top: 50px;
-    justify-content: center;
+    margin-bottom: 0; /* Ajusté dynamiquement */
+    transition: margin-bottom 0.5s ease-in-out;
 }
 
-.project-container {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Espacement entre image et explication */
-}
-
+/* Style des projets */
 .project {
     position: relative;
     width: 500px;
@@ -35,6 +32,7 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
+/* Images principales */
 .project img.main-img {
     width: 100%;
     height: 500px;
@@ -42,13 +40,55 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
-.project .text-img {
-    width: 500px;
-    height: 500px;
-    display: none; /* Caché par défaut */
-    transition: opacity 0.5s ease-in-out;
+/* Zone de texte sous l'image */
+.project-name {
+    background-color: #006699;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px;
+    width: 95%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
 }
 
+/* Explication sous forme d'image, cachée derrière le projet */
+.project .text-img {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    left: 0;
+    bottom: 0;
+    z-index: -1; /* Cachée derrière */
+    opacity: 0;
+    transform: translateY(0);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Effet au survol : apparition de l'explication sous le projet */
+.project:hover .text-img {
+    opacity: 1;
+    z-index: 1; /* Passe devant */
+    transform: translateY(520px); /* Descend sous le projet */
+}
+/* Créer un espace sous les projets lorsqu'une explication est affichée */
+.project:hover ~ .projects-container {
+    margin-bottom: 520px;
+}
+ .info-box {
+    width: 100%; /* Pleine largeur */
+    background-color: #FFC107; /* Jaune mat */
+    color: white;
+    text-align: center;
+    padding: 10px; /* Réduction de la hauteur */
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    line-height: 0.3; /* Espacement réduit entre les lignes */
+}   
 .text-img { opacity: 1; left: 520px; } 
 .header-image { width: 100%; height: 300px; object-fit: block; /* Corrigé */ } 
 nav { position: absolute; top: 20px; right: 20px; } 
@@ -59,17 +99,6 @@ nav ul li ul { display: none; position: absolute; background-color: #f9f9f9; lis
 nav ul li ul li a:hover { background-color: #ddd; }
 h1, h2 { color: #006699; }
 
-.info-box {
-    width: 100%; /* Pleine largeur */
-    background-color: #FFC107; /* Jaune mat */
-    color: white;
-    text-align: center;
-    padding: 10px; /* Réduction de la hauteur */
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 10px;
-    line-height: 0.3; /* Espacement réduit entre les lignes */
-}
 .logo { position: absolute; top: 40px; left: 20px; width: 150px; height: 150px; border-radius: 50%; object-fit: cover; cursor: pointer; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); } /* Gestion du titre */ 
 .title-container { position: absolute; top: 250px; /* Aligné en bas de l'image */ left: 50%; transform: translateX(-50%); text-align: center; width: 100%; z-index: 10; /* Assure que le texte passe au-dessus */ } 
 .big-title { font-size: 100px; font-weight: bold; line-height: 0.2; /* Supprime l'espacement */ } 
@@ -99,7 +128,9 @@ h1, h2 { color: #006699; }
     <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> 
     <em class="small-text">Bring light everywhere!!!</em> 
   </div> 
-<h1>Nos projet à long terme</h1>     
+
+  <h2>Nos projet à long terme</h2> 
+    
 <script> 
     document.getElementById("projectsToggle").addEventListener("click", 
     function() {
@@ -107,54 +138,82 @@ h1, h2 { color: #006699; }
     if (menu.style.display === "block") {menu.style.display = "none";}
     else {menu.style.display = "block";}});
 
-        document.querySelectorAll(".main-img").forEach((img) => {
+ document.querySelectorAll(".main-img").forEach((img) => {
         img.addEventListener("mouseenter", function() {
-            let textImg = this.parentElement.parentElement.querySelector(".text-img");
-            textImg.style.display = "block"; // Affiche l’explication
+            let textImg = this.parentElement.querySelector(".text-img");
+            textImg.style.opacity = "1";
+            textImg.style.transform = "translateY(520px)";
+
+            // Ajuste le footer en ajoutant un espace en haut
+            document.querySelector(".footer").style.paddingTop = "520px";
         });
 
         img.addEventListener("mouseleave", function() {
-            let textImg = this.parentElement.parentElement.querySelector(".text-img");
-            textImg.style.display = "none"; // Cache l’explication
+            let textImg = this.parentElement.querySelector(".text-img");
+            textImg.style.opacity = "0";
+            textImg.style.transform = "translateY(0)";
+
+            // Réinitialise le footer quand l'explication disparaît
+            document.querySelector(".footer").style.paddingTop = "15px";
+        });
+    });
+
+     document.querySelectorAll(".main-img").forEach((img) => {
+        img.addEventListener("mouseenter", function() {
+            let textImg = this.parentElement.querySelector(".text-img");
+            textImg.style.opacity = "1";
+            textImg.style.transform = "translateY(520px)";
+
+            // Ajuste la hauteur de la section pour éviter que le footer recouvre le contenu
+            document.querySelector(".projects-container").style.paddingBottom = "520px";
+
+            // Déplace le footer vers le bas
+            document.querySelector(".footer").style.position = "absolute";
+            document.querySelector(".footer").style.bottom = "-520px";
+        });
+
+        img.addEventListener("mouseleave", function() {
+            let textImg = this.parentElement.querySelector(".text-img");
+            textImg.style.opacity = "0";
+            textImg.style.transform = "translateY(0)";
+
+            // Réinitialise la hauteur de la section
+            document.querySelector(".projects-container").style.paddingBottom = "0";
+
+            // Remet le footer en position normale
+            document.querySelector(".footer").style.position = "fixed";
+            document.querySelector(".footer").style.bottom = "0";
         });
     });
   </script> 
     
 <div class="projects-container">
-    <div class="project-container">
-        <div class="project">
-            <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
-            <div class="project-name">Mizara Mazava</div>
-        </div>
+    <div class="project">
+        <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
+        <div class="project-name">Mizara Mazava</div>
         <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img">
     </div>
 
-    <div class="project-container">
-        <div class="project">
-            <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
-            <div class="project-name">Femme Mazava</div>
-        </div>
+    <div class="project">
+        <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
+        <div class="project-name">Femme Mazava</div>
         <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img">
     </div>
 
-    <div class="project-container">
-        <div class="project">
-            <img src="airimg.jpg" alt="Mazav'air" class="main-img">
-            <div class="project-name">Mazav'air</div>
-        </div>
+    <div class="project">
+        <img src="airimg.jpg" alt="Mazav'air" class="main-img">
+        <div class="project-name">Mazav'air</div>
         <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img">
     </div>
 
-    <div class="project-container">
-        <div class="project">
-            <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
-            <div class="project-name">Tantsaha Mazava</div>
-        </div>
+    <div class="project">
+        <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
+        <div class="project-name">Tantsaha Mazava</div>
         <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img">
     </div>
 </div>
 
-<div class="info-box"> 
+<div class="footer"> 
   <h2>Contact</h2> 
   <p>Email : <a href="mailto:association.mazavaseed@gmail.com">association.mazavaseed@gmail.com</a></p>
   <p>Téléphone : +261 32 82 497 10 / +261 34 89 318 38</p> 
