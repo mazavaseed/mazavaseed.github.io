@@ -15,15 +15,18 @@ body {
 
 .projects-container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-wrap: wrap; /* Permet un affichage adaptable */
     gap: 30px;
     margin-top: 50px;
-    margin-bottom: 0; /* Ajusté dynamiquement */
-    transition: margin-bottom 0.5s ease-in-out;
+    justify-content: center;
 }
 
-/* Style des projets */
+.project-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacement entre image et explication */
+}
+
 .project {
     position: relative;
     width: 500px;
@@ -32,7 +35,6 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-/* Images principales */
 .project img.main-img {
     width: 100%;
     height: 500px;
@@ -40,43 +42,11 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Zone de texte sous l'image */
-.project-name {
-    background-color: #006699;
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 10px;
-    width: 95%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-    border-radius: 0 0 10px 10px;
-}
-
-/* Explication sous forme d'image, cachée derrière le projet */
 .project .text-img {
-    position: absolute;
-    width: 100%;
+    width: 500px;
     height: 500px;
-    left: 0;
-    bottom: 0;
-    z-index: -1; /* Cachée derrière */
-    opacity: 0;
-    transform: translateY(0);
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
-
-/* Effet au survol : apparition de l'explication sous le projet */
-.project:hover .text-img {
-    opacity: 1;
-    z-index: 1; /* Passe devant */
-    transform: translateY(520px); /* Descend sous le projet */
-}
-/* Créer un espace sous les projets lorsqu'une explication est affichée */
-.project:hover ~ .projects-container {
-    margin-bottom: 520px;
+    display: none; /* Caché par défaut */
+    transition: opacity 0.5s ease-in-out;
 }
 
 .text-img { opacity: 1; left: 520px; } 
@@ -136,30 +106,50 @@ h1, h2 { color: #006699; }
     var menu = document.getElementById("projectsMenu");
     if (menu.style.display === "block") {menu.style.display = "none";}
     else {menu.style.display = "block";}});
+
+        document.querySelectorAll(".main-img").forEach((img) => {
+        img.addEventListener("mouseenter", function() {
+            let textImg = this.parentElement.parentElement.querySelector(".text-img");
+            textImg.style.display = "block"; // Affiche l’explication
+        });
+
+        img.addEventListener("mouseleave", function() {
+            let textImg = this.parentElement.parentElement.querySelector(".text-img");
+            textImg.style.display = "none"; // Cache l’explication
+        });
+    });
   </script> 
     
 <div class="projects-container">
-    <div class="project">
-        <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
-        <div class="project-name">Mizara Mazava</div>
+    <div class="project-container">
+        <div class="project">
+            <img src="mizaraimg.jpg" alt="Mizara Mazava" class="main-img">
+            <div class="project-name">Mizara Mazava</div>
+        </div>
         <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img">
     </div>
 
-    <div class="project">
-        <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
-        <div class="project-name">Femme Mazava</div>
+    <div class="project-container">
+        <div class="project">
+            <img src="femmeimg.jpg" alt="Femme Mazava" class="main-img">
+            <div class="project-name">Femme Mazava</div>
+        </div>
         <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img">
     </div>
 
-    <div class="project">
-        <img src="airimg.jpg" alt="Mazav'air" class="main-img">
-        <div class="project-name">Mazav'air</div>
+    <div class="project-container">
+        <div class="project">
+            <img src="airimg.jpg" alt="Mazav'air" class="main-img">
+            <div class="project-name">Mazav'air</div>
+        </div>
         <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img">
     </div>
 
-    <div class="project">
-        <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
-        <div class="project-name">Tantsaha Mazava</div>
+    <div class="project-container">
+        <div class="project">
+            <img src="tantsahaimg.jpg" alt="Tantsaha Mazava" class="main-img">
+            <div class="project-name">Tantsaha Mazava</div>
+        </div>
         <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img">
     </div>
 </div>
