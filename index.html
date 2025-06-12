@@ -146,6 +146,20 @@ body {
                         padding: 10px;
                         border-radius: 10px;}
                             nav ul li:hover ul {display: block;}
+.sticky-logo {
+    position: fixed; /* Fixe le logo à une position stable */
+    top: 10px; /* Position en haut */
+    left: 10px; /* Position à gauche */
+    width: 150px; /* Taille fixe */
+    height: 150px;
+    border-radius: 50%; /* Forme arrondie */
+    object-fit: cover; /* Ajuste l’image sans distorsion */
+    cursor: pointer; /* Rend le logo cliquable */
+    background-color: white; /* Fond blanc pour éviter la fusion */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* Assure qu’il reste au-dessus des autres éléments */
+}
+
 h1 { color: #006699}
 h2 { color: #006699; margin-top: 50px;}
 .header-image {width: auto;
@@ -182,7 +196,7 @@ h2 { color: #006699; margin-top: 50px;}
 </style>
 </head> 
 <body> <a href="index.html">
-<img src="Logo.jpg" alt="Logo Mazava SEED" class="logo"> </a> 
+<img src="Logo.jpg" alt="Logo Mazava SEED" class="sticky-logo"> </a> 
 <img src="tete.jpg" alt="Bannière Mazava SEED" class="header-image"> 
 <header class="sticky-header">
 <nav>
