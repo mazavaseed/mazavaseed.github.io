@@ -90,8 +90,16 @@ body {
     line-height: 0.3;
     transition: padding-top 0.5s ease-in-out; /* Effet fluide */
 }
-
-.text-img { opacity: 1; left: 520px; } 
+.explanations-container {
+    display: none; /* Caché par défaut */
+    width: 100%;
+    text-align: center; /* Centre les explications */
+}
+.text-img {
+    width: 500px;
+    height: auto;
+    margin-bottom: 20px; /* Espacement avec l’info-box */
+}
 .header-image { width: 100%; height: 300px; object-fit: block; /* Corrigé */ } 
 nav { position: absolute; top: 20px; right: 20px; } 
 nav ul { list-style-type: none; padding: 0; margin: 0; } 
@@ -137,23 +145,17 @@ h1, h2 { color: #006699; }
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     });
 
-    document.querySelectorAll(".main-img").forEach((img) => {
+    document.querySelectorAll(".main-img").forEach((img, index) => {
         img.addEventListener("mouseenter", function() {
-            let textImg = this.parentElement.querySelector(".text-img");
-            textImg.style.opacity = "1";
-            textImg.style.transform = "translateY(520px)";
+            document.querySelector(".explanations-container").style.display = "block";
 
-            // Pousser l’info-box vers le bas en augmentant son padding
-            document.querySelector(".info-box").style.paddingTop = "520px";
+            let explanations = document.querySelectorAll(".text-img");
+            explanations.forEach((exp) => exp.style.display = "none"); // Cache toutes les explications
+            explanations[index].style.display = "block"; // Affiche seulement l’explication correspondante
         });
 
         img.addEventListener("mouseleave", function() {
-            let textImg = this.parentElement.querySelector(".text-img");
-            textImg.style.opacity = "0";
-            textImg.style.transform = "translateY(0)";
-
-            // Réinitialiser l’info-box
-            document.querySelector(".info-box").style.paddingTop = "10px";
+            document.querySelector(".explanations-container").style.display = "none";
         });
     });
 </script>
@@ -184,7 +186,14 @@ h1, h2 { color: #006699; }
         <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img">
     </div>
 </div>
-
+    
+<div class="explanations-container">
+    <img src="mizaratxt.jpg" alt="Explication Mizara Mazava" class="text-img">
+    <img src="femmetxt.jpg" alt="Explication Femme Mazava" class="text-img">
+    <img src="airtxt.jpg" alt="Explication Mazav'air" class="text-img">
+    <img src="tantsahatxt.jpg" alt="Explication Tantsaha Mazava" class="text-img">
+</div>
+    
 <div class="info-box">
     <h2>Contact</h2>
     <p>Email : <a href="mailto:association.mazavaseed@gmail.com" style="color: white;">association.mazavaseed@gmail.com</a></p>
