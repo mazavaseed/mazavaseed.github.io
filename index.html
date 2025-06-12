@@ -128,6 +128,21 @@ h1, h2 {
     background-color: white; /* Fond blanc pour éviter la fusion */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
      z-index: 1001;}
+.title-container { position: absolute; 
+                  top: 20%; /* Aligné en bas de l'image */ 
+                  left: 50%; 
+                  transform: translateX(-50%); 
+                  text-align: center; 
+                  width: 100%; 
+                  z-index: 10; /* Assure que le texte passe au-dessus */ } 
+.big-title { font-size: 100px; 
+            font-weight: bold; 
+            line-height: 0.2; /* Supprime l'espacement */ } 
+.yellow { color: yellow; } 
+.blue-dark { color: darkblue; } 
+.small-text { font-size: 20px; 
+             line-height: 0; /* Supprime l'espacement */ }
+
     </style>
 </head>
 <body>
@@ -154,6 +169,12 @@ h1, h2 {
         </ul>
     </nav>
 </header>
+  <div class="title-container"> 
+    <span class="big-title"> <span class="yellow">Mazava</span> 
+    <span class="blue-dark">SEED</span> </span> 
+    <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> 
+    <em class="small-text">Bring light everywhere!!!</em> 
+  </div> 
     <script>
         document.getElementById("projectsToggle").addEventListener("click", function() {
             var menu = document.getElementById("projectsMenu");
