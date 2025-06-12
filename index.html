@@ -12,6 +12,20 @@ body {
     background-color: #f9f9f9;
     color: #333;
 }
+.sticky-header {
+    width: 100%;
+    height: 300px; /* Définir une hauteur fixe */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0.6); /* Fond gris transparent */
+    padding: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center; /* Centrer verticalement les éléments */
+    justify-content: space-between; /* Répartir l'espace */
+}
 .section-title {
     margin-top: 50px; /* Ajoute un espace avant */
     font-family: "Playfair Display", serif; /* Police raffinée */
@@ -176,6 +190,7 @@ h2 { color: #006699; margin-top: 50px;}
 <body> <a href="index.html">
 <img src="Logo.jpg" alt="Logo Mazava SEED" class="logo"> </a> 
 <img src="slogan2.jpg" alt="Bannière Mazava SEED" class="header-image"> 
+<header class="sticky-header">
 <nav>
     <ul> <li><a href="index.html">ACCUEIL</a></li> 
     <li><a href="presentation.html">QUI NOUS SOMMES?</a></li>
@@ -194,7 +209,7 @@ h2 { color: #006699; margin-top: 50px;}
     <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> 
     <em class="small-text">Bring light everywhere!!!</em> 
   </div> 
-
+</header>
   <div class="section-title">Nos projets à long terme</div>
     
 <script> 
