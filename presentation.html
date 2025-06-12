@@ -14,8 +14,7 @@ body {
     padding: 0;
     text-align: center;
     background-color: #f9f9f9;
-    color: #333;
-}
+    color: #333;}
 
 .header-image {
     width: auto;
@@ -23,8 +22,7 @@ body {
     max-width: 150%;
     height: 300px; 
     mix-blend-mode: multiply; /* Effet de fusion avec le background */
-    object-fit: block; 
-}
+    object-fit: block;}
 
 .sticky-header {
     width: 600px; /* Largeur fixe */
@@ -81,33 +79,28 @@ h1, h2 {
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     justify-content: center;
-    margin-top: 20px;
-}
+    margin-top: 20px;}
 .team-container img {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);}
 .value-container {
     display: flex;
     justify-content: space-around;
     gap: 10px;
     margin: 20px auto;
-    width: 90%;
-}
+    width: 90%;}
 
 .value-box {
     width: 30%;
-    text-align: center;
-}
+    text-align: center;}
 
 .value-box img {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);}
 .text-box {
     border: 2px solid blue; /* Bordure bleue */
     background-color: #fffacd; /* Fond jaune clair */
@@ -116,24 +109,24 @@ h1, h2 {
     width: 80%;
     text-align: left; /* Justification à gauche */
     font-family: inherit; /* Garde la police actuelle */
-    border-radius: 10px; /* Coins arrondis */
-}
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 150px; /* Ajuste la taille selon ton besoin */
+    border-radius: 10px; /* Coins arrondis */}
+.sticky-logo {
+    position: fixed; /* Fixe le logo à une position stable */
+    top: 20px; /* Position en haut */
+    left: 20px; /* Position à gauche */
+    width: 150px; /* Taille fixe */
     height: 150px;
-    border-radius: 50%; /* Rend l’image circulaire */
-    object-fit: cover;
-    cursor: pointer; /* Affiche le curseur "main" au survol */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère */
-}
+    border-radius: 50%; /* Forme arrondie */
+    object-fit: cover; /* Ajuste l’image sans distorsion */
+    cursor: pointer; /* Rend le logo cliquable */
+    background-color: white; /* Fond blanc pour éviter la fusion */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+     z-index: 1001;}
     </style>
 </head>
 <body>
 <a href="index.html">
-    <img src="Logo.jpg" alt="Logo Mazava SEED" class="logo">
+    <img src="Logo.jpg" alt="Logo Mazava SEED" class="sticky-logo">
 </a>
     <img src="band.jpg" alt="Bannière Mazava SEED" class="header-image">
 
