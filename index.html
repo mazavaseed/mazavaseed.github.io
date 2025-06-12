@@ -24,6 +24,23 @@ body {
     text-transform: uppercase; /* Mettre en majuscules */
     letter-spacing: 2px; /* Espacement entre les lettres */
 }
+.sticky-header {
+    position: fixed; /* Fixe le header en haut */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white; /* Fond blanc pour le header */
+    padding: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une ombre pour le contraste */
+    z-index: 1000; /* S'assure que le header reste au-dessus du contenu */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sticky-header img {
+    height: 80px; /* Ajuste la hauteur des images */
+}
 .projects-container {
     display: flex;
     background-color: linear-gradient(to right, #FFC107, #006699);
@@ -193,13 +210,14 @@ h2 { color: #006699; margin-top: 50px;}
         </ul> </li> <li><a href="contact.html">CONTACT</a></li> 
     </ul> 
 </nav> 
+<header class="sticky-header">
   <div class="title-container"> 
     <span class="big-title"> <span class="yellow">Mazava</span> 
     <span class="blue-dark">SEED</span> </span> 
     <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> 
     <em class="small-text">Bring light everywhere!!!</em> 
   </div> 
-
+</header>
   <div class="section-title">Nos projets à long terme</div>
     
 <script> 
