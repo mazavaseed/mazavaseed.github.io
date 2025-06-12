@@ -66,24 +66,24 @@ body {
                         border-radius: 10px;}
                             nav ul li:hover ul {display: block;}
 h1, h2 {
-    color: #006699;
-}
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 150px; /* Ajuste la taille selon ton besoin */
+    color: #006699;}
+.sticky-logo {
+    position: fixed; /* Fixe le logo à une position stable */
+    top: 20px; /* Position en haut */
+    left: 20px; /* Position à gauche */
+    width: 150px; /* Taille fixe */
     height: 150px;
-    border-radius: 50%; /* Rend l’image circulaire */
-    object-fit: cover;
-    cursor: pointer; /* Affiche le curseur "main" au survol */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère */
-}
+    border-radius: 50%; /* Forme arrondie */
+    object-fit: cover; /* Ajuste l’image sans distorsion */
+    cursor: pointer; /* Rend le logo cliquable */
+    background-color: white; /* Fond blanc pour éviter la fusion */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+     z-index: 1001;}
     </style>
 </head>
 <body>
 <a href="index.html">
-    <img src="Logo.jpg" alt="Logo Mazava SEED" class="logo">
+    <img src="Logo.jpg" alt="Logo Mazava SEED" class="sticky-logo">
 </a>
     <img src="band.jpg" alt="Bannière Mazava SEED" class="header-image">
 
