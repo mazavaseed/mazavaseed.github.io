@@ -16,8 +16,8 @@ body {
     width: 100px;
     height: 20px; /* Définir une hauteur fixe */
     position: fixed;
-    top: 0;
-    left: 100%;
+    top: 20px;
+    right: 20px;
     background-color: rgba(128, 128, 128, 0.6); /* Fond gris transparent */
     padding: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -102,17 +102,12 @@ body {
 .project:nth-child(1):hover ~ .project:nth-child(2),
 .project:nth-child(1):hover ~ .project:nth-child(3),
 .project:nth-child(1):hover ~ .project:nth-child(4) {
-    transform: translateX(350px);
-}
-
+    transform: translateX(350px);}
 .project:nth-child(2):hover ~ .project:nth-child(3),
 .project:nth-child(2):hover ~ .project:nth-child(4) {
-    transform: translateX(350px);
-}
-
+    transform: translateX(350px);}
 .project:nth-child(3):hover ~ .project:nth-child(4) {
-    transform: translateX(350px);
-}
+    transform: translateX(350px);}
  .info-box {
     margin-top: 50px; /* Ajoute un espace avant */
     width: 100%; /* Pleine largeur */
