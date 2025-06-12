@@ -11,20 +11,7 @@ body {
     padding: 0;
     background-color: #f9f9f9;
     color: #333;}
-.sticky-header {
-    width: auto; /* Ajuste la largeur selon le contenu */
-    height: 50px; /* Hauteur adaptée pour une seule ligne */
-    position: fixed; /* Fixe le header en haut à droite */
-    top: 10px;
-    right: 10px;
-    background-color: rgba(0, 51, 102, 0.8); /* Bleu profond transparent */
-    padding: 10px 20px;
-    border-radius: 30px; /* Bords très arrondis */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-}
+
 .section-title {
     margin-top: 50px; /* Ajoute un espace avant */
     font-family: "Playfair Display", serif; /* Police raffinée */
@@ -119,38 +106,63 @@ body {
     border-radius: 10px;
     line-height: 0.3; /* Espacement réduit entre les lignes */}   
 .text-img { opacity: 1; left: 520px; } 
+.sticky-header {
+    width: 400px; /* Largeur fixe */
+    height: 50px; /* Hauteur ajustée */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 51, 102, 0.8); /* Bleu profond transparent */
+    padding: 10px 20px;
+    border-radius: 30px; /* Bords arrondis */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrer la navigation */
+}
+
+/* Adapter la navigation */
 nav {
-    position: absolute;
-    top: 20px;
-    right: 20px;}
+    width: 100%; /* Occupe toute la largeur du header */
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;}
-nav ul li {
-    display: inline-block;
-    position: relative;}
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centrer les éléments */
+    gap: 15px;
+}
+
 nav ul li a {
     text-decoration: none;
-    color: black; /* Navigation en noir */
+    color: white; /* Texte blanc */
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 8px 12px;
     display: block;
-    cursor: pointer;}
+    border-radius: 20px;
+    transition: background 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: #FFC107; /* Effet jaune au survol */
+}
+
+/* Ajustement du menu déroulant */
 nav ul li ul {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    font-style: italic;
-    list-style-type: none;
-    padding: 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    text-align: center;}
-nav ul li ul li a:hover {
-    color: blue;
-    background-color: #ddd;
-    justify-content: center;}
+    background-color: #006699;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
 h1 { color: #006699}
 h2 { color: #006699; margin-top: 50px;}
 .header-image { width: 100%; 
