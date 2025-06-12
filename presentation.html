@@ -18,47 +18,55 @@ body {
     width: 100%;
     height: 300px; 
     object-fit: block; 
-.sticky-header {
-    width: 600px; /* Largeur fixe */
-    height: 50px; /* Hauteur ajustée */
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(0, 51, 102, 0.8); /* Bleu profond transparent */
-    padding: 10px 20px;
-    border-radius: 30px; /* Bords arrondis */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centrer la navigation */}
-/* Adapter la navigation */
-        nav { width: 100%; /* Occupe toute la largeur du header */}
-         nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center; /* Centrer les éléments */
-            gap: 15px;}
-                nav ul li a {
-                    text-decoration: none;
-                    color: white; /* Texte blanc */
-                    font-weight: bold;
-                    padding: 8px 12px;
-                    display: inline-block;
-                    border-radius: 20px;
-                    transition: background 0.3s ease-in-out;}
-                nav ul li a:hover {background-color: #FFC107; /* Effet jaune au survol */}
-/* Ajustement du menu déroulant */
-                    nav ul li ul {
-                        display: none;
-                        position: absolute;
-                        background-color: #006699;
-                        text-align: center;
-                        padding: 10px;
-                        border-radius: 10px;}
-                            nav ul li:hover ul {display: block;}
+}
+
+nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black; /* Navigation en noir */
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block;
+    cursor: pointer;
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    font-style: italic;
+    list-style-type: none;
+    padding: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+nav ul li ul li a:hover {
+    background-color: #ddd;
+}
+
+.footer {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
 
 h1, h2 {
     color: #006699;
@@ -129,7 +137,7 @@ h1, h2 {
 </a>
     <img src="slogan2.jpg" alt="Bannière Mazava SEED" class="header-image">
 
-<header class="sticky-header">
+    <!-- Navigation alignée à droite -->
     <nav>
         <ul>
             <li><a href="index.html">ACCUEIL</a></li>
@@ -140,13 +148,13 @@ h1, h2 {
                     <li><a href="mazavair.html">Mazav'air</a></li>
                     <li><a href="mizara_mazava.html">Mizara Mazava</a></li>
                     <li><a href="tantsaha_mazava.html">Tantsaha Mazava</a></li>
-                    <li><a href="femme_mazava.html">Femme Mazava</a></li>
+                    <li><a href="femme_mazava_arahaba_ririnina.html">Femme Mazava</a></li>
                 </ul>
             </li>
             <li><a href="contact.html">CONTACT</a></li>
         </ul>
     </nav>
-</header>
+
     <script>
         document.getElementById("projectsToggle").addEventListener("click", function() {
             var menu = document.getElementById("projectsMenu");
