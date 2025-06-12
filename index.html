@@ -12,7 +12,17 @@ body {
     background-color: #f9f9f9;
     color: #333;
 }
-
+.section-title {
+    font-family: "Playfair Display", serif; /* Police raffinée */
+    font-size: 36px; /* Taille plus grande */
+    font-weight: bold;
+    color: #006699; /* Bleu profond */
+    text-align: center; /* Centrer le titre */
+    padding: 10px 0; /* Espacement autour du texte */
+    border-bottom: 3px solid #FFC107; /* Ligne dorée sous le titre */
+    text-transform: uppercase; /* Mettre en majuscules */
+    letter-spacing: 2px; /* Espacement entre les lettres */
+}
 .projects-container {
     display: flex;
     justify-content: center;
@@ -180,7 +190,7 @@ h2 { color: #006699; margin-top: 50px;}
     <em class="small-text">Bring light everywhere!!!</em> 
   </div> 
 
-  <h2>Nos projet à long terme</h2> 
+  <div class="section-title">Nos projets à long terme</div>
     
 <script> 
     document.getElementById("projectsToggle").addEventListener("click", 
