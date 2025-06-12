@@ -24,26 +24,30 @@ body {
     text-transform: uppercase; /* Mettre en majuscules */
     letter-spacing: 2px; /* Espacement entre les lettres */}
 .projects-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Deux colonnes égales */
-    grid-template-rows: repeat(2, auto); /* Deux lignes flexibles */
+    display: flex;
+    background-color: linear-gradient(to right, #FFC107, #006699);
+    padding: 20px; /* Ajoute de l’espace autour des projets */
+    border-radius: 10px; /* Coins arrondis */
+    justify-content: center;
+    align-items: flex-start;
     gap: 30px;
-    padding: 20px;
-    background: linear-gradient(to right, #FFC107, #006699);
-    border-radius: 10px;
-    justify-items: center; /* Centre les éléments */
-    align-items: center;
     margin-top: 50px;
-    transition: margin-bottom 0.5s ease-in-out;
-}
+    margin-bottom: 0; /* Ajusté dynamiquement */
+    transition: margin-bottom 0.5s ease-in-out;}
+/* Style des projets */
+.project {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;}
 
 /* Images principales */
 .project img.main-img {
-    width: 100%; /* Prend la largeur de la cellule */
+    width: 350px;
     height: 500px;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
+    transition: transform 0.3s ease-in-out;}
 
 /* Zone de texte sous l'image */
 .project-name {
@@ -52,34 +56,30 @@ body {
     font-size: 22px;
     font-weight: bold;
     padding: 10px;
-    width: 100%; /* S’adapte à la largeur du projet */
+    width: 95%;
     position: absolute;
     bottom: 0;
     left: 0;
     text-align: center;
-    border-radius: 0 0 10px 10px;
-}
+    border-radius: 0 0 10px 10px;}
 
 /* Explication sous forme d'image, cachée derrière le projet */
 .project .text-img {
     position: absolute;
-    width: 100%; /* Prend la largeur du projet */
+    width: 350px;
     height: 500px;
     left: 100%;
     top: 0;   
     bottom: 0;
-    z-index: -1;
+    z-index: -1; /* Cachée derrière */
     opacity: 0;
     transform: translateX(0);
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;}
 
-/* Effet au survol */
+/* Effet au survol : 
 .project:hover .text-img {
     opacity: 1;
-    z-index: 1;
-    transform: translateX(2%);
-}
+    z-index: 1; /* Passe à droite */
     transform: translateX(2%); /* Dbouge vers la droite */}
 /* Déplacer les projets vers la droite */
 .project:nth-child(1):hover ~ .project:nth-child(2),
