@@ -10,23 +10,51 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
-    color: #333;
-}
-.sticky-header {
-    width: 45%;
-    height: 15px; /* Définir une hauteur fixe */
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #003366
-    padding: 15px;
-    border-radius: 10px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    color: #333;}
+.nav-header {
+    position: fixed; /* Fixe le header en haut à droite */
+    top: 10px;
+    right: 10px;
+    width: auto; /* Ajuste la largeur selon le contenu */
+    height: 50px; /* Hauteur adaptée pour une seule ligne */
+    background-color: rgba(0, 51, 102, 0.8); /* Bleu profond transparent */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 30px; /* Bords très arrondis */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Ajoute une ombre subtile */
+    z-index: 1000; /* Assure qu'il reste visible */
     display: flex;
-    align-items: center; /* Centrer verticalement les éléments */
-    justify-content: space-between; /* Répartir l'espace */
-}
+    align-items: center;}
+/* Ajustement de la navigation */
+.nav-header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px; /* Espacement entre les éléments */}
+.nav-header nav ul li {
+    position: relative;}
+.nav-header nav ul li a {
+    text-decoration: none;
+    color: white; /* Texte en blanc */
+    font-weight: bold;
+    padding: 8px 12px;
+    display: block;
+    border-radius: 20px; /* Arrondi les liens */
+    transition: background 0.3s ease-in-out;}
+.nav-header nav ul li a:hover {
+    background-color: #FFC107; /* Effet au survol en jaune */}
+/* Centrer le menu déroulant */
+.nav-header nav ul li ul {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #006699;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;}
+
+.nav-header nav ul li:hover ul {
+    display: block;}
 .section-title {
     margin-top: 50px; /* Ajoute un espace avant */
     font-family: "Playfair Display", serif; /* Police raffinée */
@@ -186,7 +214,7 @@ h2 { color: #006699; margin-top: 50px;}
 <body> <a href="index.html">
 <img src="Logo.jpg" alt="Logo Mazava SEED" class="logo"> </a> 
 <img src="slogan2.jpg" alt="Bannière Mazava SEED" class="header-image"> 
-<header class="sticky-header">
+<header class="nav-header">
 <nav>
     <ul> <li><a href="index.html">ACCUEIL</a></li> 
     <li><a href="presentation.html">QUI NOUS SOMMES?</a></li>
