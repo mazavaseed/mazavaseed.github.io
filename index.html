@@ -94,7 +94,9 @@ body {
     transform: translateX(350px);}
  .info-box {
     margin-top: 50px; /* Ajoute un espace avant */
-    width: 100%; /* Pleine largeur */
+    width: auto; /* S’adapte à la largeur disponible */
+    min-width: 200px; /* Évite que l’élément soit trop petit */
+    max-width: 100%; /* Empêche qu'il dépasse la largeur de la page */
     background-color: #FFC107; /* Jaune mat */
     color: white;
     text-align: center;
