@@ -183,54 +183,63 @@ h2 { color: #006699; margin-top: 50px;}
 .image-center {
   display: flex;
   justify-content: center;
-  margin: 80px 0;}
+  margin: 80px 0;
+}
 
 .team2-wrapper {
   position: relative;
   width: 500px;
-  height: 500px;}
+  height: 500px;
+}
 
+/* Image principale */
 .team2 {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-mix-blend-mode: multiply; /* Effet de fusion */
+  mix-blend-mode: multiply;
+  opacity: 0.85;
   transition: transform 0.4s ease-in-out;
   z-index: 1;
-  position: relative;}
+  position: relative;
+}
 
-/* Styles initiaux des satellites */
+/* Images satellites */
 .satellite {
   position: absolute;
   width: 200px;
   height: 200px;
-  border-radius: 0%;
   object-fit: cover;
+  border-radius: 0;
   opacity: 0;
   transform: scale(0.5);
   transition: opacity 0.4s ease, transform 0.4s ease;
   pointer-events: none;
-  z-index: 0;}
+  z-index: 0;
+}
 
 /* Positionnement précis */
-.top-left     { top: 0; left: 0; transform: translate(-70%, -70%) scale(0.5); }
-.top          { top: 0; left: 50%; transform: translate(-50%, -70%) scale(0.5); }
-.top-right    { top: 0; right: 0; transform: translate(70%, -70%) scale(0.5); }
-.right        { top: 50%; right: 0; transform: translate(70%, -50%) scale(0.5); }
-.bottom-right { bottom: 0; right: 0; transform: translate(70%, 70%) scale(0.5); }
-.bottom       { bottom: 0; left: 50%; transform: translate(-50%, 70%) scale(0.5); }
-.bottom-left  { bottom: 0; left: 0; transform: translate(-70%, 70%) scale(0.5); }
-.left         { top: 50%; left: 0; transform: translate(-70%, -50%) scale(0.5); }
+.top-left     { top: -120px; left: 15%; }
+.top-right    { top: -120px; right: 15%; }
 
-/* Apparition coordonnée au survol de .team2-wrapper */
+.left-top     { top: 15%; left: -120px; }
+.left-bottom  { bottom: 15%; left: -120px; }
+
+.right-top    { top: 15%; right: -120px; }
+.right-bottom { bottom: 15%; right: -120px; }
+
+.bottom-left  { bottom: -120px; left: 15%; }
+.bottom-right { bottom: -120px; right: 15%; }
+
+/* Effets au survol */
 .team2-wrapper:hover .team2 {
-  transform: scale(0.25);
+  transform: scale(0.33);
   z-index: 2;}
 
 .team2-wrapper:hover .satellite {
   opacity: 1;
-  transform: scale(1); /* Garde les translations spécifiques définies plus haut */
+  transform: scale(1);
   pointer-events: auto;
   z-index: 1;}
 
@@ -260,23 +269,28 @@ mix-blend-mode: multiply; /* Effet de fusion */
     <em class="small-text">Bring light everywhere!!!</em> 
   </div> 
 
-<div class="section-title">Notre équipe</div>
-
 <div class="image-center">
   <div class="team2-wrapper">
-    <img src="team2.jpg" class="team2" alt="Notre équipe" />
+    <img src="team2.jpg" alt="Notre équipe" class="team2" />
 
-    <!-- Images satellites, enfants directs du conteneur -->
-    <img src="prez.jpg" class="satellite top-left" />
-    <img src="pa.jpg" class="satellite top" />
-    <img src="coprez.jpg" class="satellite top-right" />
-    <img src="de.jpg" class="satellite right" />
-    <img src="trez.jpg" class="satellite bottom-right" />
-    <img src="sec.jpg" class="satellite bottom" />
-    <img src="cons.jpg" class="satellite bottom-left" />
-    <img src="cons2.jpg" class="satellite left" />
+    <!-- Haut -->
+    <img src="prez.jpg" class="satellite top-left" alt="Satellite 1" />
+    <img src="pa.jpg" class="satellite top-right" alt="Satellite 2" />
+
+    <!-- Gauche -->
+    <img src="coprez.jpg" class="satellite left-top" alt="Satellite 3" />
+    <img src="cons.jpg" class="satellite left-bottom" alt="Satellite 4" />
+
+    <!-- Droite -->
+    <img src="dec.jpg" class="satellite right-top" alt="Satellite 5" />
+    <img src="cons2.jpg" class="satellite right-bottom" alt="Satellite 6" />
+
+    <!-- Bas -->
+    <img src="sec.jpg" class="satellite bottom-left" alt="Satellite 7" />
+    <img src="trez.jpg" class="satellite bottom-right" alt="Satellite 8" />
   </div>
 </div>
+
 
 
 <div class="section-title">Nos projets à long terme</div>
