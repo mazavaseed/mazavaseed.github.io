@@ -181,71 +181,63 @@ h2 { color: #006699; margin-top: 50px;}
 .small-text { font-size: 20px; 
              line-height: 0; /* Supprime l'espacement */ }
 .image-center {
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center;     /* Centre verticalement si nécessaire */
-    margin: 40px 0;          /* Espace autour de l’image */}
-
-.image-center img {
-    width: 400px;            /* Ajuste selon la taille souhaitée */
-    height: auto;
-    border-radius: 10px;     /* Optionnel : coins arrondis */
-     mix-blend-mode: multiply;
-     border-radius: 50%; /* Forme arrondie */
-
-.image-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 80px 0;
+  display: flex;
+  justify-content: center;
+  margin: 80px 0;
 }
 
-.team-hover-zone {
-    position: relative;
-    width: 500px;
-    height: 500px;
+.team2-wrapper {
+  position: relative;
+  width: 500px;
+  height: 500px;
 }
 
-/* Image centrale */
-.team-main {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform 0.4s ease-in-out;
-    z-index: 1;
-    position: relative;
+.team2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+  z-index: 1;
+  position: relative;
 }
 
-/* Images satellites cachées initialement */
+/* Styles initiaux des satellites */
 .satellite {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    pointer-events: none;}
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
 
-/* Positionnement autour */
-.top-left     { top: 0; left: 0; transform: translate(-50%, -50%); }
-.top          { top: 0; left: 50%; transform: translate(-50%, -50%); }
-.top-right    { top: 0; right: 0; transform: translate(50%, -50%); }
-.right        { top: 50%; right: 0; transform: translate(50%, -50%); }
-.bottom-right { bottom: 0; right: 0; transform: translate(50%, 50%); }
-.bottom       { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
-.bottom-left  { bottom: 0; left: 0; transform: translate(-50%, 50%); }
-.left         { top: 50%; left: 0; transform: translate(-50%, -50%); }
+/* Positionnement précis */
+.top-left     { top: 0; left: 0; transform: translate(-70%, -70%) scale(0.5); }
+.top          { top: 0; left: 50%; transform: translate(-50%, -70%) scale(0.5); }
+.top-right    { top: 0; right: 0; transform: translate(70%, -70%) scale(0.5); }
+.right        { top: 50%; right: 0; transform: translate(70%, -50%) scale(0.5); }
+.bottom-right { bottom: 0; right: 0; transform: translate(70%, 70%) scale(0.5); }
+.bottom       { bottom: 0; left: 50%; transform: translate(-50%, 70%) scale(0.5); }
+.bottom-left  { bottom: 0; left: 0; transform: translate(-70%, 70%) scale(0.5); }
+.left         { top: 50%; left: 0; transform: translate(-70%, -50%) scale(0.5); }
 
-/* Quand on survole uniquement l’image principale */
-.team-main:hover {
-    transform: scale(0.5); /* Réduction */}
+/* Apparition coordonnée au survol de .team2-wrapper */
+.team2-wrapper:hover .team2 {
+  transform: scale(0.5);
+  z-index: 2;
+}
 
-/* Les satellites apparaissent quand on survole l'image */
-.team-main:hover ~ .satellite {
-    opacity: 1;
-    pointer-events: auto;}
+.team2-wrapper:hover .satellite {
+  opacity: 1;
+  transform: translate(0, 0) scale(1); /* Réinitialise la position pour apparaître pleinement autour */
+  pointer-events: auto;
+  z-index: 1;
+}
 
 </style>
 </head> 
@@ -276,20 +268,21 @@ h2 { color: #006699; margin-top: 50px;}
 <div class="section-title">Notre équipe</div>
 
 <div class="image-center">
-    <div class="team-hover-zone">
-        <img src="team2.jpg" alt="Notre équipe" class="team-main" />
+  <div class="team2-wrapper">
+    <img src="team2.jpg" class="team2" alt="Notre équipe" />
 
-        <!-- Images satellites -->
-        <img src="prez.jpg" class="satellite top-left">
-        <img src="pa.jpg" class="satellite top">
-        <img src="coprez.jpg" class="satellite top-right">
-        <img src="de.jpg" class="satellite right">
-        <img src="trez.jpg" class="satellite bottom-right">
-        <img src="sec.jpg" class="satellite bottom">
-        <img src="cons.jpg" class="satellite bottom-left">
-        <img src="cons1.jpg" class="satellite left">
-    </div>
+    <!-- Images satellites, enfants directs du conteneur -->
+    <img src="img1.jpg" class="satellite top-left" />
+    <img src="img2.jpg" class="satellite top" />
+    <img src="img3.jpg" class="satellite top-right" />
+    <img src="img4.jpg" class="satellite right" />
+    <img src="img5.jpg" class="satellite bottom-right" />
+    <img src="img6.jpg" class="satellite bottom" />
+    <img src="img7.jpg" class="satellite bottom-left" />
+    <img src="img8.jpg" class="satellite left" />
+  </div>
 </div>
+
 
 <div class="section-title">Nos projets à long terme</div>
 
