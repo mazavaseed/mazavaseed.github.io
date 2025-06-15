@@ -194,45 +194,50 @@ h2 { color: #006699; margin-top: 50px;}
     width: 100%;
     height: 100%;
     object-fit: cover;
-    mix-blend-mode: multiply; /* Effet de fusion */
+    mix-blend-mode: multiply;
+    opacity: 0.85;
     transition: transform 0.4s ease-in-out;
     z-index: 1;
     position: relative;
-    border-radius: 0; /* Pas de cercle */}
+    border-radius: 0; /* Garde la forme carrée */
+}
 
-/* Styles initiaux des satellites */
 .satellite {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 0;
-  object-fit: cover;
-  opacity: 0;
-  transform: scale(0.5);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
-  z-index: 0;}
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0; /* Carrées */
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+    z-index: 0;
+}
 
-/* Positionnement précis */
-.top-left     { top: 0; left: 0; transform: translate(-70%, -70%) scale(1); }
-.top          { top: 0; left: 75%; transform: translate(-50%, -70%) scale(1); }
-.top-right    { top: 0; right: 0; transform: translate(70%, -70%) scale(1); }
-.right        { top: 50%; right: 0; transform: translate(70%, -50%) scale(1); }
-.bottom-right { bottom: 0; right: 0; transform: translate(70%, 70%) scale(1); }
-.bottom       { bottom: 0; left: 75%; transform: translate(-50%, 70%) scale(1); }
-.bottom-left  { bottom: 0; left: 0; transform: translate(-70%, 70%) scale(1); }
-.left         { top: 50%; left: 0; transform: translate(-70%, -50%) scale(1); }
+/* Positionnement autour ajusté selon la nouvelle taille */
+.top-left     { top: 0; left: 0; transform: translate(-80%, -80%) scale(0.5); }
+.top          { top: 0; left: 50%; transform: translate(-50%, -80%) scale(0.5); }
+.top-right    { top: 0; right: 0; transform: translate(80%, -80%) scale(0.5); }
+.right        { top: 50%; right: 0; transform: translate(80%, -50%) scale(0.5); }
+.bottom-right { bottom: 0; right: 0; transform: translate(80%, 80%) scale(0.5); }
+.bottom       { bottom: 0; left: 50%; transform: translate(-50%, 80%) scale(0.5); }
+.bottom-left  { bottom: 0; left: 0; transform: translate(-80%, 80%) scale(0.5); }
+.left         { top: 50%; left: 0; transform: translate(-80%, -50%) scale(0.5); }
 
-/* Apparition coordonnée au survol de .team2-wrapper */
+/* Animation au survol */
 .team2-wrapper:hover .team2 {
-  transform: scale(0.5);
-  z-index: 2;}
+    transform: scale(0.33); /* Réduction à un tiers */
+    z-index: 2;
+}
 
 .team2-wrapper:hover .satellite {
-  opacity: 1;
-  transform: translate(0, 0) scale(1); /* Réinitialise la position pour apparaître pleinement autour */
-  pointer-events: auto;
-  z-index: 1;}
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    pointer-events: auto;
+    z-index: 1;
+}
+
 
 </style>
 </head> 
