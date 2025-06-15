@@ -418,29 +418,27 @@ Spécialiste en mobilisation sociale, Hery possède plus de 10 ans d’expérien
 document.querySelectorAll('.satellite').forEach(img => {
   img.addEventListener('click', () => {
     const key = img.src.match(/([^\/]+)\.jpg$/)[1];
+    const wrapper = document.querySelector('.team2-wrapper');
+    const profileBox = document.getElementById('profile-container');
+    const nextSection = document.querySelector('.next-section');
 
-    // Masquer le bloc principal
-    document.querySelector('.team2-wrapper').style.display = 'none';
+    // Masquer les satellites
+    wrapper.style.display = 'none';
 
-    // Mettre à jour l’image et le texte
+    // Remplir les infos du profil sélectionné
     document.getElementById('profile-image').src = img.src;
     document.getElementById('profile-text').innerHTML = descriptions[key] || 'Profil non disponible.';
 
-    const profileBox = document.getElementById('profile-container');
+    // Afficher le profil + focus
     profileBox.style.display = 'flex';
-
-    // Supprimer l'espacement vertical entre les titres
-    const nextSection = document.querySelector('.next-section');
-    nextSection.style.marginTop = '0';
-
-    // Focus automatique sur le profil
+    nextSection.style.marginTop = '20px';
     profileBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    // Réinitialiser tout quand la souris quitte la fiche
+    // Retour automatique lors de la sortie du bloc
     profileBox.addEventListener('mouseleave', () => {
       profileBox.style.display = 'none';
-      document.querySelector('.team2-wrapper').style.display = 'block';
-      nextSection.style.marginTop = ''; // Restaure la marge normale
+      wrapper.style.display = 'block';
+      nextSection.style.marginTop = ''; // ou '80px'
     }, { once: true });
   });
 });
