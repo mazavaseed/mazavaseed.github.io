@@ -283,6 +283,9 @@ h2 { color: #006699; margin-top: 50px;}
   line-height: 1.6;
   color: #222;}
 
+.next-section {
+  transition: margin-top 0.3s ease;}
+
 </style>
 </head> 
 <body> <a href="index.html">
@@ -318,6 +321,8 @@ h2 { color: #006699; margin-top: 50px;}
   </div>
 </div>
 
+<div class="section-title next-section">Nos projets à long terme</div>
+
 <section class="team-block">
 <div class="image-center">
   <div class="team2-wrapper">
@@ -340,8 +345,8 @@ h2 { color: #006699; margin-top: 50px;}
     <img src="trez.jpg" class="satellite bottom-right" alt="Satellite 8" />
   </div>
 </div>
-</section>
 
+</section>
 <div class="section-title">Nos projets à long terme</div>
 
 <script> 
@@ -415,7 +420,7 @@ Spécialiste en mobilisation sociale, Hery possède plus de 10 ans d’expérien
 document.querySelectorAll('.satellite').forEach(img => {
   img.addEventListener('click', () => {
     const key = img.src.match(/([^\/]+)\.jpg$/)[1];
-    
+
     // Masquer le bloc principal
     document.querySelector('.team2-wrapper').style.display = 'none';
 
@@ -423,15 +428,22 @@ document.querySelectorAll('.satellite').forEach(img => {
     document.getElementById('profile-image').src = img.src;
     document.getElementById('profile-text').innerHTML = descriptions[key] || 'Profil non disponible.';
 
-    // Afficher la fiche
     const profileBox = document.getElementById('profile-container');
     profileBox.style.display = 'flex';
 
-    // Cacher automatiquement en quittant la souris
+    // Supprimer l'espacement vertical entre les titres
+    const nextSection = document.querySelector('.next-section');
+    nextSection.style.marginTop = '0';
+
+    // Focus automatique sur le profil
+    profileBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Réinitialiser tout quand la souris quitte la fiche
     profileBox.addEventListener('mouseleave', () => {
       profileBox.style.display = 'none';
       document.querySelector('.team2-wrapper').style.display = 'block';
-    }, { once: true }); // Ne s’enclenche qu’une fois
+      nextSection.style.marginTop = ''; // Restaure la marge normale
+    }, { once: true });
   });
 });
   </script> 
