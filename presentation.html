@@ -250,6 +250,32 @@ h2 { color: #006699; margin-top: 50px;}
   z-index: 0;
    mix-blend-mode: multiply;}
 
+.profile-display {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-display img {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.profile-display .description-box {
+  background: #f8f8f8;
+  padding: 20px;
+  border-left: 5px solid #444;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+
 </style>
 </head> 
 <body> <a href="index.html">
@@ -301,6 +327,8 @@ h2 { color: #006699; margin-top: 50px;}
   </div>
 </div>
 </section>
+
+<div id="profile-display" class="profile-display" style="display: none;"></div>
 
 <div class="section-title">Nos projets à long terme</div>
 
@@ -358,6 +386,40 @@ h2 { color: #006699; margin-top: 50px;}
             document.querySelector(".footer").style.bottom = "0";
         });
     });
+
+<script>
+const descriptions = {
+  prez: `RAVALOHERIMANANA Hery – Président
+Spécialiste en mobilisation sociale, Hery possède plus de 10 ans d’expérience dans la conduite de projets communautaires à Madagascar. Il a collaboré avec plusieurs associations nationales pour la mise en place de campagnes de sensibilisation en milieu rural, notamment dans les domaines de l’éducation et de la santé publique. Il a activement participé à des programmes soutenus par des communes et directions régionales, ce qui lui confère une excellente connaissance des réalités locales et institutionnelles. Fondateur de Mazava SEED, il est le garant de la vision sociale de l’association.
+`,
+  coprez: `Project Manager Officer (PMO), elle a évolué dans la coordination de projets financés par des partenaires techniques et financiers (PTF) internationaux, notamment dans le domaine de l'éducation et de l’autonomisation communautaire. Elle a été chargée de projets dans des ONG nationales opérant à Antananarivo et dans les Hautes Terres centrales. Son expérience lui permet de structurer les programmes de Mazava SEED en assurant un alignement stratégique avec les priorités de développement national (éducation pour tous, inclusion économique, etc.).`,
+  pa: `Enseignant certifié au sein du ministère de l’Éducation nationale et entrepreneur rural, Setra dirige la ferme agroécologique Frero Farm. Il a été associé à des programmes pilotes sur l’entrepreneuriat agricole avec le soutien de la DRAE Itasy et de plateformes de producteurs locaux. À travers ses actions de vulgarisation dans les écoles rurales et sa participation à des ateliers nationaux sur la souveraineté alimentaire, il contribue à l’articulation entre agriculture durable et éducation environnementale, piliers des projets Tantsaha Mazava et Mazav’air.`,
+  de: `Biologiste de formation, Mahery a travaillé comme consultant pour plusieurs projets environnementaux majeurs à Madagascar (financés par le GEF, WWF, UNDP, etc.), portant sur la conservation de la biodiversité, la gestion communautaire des ressources naturelles et le reboisement. Il a notamment contribué à des évaluations écologiques dans les aires protégées du MENABE et de l’Anosy. Au sein de Mazava SEED, il assure la direction exécutive et coordonne les projets multisectoriels avec une attention particulière portée à la durabilité et à l’impact environnemental.`,
+  sec: `Économiste diplômé de l’Université d’Antananarivo, Clément a été impliqué dans des projets de microfinance rurale et d’analyse des chaînes de valeur dans plusieurs régions (Analamanga, Vakinankaratra, Itasy). Il a contribué à la mise en place d’outils de gestion participative pour des coopératives agricoles et des groupements féminins. À Mazava SEED, il est responsable de la structuration administrative et financière, ainsi que de l’appui aux initiatives économiques communautaires, notamment dans le développement des circuits de commercialisation.`,
+  trez: `Médecin généraliste ayant exercé en zones enclavées (Analanjirofo, V7V), Narindra s’est spécialisée dans la santé communautaire. Elle a mené des campagnes de prévention sanitaire en partenariat avec les centres de santé de base (CSB) et les ONG locales. Elle a également participé à des programmes de santé maternelle financés par des agences nationales et régionales. En tant que trésorière de Mazava SEED, elle allie rigueur budgétaire et engagement humanitaire, tout en coordonnant les projets Arahaba Ririnina et Femme Mazava.`,
+  cons: `Ingénieure agronome ayant collaboré avec des projets nationaux tels que AD2M et BVPI, Ony est experte en vulgarisation agricole, développement de filières locales et structuration de groupements paysans. Elle a également assuré la coordination technique de projets de formation agricole financés par la coopération allemande (GIZ). Elle accompagne Mazava SEED dans la conception technique des projets Tantsaha Mazava, notamment dans la création de coopératives agricoles et l’amélioration de la productivité par l’innovation rurale.`,
+  cons2: `Responsable de production formée en gestion opérationnelle, Arimananjara a été cheffe d’équipe dans plusieurs initiatives communautaires soutenues par des ONG nationales dans le secteur WASH et éducation. Elle a coordonné des campagnes de distribution de kits scolaires et d’hygiène dans les régions rurales de Bongolava et Itasy. À Mazava SEED, elle supervise les aspects logistiques et assure une coordination fluide entre terrain, équipes et bénéficiaires. Elle joue également un rôle de facilitatrice dans la mise en œuvre des activités sur site.`
+};
+
+document.querySelectorAll('.satellite').forEach(img => {
+  img.addEventListener('click', () => {
+    const key = img.src.match(/([^\/]+)\.jpg$/)[1]; // récupère le nom de fichier sans extension
+    const teamBlock = document.querySelector('.team2-wrapper');
+    const display = document.getElementById('profile-display');
+
+    // Cache le bloc entier
+    teamBlock.style.display = 'none';
+
+    // Affiche la fiche
+    display.style.display = 'block';
+    display.innerHTML = `
+      <img src="${img.src}" alt="${key}" />
+      <div class="description-box">${descriptions[key] || 'Texte indisponible.'}</div>
+    `;
+  });
+});
+</script>
+
   </script> 
     
 <div class="projects-container">
