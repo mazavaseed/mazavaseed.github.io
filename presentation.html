@@ -457,6 +457,19 @@ document.querySelectorAll('.satellite').forEach(img => {
   team2Wrapper.addEventListener('mouseleave', () => {
     teamBlock.classList.remove('expanded');
   });
+
+  const team2Wrapper = document.querySelector('.team2-wrapper');
+  const nextSection = document.querySelector('.next-section');
+
+  function updateSpacing(expanded) {
+    const wrapperHeight = team2Wrapper.getBoundingClientRect().height;
+    const extra = expanded ? 220 : 0;
+    nextSection.style.marginTop = (wrapperHeight + extra) + 'px';
+  }
+
+  team2Wrapper.addEventListener('mouseenter', () => updateSpacing(true));
+  team2Wrapper.addEventListener('mouseleave', () => updateSpacing(false));
+  window.addEventListener('load', () => updateSpacing(false));
 });
   </script> 
     
