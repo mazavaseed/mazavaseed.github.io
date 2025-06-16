@@ -234,7 +234,7 @@ h2 { color: #006699; margin-top: 50px;}
 
 /* Animation déclenchée au survol */
 .team2-wrapper:hover .team2 {
-  animation: pulseZoom 1.2s ease forwards;}
+  animation: pulseZoom 0.5s ease forwards;}
 
 @keyframes pulseZoom {
   0%   { transform: scale(1); }
@@ -256,6 +256,15 @@ h2 { color: #006699; margin-top: 50px;}
 .right-bottom   { transition-delay: 0.6s; }
 .bottom-left    { transition-delay: 0.7s; }
 .bottom-right   { transition-delay: 0.8s; }
+.satellite-spacer {
+  transition: height 0.4s ease;
+  height: 0;}
+
+.top-spacer {
+  margin-top: -80px; /* facultatif, pour remonter un peu l'image principale */}
+
+.bottom-spacer {
+  margin-bottom: -80px; /* pareil ici, pour garder ton espace normal fermé */}
 
 </style>
 </head> 
