@@ -183,7 +183,11 @@ h2 { color: #006699; margin-top: 50px;}
 .image-center {
   display: flex;
   justify-content: center;
-  margin: 80px 0;}
+  margin: 80px 0;
+  transition: margin 0.3s ease;}
+
+.image-center.reduced-space {
+  margin: 20px 0; /* marge réduite pendant l’affichage du profil */}
 
 .team2-wrapper {
   position: relative;
@@ -284,7 +288,8 @@ h2 { color: #006699; margin-top: 50px;}
   color: #222;}
 
 .next-section {
-  transition: margin-top 0.3s ease;}
+  transition: margin-top 0.3s ease;
+margin-top: 80px; /* marge normale */}
 
 </style>
 </head> 
@@ -438,7 +443,10 @@ document.querySelectorAll('.satellite').forEach(img => {
     profileBox.addEventListener('mouseleave', () => {
       profileBox.style.display = 'none';
       wrapper.style.display = 'block';
-      nextSection.style.marginTop = ''; // ou '80px'
+       
+     // Rétablir les marges
+      imageCenter.classList.remove('reduced-space');
+      nextSection.style.marginTop = '80px';
     }, { once: true });
   });
 });
