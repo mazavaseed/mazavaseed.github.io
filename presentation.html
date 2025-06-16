@@ -180,11 +180,16 @@ h2 { color: #006699; margin-top: 50px;}
 .blue-dark { color: darkblue; } 
 .small-text { font-size: 20px; 
              line-height: 0; /* Supprime l'espacement */ }
-.orbit-wrapper {
+.satellite-layout {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+.team2-wrapper {
   position: relative;
   width: 500px;
   height: 500px;
-  margin: 60px auto;
 }
 
 .team2 {
@@ -194,48 +199,54 @@ h2 { color: #006699; margin-top: 50px;}
   object-fit: cover;
   mix-blend-mode: multiply;
   opacity: 0.85;
-  transition: transform 0.6s ease;
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  left: 0;
+  transition: transform 0.5s ease;
+  z-index: 1;
+  position: relative;
 }
 
+/* Satellites */
 .satellite {
   position: absolute;
-  width: 120px;
-  height: 120px;
-  border-radius: 10%;
-  opacity: 0;
-  transform: scale(0);
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  z-index: 1;
-}
-
-.orbit-wrapper:hover .team2 {
-  transform: scale(0.6);
-}
-
-/* Lorsque wrapper est survolé, toutes les satellites apparaissent en orbite */
-.orbit-wrapper:hover .satellite {
-  opacity: 1;
-  transform: scale(1);}
-
-/* Placement circulaire des satellites autour de team2 */
-.s1 { top: -200px; left: 5%; }
-.s2 { top: -200px; right: 5%; }
-.s3 { top: 5%; left: -200px; }
-.s4 { bottom: 5%; left: -200px; }
-.s5 { top: 5%; right: -200px; }
-.s6 { bottom: 5%; right: -200px; }
-.s7 { bottom: -200px; left: 5%; }
-.s8 { bottom: -200px; right: 5%; }
-
-.satellite img {
-  width: 100%;
-  height: 100%;
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
   object-fit: cover;
-  border-radius: inherit;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Positionnement */
+
+/* Haut */
+.top-left  { top: -200px; left: 5%; }
+.top-right { top: -200px; right: 5%; }
+
+/* Gauche */
+.left-top     { top: 5%; left: -200px; }
+.left-bottom  { bottom: 5%; left: -200px; }
+
+/* Droite */
+.right-top     { top: 5%; right: -200px; }
+.right-bottom  { bottom: 5%; right: -200px; }
+
+/* Bas */
+.bottom-left  { bottom: -200px; left: 5%; }
+.bottom-right { bottom: -200px; right: 5%; }
+
+/* Animation déclenchée au survol */
+.team2-wrapper:hover .team2 {
+  transform: scale(0.65);
+  z-index: 2;
+}
+
+.team2-wrapper:hover .satellite {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 1;
 }
 
 
@@ -267,17 +278,28 @@ h2 { color: #006699; margin-top: 50px;}
 
 <div class="section-title">Notre équipe</div>
 
-<div class="orbit-wrapper">
-  <img src="team2.jpg" alt="Team centrale" class="team2" />
-  <div class="satellite s1"><img src="prez.jpg" alt="Satellite 1" /></div>
-  <div class="satellite s2"><img src="pa.jpg" alt="Satellite 2" /></div>
-  <div class="satellite s3"><img src="coprez.jpg" alt="Satellite 3" /></div>
-  <div class="satellite s4"><img src="cons.jpg" alt="Satellite 4" /></div>
-  <div class="satellite s5"><img src="de.jpg" alt="Satellite 5" /></div>
-  <div class="satellite s6"><img src="cons2.jpg" alt="Satellite 6" /></div>
-  <div class="satellite s7"><img src="sec.jpg" alt="Satellite 7" /></div>
-  <div class="satellite s8"><img src="trez.jpg" alt="Satellite 8" /></div>
+<div class="satellite-layout">
+  <div class="team2-wrapper">
+    <img src="team2.jpg" alt="Image principale" class="team2" />
+
+    <!-- Haut -->
+    <img src="prez.jpg" class="satellite top-left" alt="Satellite haut gauche" />
+    <img src="pa.jpg" class="satellite top-right" alt="Satellite haut droite" />
+
+    <!-- Gauche -->
+    <img src="coprez.jpg" class="satellite left-top" alt="Satellite gauche haut" />
+    <img src="cons.jpg" class="satellite left-bottom" alt="Satellite gauche bas" />
+
+    <!-- Droite -->
+    <img src="de.jpg" class="satellite right-top" alt="Satellite droite haut" />
+    <img src="cons2.jpg" class="satellite right-bottom" alt="Satellite droite bas" />
+
+    <!-- Bas -->
+    <img src="sec.jpg" class="satellite bottom-left" alt="Satellite bas gauche" />
+    <img src="trez.jpg" class="satellite bottom-right" alt="Satellite bas droite" />
+  </div>
 </div>
+
 
 <div class="section-title next-section">Nos projets à long terme</div>
 
