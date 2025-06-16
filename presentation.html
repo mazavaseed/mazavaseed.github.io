@@ -263,6 +263,44 @@ h2 { color: #006699; margin-top: 50px;}
      
      .bottom-spacer {
        margin-bottom: -60px; /* pareil ici, pour garder ton espace normal fermé */}
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 1000px;
+  padding: 20px;
+  background: #fefefe;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+.profile-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+#profile-image {
+  width: 260px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.description-box {
+  flex: 1;
+  min-width: 300px;
+  padding: 10px 15px;
+  background: #f8f8f8;
+  border-left: 4px solid #0077aa;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222;
+}
 
 </style>
 </head> 
