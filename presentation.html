@@ -180,17 +180,13 @@ h2 { color: #006699; margin-top: 50px;}
 .blue-dark { color: darkblue; } 
 .small-text { font-size: 20px; 
              line-height: 0; /* Supprime l'espacement */ }
-.image-center {
-  display: flex;
-  justify-content: center;
-  margin: 80px 0;}
-
-.team2-wrapper {
+.orbit-wrapper {
   position: relative;
   width: 500px;
-  height: 500px;}
-     
-/* Image principale */
+  height: 500px;
+  margin: 60px auto;
+}
+
 .team2 {
   width: 100%;
   height: 100%;
@@ -198,93 +194,51 @@ h2 { color: #006699; margin-top: 50px;}
   object-fit: cover;
   mix-blend-mode: multiply;
   opacity: 0.85;
-  transition: transform 0.4s ease-in-out;
-  z-index: 1;
-  position: relative;}
+  transition: transform 0.6s ease;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-/* Images satellites */
 .satellite {
   position: absolute;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
   opacity: 0;
-  transform: scale(0.5);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
-  z-index: 0;}
+  transform: scale(0);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  z-index: 1;
+}
 
-/* Positionnement précis */
-/* Haut */
-.top-left  { top: -200px; left: 5%; }
-.top-right { top: -200px; right: 5%; }
-
-/* Gauche */
-.left-top     { top: 5%; left: -200px; }
-.left-bottom  { bottom: 5%; left: -200px; }
-
-/* Droite */
-.right-top     { top: 5%; right: -200px; }
-.right-bottom  { bottom: 5%; right: -200px; }
-
-/* Bas */
-.bottom-left  { bottom: -200px; left: 5%; }
-.bottom-right { bottom: -200px; right: 5%; }
-
-/* Effets au survol */
-.team2-wrapper:hover .team2 {
+.orbit-wrapper:hover .team2 {
   transform: scale(0.6);
-  z-index: 2;}
+}
 
-.team2-wrapper:hover .satellite {
+/* Lorsque wrapper est survolé, toutes les satellites apparaissent en orbite */
+.orbit-wrapper:hover .satellite {
   opacity: 1;
   transform: scale(1);
-  pointer-events: auto;
-  z-index: 1;}
+}
 
-.team-block {
-  padding-top: 180px;
-  padding-bottom: 180px;
-  position: relative;
-  z-index: 0;
-   mix-blend-mode: multiply;}
+/* Placement circulaire des satellites autour de team2 */
+.s1 { top: -60px; left: 50%; transform: translateX(-50%) scale(0); }
+.s2 { top: 20%; left: -60px; transform: scale(0); }
+.s3 { top: 70%; left: -60px; transform: scale(0); }
+.s4 { bottom: -60px; left: 50%; transform: translateX(-50%) scale(0); }
+.s5 { top: 70%; right: -60px; transform: scale(0); }
+.s6 { top: 20%; right: -60px; transform: scale(0); }
+.s7 { top: -20px; left: 85%; transform: scale(0); }
+.s8 { top: -20px; left: 10%; transform: scale(0); }
 
-.profile-container {
-  display: flex;
-  justify-content: center;
-  margin: 40px auto;
-  max-width: 1000px;
-  padding: 20px;
-  background: #fdfdfd;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);}
-
-.profile-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 20px;}
-
-#profile-image {
-  width: 300px;
-  height: auto;
+.satellite img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);}
+  border-radius: inherit;
+}
 
-.description-box {
-  flex: 1;
-  min-width: 300px;
-  padding: 10px;
-  background: #f7f7f7;
-  border-left: 5px solid #333;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #222;}
-
-.next-section {
-  transition: margin-top 0.3s ease;}
 
 </style>
 </head> 
@@ -314,36 +268,17 @@ h2 { color: #006699; margin-top: 50px;}
 
 <div class="section-title">Notre équipe</div>
 
-<div id="profile-container" class="profile-container" style="display: none;">
-  <div class="profile-inner">
-    <img id="profile-image" src="" alt="Photo membre" />
-    <div id="profile-text" class="description-box"></div>
-  </div>
+<div class="orbit-wrapper">
+  <img src="team2.jpg" alt="Team centrale" class="team2" />
+  <div class="satellite s1"><img src="prez.jpg" alt="Satellite 1" /></div>
+  <div class="satellite s2"><img src="pa.jpg" alt="Satellite 2" /></div>
+  <div class="satellite s3"><img src="coprez.jpg" alt="Satellite 3" /></div>
+  <div class="satellite s4"><img src="cons.jpg" alt="Satellite 4" /></div>
+  <div class="satellite s5"><img src="de.jpg" alt="Satellite 5" /></div>
+  <div class="satellite s6"><img src="cons2.jpg" alt="Satellite 6" /></div>
+  <div class="satellite s7"><img src="sec.jpg" alt="Satellite 7" /></div>
+  <div class="satellite s8"><img src="trez.jpg" alt="Satellite 8" /></div>
 </div>
-
-<section class="team-block">
-<div class="image-center">
-  <div class="team2-wrapper">
-    <img src="team2.jpg" alt="Notre équipe" class="team2" />
-
-    <!-- Haut -->
-    <img src="prez.jpg" class="satellite top-left" alt="Satellite 1" />
-    <img src="pa.jpg" class="satellite top-right" alt="Satellite 2" />
-
-    <!-- Gauche -->
-    <img src="coprez.jpg" class="satellite left-top" alt="Satellite 3" />
-    <img src="cons.jpg" class="satellite left-bottom" alt="Satellite 4" />
-
-    <!-- Droite -->
-    <img src="de.jpg" class="satellite right-top" alt="Satellite 5" />
-    <img src="cons2.jpg" class="satellite right-bottom" alt="Satellite 6" />
-
-    <!-- Bas -->
-    <img src="sec.jpg" class="satellite bottom-left" alt="Satellite 7" />
-    <img src="trez.jpg" class="satellite bottom-right" alt="Satellite 8" />
-  </div>
-</div>
-</section>
 
 <div class="section-title next-section">Nos projets à long terme</div>
 
