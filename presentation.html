@@ -248,12 +248,7 @@ h2 { color: #006699; margin-top: 50px;}
   padding-bottom: 180px;
   position: relative;
   z-index: 0;
-   mix-blend-mode: multiply;
-  transition: margin-bottom 0.4s ease;  /* ⬅️ Ajouté pour l’effet fluide */
-  margin-bottom: 300px;                 /* ⬅️ Valeur de base liée à la hauteur de team2 */}
-
-.team-block.expanded {
-  margin-bottom: 500px;  /* ⬅️ S’active quand les satellites apparaissent */}
+   mix-blend-mode: multiply;}
 
 .profile-container {
   display: flex;
@@ -326,17 +321,10 @@ h2 { color: #006699; margin-top: 50px;}
   </div>
 </div>
 
-<section class="team-display">
-  <div class="section-title">Notre équipe</div>
-
-  <div id="profile-container" class="profile-container" style="display: none;">
-    <!-- ton contenu profil ici -->
-  </div>
-
-  <section class="team-block">
-    <div class="image-center">
-      <div class="team2-wrapper">
-        <img src="team2.jpg" class="team2" />
+<section class="team-block">
+<div class="image-center">
+  <div class="team2-wrapper">
+    <img src="team2.jpg" alt="Notre équipe" class="team2" />
 
     <!-- Haut -->
     <img src="prez.jpg" class="satellite top-left" alt="Satellite 1" />
@@ -344,15 +332,15 @@ h2 { color: #006699; margin-top: 50px;}
 
     <!-- Gauche -->
     <img src="coprez.jpg" class="satellite left-top" alt="Satellite 3" />
-    <img src="sec.jpg" class="satellite left-bottom" alt="Satellite 4" />
+    <img src="cons.jpg" class="satellite left-bottom" alt="Satellite 4" />
 
     <!-- Droite -->
     <img src="de.jpg" class="satellite right-top" alt="Satellite 5" />
-    <img src="trez.jpg" class="satellite right-bottom" alt="Satellite 6" />
+    <img src="cons2.jpg" class="satellite right-bottom" alt="Satellite 6" />
 
     <!-- Bas -->
-    <img src="cons.jpg" class="satellite bottom-left" alt="Satellite 7" />
-    <img src="cons2.jpg" class="satellite bottom-right" alt="Satellite 8" />
+    <img src="sec.jpg" class="satellite bottom-left" alt="Satellite 7" />
+    <img src="trez.jpg" class="satellite bottom-right" alt="Satellite 8" />
   </div>
 </div>
 </section>
@@ -382,7 +370,8 @@ h2 { color: #006699; margin-top: 50px;}
             textImg.style.transform = "translateY(0)";
 
             // Réinitialise le footer quand l'explication disparaît
-            document.querySelector(".footer").style.paddingTop = "15px";});
+            document.querySelector(".footer").style.paddingTop = "15px";
+        });
     });
 
      document.querySelectorAll(".main-img").forEach((img) => {
@@ -396,7 +385,8 @@ h2 { color: #006699; margin-top: 50px;}
 
             // Déplace le footer vers le bas
             document.querySelector(".footer").style.position = "absolute";
-            document.querySelector(".footer").style.bottom = "-520px";});
+            document.querySelector(".footer").style.bottom = "-520px";
+        });
 
         img.addEventListener("mouseleave", function() {
             let textImg = this.parentElement.querySelector(".text-img");
@@ -408,7 +398,8 @@ h2 { color: #006699; margin-top: 50px;}
 
             // Remet le footer en position normale
             document.querySelector(".footer").style.position = "fixed";
-            document.querySelector(".footer").style.bottom = "0";});
+            document.querySelector(".footer").style.bottom = "0";
+        });
     });
 
 const descriptions = {
@@ -448,16 +439,8 @@ document.querySelectorAll('.satellite').forEach(img => {
       profileBox.style.display = 'none';
       wrapper.style.display = 'block';
       nextSection.style.marginTop = ''; // ou '80px'
-    }, { once: true }); });
-     const teamBlock = document.querySelector('.team-block');
-const team2Wrapper = document.querySelector('.team2-wrapper');
-
-team2Wrapper.addEventListener('mouseenter', () => {
-  teamBlock.classList.add('expanded');
-});
-
-team2Wrapper.addEventListener('mouseleave', () => {
-  teamBlock.classList.remove('expanded');});
+    }, { once: true });
+  });
 });
   </script> 
     
