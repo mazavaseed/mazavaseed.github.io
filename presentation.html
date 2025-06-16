@@ -271,14 +271,11 @@ h2 { color: #006699; margin-top: 50px;}
   margin: 40px auto;
   max-width: 1000px;
   padding: 20px;
-  background: #e6f1fb;
+  background: #e6f1fb; /* 💙 bleu pâle agréable */
   border: 2px solid #0077cc;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
-  opacity: 0;
-  transform: scale(0.96);
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;}
+  transition: all 0.4s ease;
+  border-radius: 8px;}
 
 .profile-inner {
   display: flex;
@@ -305,11 +302,6 @@ h2 { color: #006699; margin-top: 50px;}
   font-size: 16px;
   line-height: 1.6;
   color: #222;}
-     
-.profile-container.visible {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;}
 
 
 </style>
@@ -341,7 +333,7 @@ h2 { color: #006699; margin-top: 50px;}
 <div class="section-title">Notre équipe</div>
 
 <div class="satellite-layout">
-<div id="profile-container" class="profile-container">
+<div id="profile-container" class="profile-container" style="display: none;">
   <div class="profile-inner">
     <img id="profile-image" src="" alt="Membre de l’équipe" />
     <div id="profile-text" class="description-box"></div>
@@ -445,19 +437,23 @@ document.querySelectorAll('.satellite').forEach(img => {
     const profileBox = document.getElementById('profile-container');
     const nextSection = document.querySelector('.next-section');
 
+    // Masquer les satellites
     wrapper.style.display = 'none';
 
+    // Remplir les infos du profil sélectionné
     document.getElementById('profile-image').src = img.src;
     document.getElementById('profile-text').innerHTML = descriptions[key] || 'Profil non disponible.';
 
-    profileBox.classList.add('visible');
+    // Afficher le profil + focus
+    profileBox.style.display = 'flex';
     nextSection.style.marginTop = '20px';
     profileBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
+    // Retour automatique lors de la sortie du bloc
     profileBox.addEventListener('mouseleave', () => {
-      profileBox.classList.remove('visible');
+      profileBox.style.display = 'none';
       wrapper.style.display = 'block';
-      nextSection.style.marginTop = '';
+      nextSection.style.marginTop = ''; // ou '80px'
     }, { once: true });
   });
 });
