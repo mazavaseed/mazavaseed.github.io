@@ -248,13 +248,7 @@ h2 { color: #006699; margin-top: 50px;}
   padding-bottom: 180px;
   position: relative;
   z-index: 0;
-   mix-blend-mode: multiply;
-  /* Ajouté pour l'espacement dynamique */
-  transition: margin-bottom 0.4s ease;
-  margin-bottom: 300px; /* Valeur de base à adapter à la taille de team2 */}
-
-.team-block.expanded {
-  margin-bottom: 500px; /* Quand satellites visibles */}
+   mix-blend-mode: multiply;}
 
 .profile-container {
   display: flex;
@@ -447,29 +441,6 @@ document.querySelectorAll('.satellite').forEach(img => {
       nextSection.style.marginTop = ''; // ou '80px'
     }, { once: true });
   });
-  const teamBlock = document.querySelector('.team-block');
-  const team2Wrapper = document.querySelector('.team2-wrapper');
-
-  team2Wrapper.addEventListener('mouseenter', () => {
-    teamBlock.classList.add('expanded');
-  });
-
-  team2Wrapper.addEventListener('mouseleave', () => {
-    teamBlock.classList.remove('expanded');
-  });
-
-  const team2Wrapper = document.querySelector('.team2-wrapper');
-  const nextSection = document.querySelector('.next-section');
-
-  function updateSpacing(expanded) {
-    const wrapperHeight = team2Wrapper.getBoundingClientRect().height;
-    const extra = expanded ? 220 : 0;
-    nextSection.style.marginTop = (wrapperHeight + extra) + 'px';
-  }
-
-  team2Wrapper.addEventListener('mouseenter', () => updateSpacing(true));
-  team2Wrapper.addEventListener('mouseleave', () => updateSpacing(false));
-  window.addEventListener('load', () => updateSpacing(false));
 });
   </script> 
     
@@ -514,3 +485,4 @@ document.querySelectorAll('.satellite').forEach(img => {
 </div> 
 </body> 
 </html>
+
