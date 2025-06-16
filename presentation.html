@@ -445,23 +445,19 @@ document.querySelectorAll('.satellite').forEach(img => {
     const profileBox = document.getElementById('profile-container');
     const nextSection = document.querySelector('.next-section');
 
-    // Masquer les satellites
     wrapper.style.display = 'none';
 
-    // Remplir les infos du profil sélectionné
     document.getElementById('profile-image').src = img.src;
     document.getElementById('profile-text').innerHTML = descriptions[key] || 'Profil non disponible.';
 
-    // Afficher le profil + focus
     profileBox.classList.add('visible');
     nextSection.style.marginTop = '20px';
     profileBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    // Retour automatique lors de la sortie du bloc
     profileBox.addEventListener('mouseleave', () => {
       profileBox.classList.remove('visible');
       wrapper.style.display = 'block';
-      nextSection.style.marginTop = ''; // ou '80px'
+      nextSection.style.marginTop = '';
     }, { once: true });
   });
 });
