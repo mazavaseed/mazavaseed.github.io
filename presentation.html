@@ -293,8 +293,12 @@ h2 { color: #006699; margin-top: 50px;}
 <div class="section-title">Notre équipe</div>
 
 <div class="satellite-layout">
-  <div class="satellite-spacer top-spacer"></div>
-
+<div id="profile-container" class="profile-container" style="display: none;">
+  <div class="profile-inner">
+    <img id="profile-image" src="" alt="Membre de l’équipe" />
+    <div id="profile-text" class="description-box"></div>
+  </div>
+</div>
   <div class="team2-wrapper">
     <img src="team2.jpg" alt="Image principale" class="team2" />
 
@@ -314,8 +318,6 @@ h2 { color: #006699; margin-top: 50px;}
     <img src="sec.jpg" class="satellite bottom-left" alt="Satellite bas gauche" />
     <img src="trez.jpg" class="satellite bottom-right" alt="Satellite bas droite" />
   </div>
-
-  <div class="satellite-spacer bottom-spacer"></div>
 </div>
 
 <div class="section-title next-section">Nos projets à long terme</div>
@@ -368,27 +370,54 @@ h2 { color: #006699; margin-top: 50px;}
     });
   });
 
-  // 3. Espacement dynamique au survol de .team2-wrapper
-  window.addEventListener("DOMContentLoaded", () => {
-    const topSpacer = document.querySelector(".top-spacer");
-    const bottomSpacer = document.querySelector(".bottom-spacer");
-    const team2Wrapper = document.querySelector(".team2-wrapper");
+ const descriptions = {
+  prez: `RAVALOHERIMANANA Hery
+Spécialiste en mobilisation sociale, Hery possède plus de 10 ans d’expérience dans la conduite de projets communautaires à Madagascar. Il a collaboré avec plusieurs associations nationales pour la mise en place de campagnes de sensibilisation en milieu rural, notamment dans les domaines de l’éducation et de la santé publique. Il a activement participé à des programmes soutenus par des communes et directions régionales, ce qui lui confère une excellente connaissance des réalités locales et institutionnelles. Fondateur de Mazava SEED, il est le garant de la vision sociale de l’association.
+`,
+  coprez: `MAVOHARISONAMANANJARASOA
+Project Manager Officer (PMO), elle a évolué dans la coordination de projets financés par des partenaires techniques et financiers (PTF) internationaux, notamment dans le domaine de l'éducation et de l’autonomisation communautaire. Elle a été chargée de projets dans des ONG nationales opérant à Antananarivo et dans les Hautes Terres centrales. Son expérience lui permet de structurer les programmes de Mazava SEED en assurant un alignement stratégique avec les priorités de développement national (éducation pour tous, inclusion économique, etc.).`,
+  pa: `RAZAFITRIMO Setra Valison
+Enseignant certifié au sein du ministère de l’Éducation nationale et entrepreneur rural, Setra dirige la ferme agroécologique Frero Farm. Il a été associé à des programmes pilotes sur l’entrepreneuriat agricole avec le soutien de la DRAE Itasy et de plateformes de producteurs locaux. À travers ses actions de vulgarisation dans les écoles rurales et sa participation à des ateliers nationaux sur la souveraineté alimentaire, il contribue à l’articulation entre agriculture durable et éducation environnementale, piliers des projets Tantsaha Mazava et Mazav’air.`,
+  de: `RAKOTOARISON Mahery Jo
+Biologiste de formation, Mahery a travaillé comme consultant pour plusieurs projets environnementaux majeurs à Madagascar (financés par le GEF, WWF, UNDP, etc.), portant sur la conservation de la biodiversité, la gestion communautaire des ressources naturelles et le reboisement. Il a notamment contribué à des évaluations écologiques dans les aires protégées du MENABE et de l’Anosy. Au sein de Mazava SEED, il assure la direction exécutive et coordonne les projets multisectoriels avec une attention particulière portée à la durabilité et à l’impact environnemental.`,
+  sec: `SAMBADAHY Clément
+Économiste diplômé de l’Université d’Antananarivo, Clément a été impliqué dans des projets de microfinance rurale et d’analyse des chaînes de valeur dans plusieurs régions (Analamanga, Vakinankaratra, Itasy). Il a contribué à la mise en place d’outils de gestion participative pour des coopératives agricoles et des groupements féminins. À Mazava SEED, il est responsable de la structuration administrative et financière, ainsi que de l’appui aux initiatives économiques communautaires, notamment dans le développement des circuits de commercialisation.`,
+  trez: `RABAKOARIFETRA Narindra
+Médecin généraliste ayant exercé en zones enclavées (Analanjirofo, V7V), Narindra s’est spécialisée dans la santé communautaire. Elle a mené des campagnes de prévention sanitaire en partenariat avec les centres de santé de base (CSB) et les ONG locales. Elle a également participé à des programmes de santé maternelle financés par des agences nationales et régionales. En tant que trésorière de Mazava SEED, elle allie rigueur budgétaire et engagement humanitaire, tout en coordonnant les projets Arahaba Ririnina et Femme Mazava.`,
+  cons: `RAKOTONIRINA Ony
+Ingénieure agronome ayant collaboré avec des projets nationaux tels que AD2M et BVPI, Ony est experte en vulgarisation agricole, développement de filières locales et structuration de groupements paysans. Elle a également assuré la coordination technique de projets de formation agricole financés par la coopération allemande (GIZ). Elle accompagne Mazava SEED dans la conception technique des projets Tantsaha Mazava, notamment dans la création de coopératives agricoles et l’amélioration de la productivité par l’innovation rurale.`,
+  cons2: `HOBIARISON Arimananjara
+Responsable de production formée en gestion opérationnelle, Arimananjara a été cheffe d’équipe dans plusieurs initiatives communautaires soutenues par des ONG nationales dans le secteur WASH et éducation. Elle a coordonné des campagnes de distribution de kits scolaires et d’hygiène dans les régions rurales de Bongolava et Itasy. À Mazava SEED, elle supervise les aspects logistiques et assure une coordination fluide entre terrain, équipes et bénéficiaires. Elle joue également un rôle de facilitatrice dans la mise en œuvre des activités sur site.`
+};
 
-    if (!topSpacer || !bottomSpacer || !team2Wrapper) {
-      console.warn("Un des éléments .spacer ou .team2-wrapper est introuvable.");
-      return;
-    }
+document.querySelectorAll('.satellite').forEach(img => {
+  img.addEventListener('click', () => {
+    const key = img.src.match(/([^\/]+)\.jpg$/)[1];
+    const wrapper = document.querySelector('.team2-wrapper');
+    const profileBox = document.getElementById('profile-container');
+    const nextSection = document.querySelector('.next-section');
 
-    team2Wrapper.addEventListener("mouseenter", () => {
-      topSpacer.style.height = "120px";
-      bottomSpacer.style.height = "120px";
-    });
+    // Masquer les satellites
+    wrapper.style.display = 'none';
 
-    team2Wrapper.addEventListener("mouseleave", () => {
-      topSpacer.style.height = "0";
-      bottomSpacer.style.height = "0";
-    });
+    // Remplir les infos du profil sélectionné
+    document.getElementById('profile-image').src = img.src;
+    document.getElementById('profile-text').innerHTML = descriptions[key] || 'Profil non disponible.';
+
+    // Afficher le profil + focus
+    profileBox.style.display = 'flex';
+    nextSection.style.marginTop = '20px';
+    profileBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Retour automatique lors de la sortie du bloc
+    profileBox.addEventListener('mouseleave', () => {
+      profileBox.style.display = 'none';
+      wrapper.style.display = 'block';
+      nextSection.style.marginTop = ''; // ou '80px'
+    }, { once: true });
   });
+});
+     
 </script>
     
 <div class="projects-container">
