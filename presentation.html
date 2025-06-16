@@ -285,7 +285,9 @@ h2 { color: #006699; margin-top: 50px;}
 
 <div class="section-title">Notre équipe</div>
 
+
 <div class="satellite-layout">
+<div class="satellite-spacer top-spacer"></div>
   <div class="team2-wrapper">
     <img src="team2.jpg" alt="Image principale" class="team2" />
 
@@ -305,6 +307,7 @@ h2 { color: #006699; margin-top: 50px;}
     <img src="sec.jpg" class="satellite bottom-left" alt="Satellite bas gauche" />
     <img src="trez.jpg" class="satellite bottom-right" alt="Satellite bas droite" />
   </div>
+     <div class="satellite-spacer bottom-spacer"></div>
 </div>
 
 
@@ -404,7 +407,20 @@ document.querySelectorAll('.satellite').forEach(img => {
       nextSection.style.marginTop = ''; // ou '80px'
     }, { once: true });
   });
+
+const topSpacer = document.querySelector('.top-spacer');
+const bottomSpacer = document.querySelector('.bottom-spacer');
+
+team2Wrapper.addEventListener('mouseenter', () => {
+  topSpacer.style.height = '120px';
+  bottomSpacer.style.height = '120px';
 });
+
+team2Wrapper.addEventListener('mouseleave', () => {
+  topSpacer.style.height = '0px';
+  bottomSpacer.style.height = '0px';
+});
+
   </script> 
     
 <div class="projects-container">
