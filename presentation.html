@@ -376,9 +376,15 @@ h2 { color: #006699; margin-top: 50px;}
             document.querySelector(".footer").style.bottom = "0";
         });
     });
+ window.addEventListener('DOMContentLoaded', () => {
   const topSpacer = document.querySelector('.top-spacer');
   const bottomSpacer = document.querySelector('.bottom-spacer');
   const team2Wrapper = document.querySelector('.team2-wrapper');
+
+  if (!topSpacer || !bottomSpacer || !team2Wrapper) {
+    console.warn("Un des éléments nécessaires est introuvable.");
+    return;
+  }
 
   team2Wrapper.addEventListener('mouseenter', () => {
     topSpacer.style.height = '120px';
@@ -389,6 +395,7 @@ h2 { color: #006699; margin-top: 50px;}
     topSpacer.style.height = '0';
     bottomSpacer.style.height = '0';
   });
+});
   </script> 
     
 <div class="projects-container">
