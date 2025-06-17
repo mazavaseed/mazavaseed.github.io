@@ -133,26 +133,38 @@ h1, h2 {
     letter-spacing: 2px; /* Espacement entre les lettres */}
 
 .raison-texte {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 10px 20px;
-  line-height: 1.8;
+  max-width: 1100px; /* 🔍 plus large qu'avant */
+  margin: 30px auto;
+  padding: 20px 40px;
   font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
   color: #222;
-  background-color: #fdfdfd;
-  border-radius: 8px;}
+  mix-blend-mode: multiply;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);}
 
-.seed-points {
+.raison-texte .seed-points {
   list-style-type: none;
   padding-left: 0;
   margin-top: 20px;}
 
-.seed-points li {
+.raison-texte .seed-points li {
   margin-bottom: 15px;}
 
-.seed-points li strong:first-child {
+.raison-texte .seed-points li strong:first-child {
   color: #0077aa;
   font-size: 20px;}
+
+.slogan {
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  color: #004d66;
+  margin-top: 30px;
+  font-size: 20px;
+  text-shadow: 0 0 5px rgba(255, 221, 0, 0.3);}
+
 
  .glow-mazava {
   color: #ffcc00;
@@ -205,8 +217,6 @@ h1, h2 {
             }
         });
     </script>
-    
-<div class="section-title">Notre raison d'être</div>
 
 <div class="section-title">Notre raison d'être</div>
 <div class="raison-texte">
