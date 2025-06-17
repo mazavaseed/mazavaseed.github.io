@@ -326,7 +326,42 @@ mark.highlighted {
   color: #000;
   font-weight: bold;}
 
-    </style>
+.result-box {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  width: 320px;
+  max-height: 350px;
+  overflow-y: auto;
+  z-index: 998;
+  padding: 15px;}
+
+.result-box .result-item {
+  margin-bottom: 12px;}
+
+.result-box .result-item a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #006699;}
+
+.result-box .result-item a:hover {
+  text-decoration: underline;}
+
+.result-box .extrait {
+  font-size: 14px;
+  color: #444;
+  margin-top: 4px;}
+
+mark {
+  background-color: yellow;
+  font-weight: bold;}
+
+</style>
+    
 </head>
 <body>
 <a href="index.html">
@@ -360,7 +395,8 @@ mark.highlighted {
   <button onclick="effectuerRecherche()">🔍</button>
   <button onclick="fermerRecherche()">✖</button>
 </div>
-    
+<div id="resultatsRecherche" class="result-box" style="display: none;"></div>
+ 
 </header>
   <div class="title-container"> 
     <span class="big-title"> <span class="yellow">Mazava</span> 
@@ -420,75 +456,52 @@ function fermerFormulaire() {
   document.getElementById("message-utilisateur").value = "";
 }
         
-function toggleSearch() {
-  const bar = document.getElementById("searchBar");
+async function effectuerRecherche() {
   const input = document.getElementById("siteSearchInput");
+  const terme = input.value.toLowerCase().trim();
+  const box = document.getElementById("resultatsRecherche");
 
-  if (bar.style.display === "none") {
-    bar.style.display = "flex";
-    input.focus();
-  } else {
-    bar.style.display = "none";
-    input.value = "";
-    enleverSurbrillance(document.body);
+  box.innerHTML = "";
+  box.style.display = "none";
+  if (terme.length < 2) return;
+
+  try {
+    const res = await fetch("recherche.json");
+    const data = await res.json();
+
+    const resultats = data.filter(item =>
+      item.contenu.toLowerCase().includes(terme)
+    );
+
+    if (resultats.length === 0) {
+      box.innerHTML = "<p>Aucun résultat trouvé.</p>";
+    } else {
+      resultats.forEach(item => {
+        const extrait = item.contenu.replace(
+          new RegExp(`(${terme})`, "gi"),
+          "<mark>$1</mark>"
+        );
+
+        const ligne = `
+          <div class="result-item">
+            <a href="${item.lien}">${item.titre}</a>
+            <div class="extrait">${extrait}</div>
+          </div>
+        `;
+        box.innerHTML += ligne;
+      });
+    }
+
+    box.style.display = "block";
+  } catch (error) {
+    console.error("Erreur lors du chargement des données :", error);
   }
 }
 
 function fermerRecherche() {
-  const bar = document.getElementById("searchBar");
-  const input = document.getElementById("siteSearchInput");
-
-  bar.style.display = "none";
-  input.value = "";
-  enleverSurbrillance(document.body);
-}
-
-function rechercherSurPage() {
-  const terme = document.getElementById("siteSearchInput").value.toLowerCase().trim();
-  const contenu = document.body;
-  const surbrillance = '<mark class="highlighted">$&</mark>';
-
-  enleverSurbrillance(contenu);
-
-  if (terme.length >= 2) {
-    surlignerTexte(contenu, terme, surbrillance);
-  }
-}
-
-function effectuerRecherche() {
-  const input = document.getElementById("siteSearchInput");
-  const terme = input.value.toLowerCase().trim();
-
-  enleverSurbrillance(document.body);
-
-  if (terme.length >= 2) {
-    surlignerTexte(document.body, terme, '<mark class="highlighted">$&</mark>');
-  }
-}
-
-function surlignerTexte(noeud, terme, surbrillance) {
-  if (noeud.nodeType === 3) {
-    const texte = noeud.nodeValue;
-    const regex = new RegExp(terme, 'gi');
-    if (regex.test(texte)) {
-      const span = document.createElement('span');
-      span.innerHTML = texte.replace(regex, surbrillance);
-      noeud.replaceWith(span);
-    }
-  } else if (
-    noeud.nodeType === 1 &&
-    noeud.childNodes &&
-    !['SCRIPT', 'STYLE', 'INPUT', 'TEXTAREA'].includes(noeud.tagName)
-  ) {
-    [...noeud.childNodes].forEach(child => surlignerTexte(child, terme, surbrillance));
-  }
-}
-
-function enleverSurbrillance(contenu) {
-  const marques = contenu.querySelectorAll('mark.highlighted');
-  marques.forEach(el => {
-    el.replaceWith(document.createTextNode(el.textContent));
-  });
+  document.getElementById("searchBar").style.display = "none";
+  document.getElementById("resultatsRecherche").style.display = "none";
+  document.getElementById("siteSearchInput").value = "";
 }
 
     </script>
