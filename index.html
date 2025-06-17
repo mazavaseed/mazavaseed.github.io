@@ -295,6 +295,30 @@ h1, h2 {
 
 .btn-annuler:hover {
   background-color: #aaaaaa;}
+.search-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;}
+
+.search-bar {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: #ffffffee;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;}
+
+.search-bar input {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 250px;}
 
     </style>
 </head>
@@ -319,8 +343,15 @@ h1, h2 {
                 </ul>
             </li>
             <li><a href="contact.html">CONTACT</a></li>
+            <li class="search-toggle">
+            <img src="loupe.webp" alt="Recherche" class="search-icon" onclick="toggleSearch()">
+</li>
         </ul>
     </nav>
+<div class="search-bar" id="searchBar" style="display: none;">
+  <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site...">
+  <button onclick="effectuerRecherche()">🔍</button>
+</div>
 </header>
   <div class="title-container"> 
     <span class="big-title"> <span class="yellow">Mazava</span> 
@@ -378,6 +409,18 @@ function fermerFormulaire() {
   const form = document.getElementById("zone-formulaire");
   form.style.display = "none";
   document.getElementById("message-utilisateur").value = "";
+}
+function toggleSearch() {
+  const bar = document.getElementById("searchBar");
+  bar.style.display = (bar.style.display === "none") ? "flex" : "none";
+}
+
+function effectuerRecherche() {
+  const query = document.getElementById("siteSearchInput").value.toLowerCase().trim();
+  if (!query) return;
+
+  // Tu peux remplacer cela par une vraie recherche interne plus tard
+  alert("Recherche lancée pour : " + query);
 }
     </script>
 
