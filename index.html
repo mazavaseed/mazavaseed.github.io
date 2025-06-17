@@ -366,6 +366,19 @@ mark {
   background-color: yellow;
   font-weight: bold;}
 
+ .info-box {
+    margin-top: 50px; /* Ajoute un espace avant */
+    width: 100%; /* S’adapte à la largeur disponible */
+    background-color: #FFC107; /* Jaune mat */
+    color: white;
+    text-align: center;
+    padding: 6px; /* Réduction de la hauteur */
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    line-height: 0.3; /* Espacement réduit entre les lignes */
+    object-fit: cover; /* Ajuste l’image sans distorsion */} 
+        
 </style>
     
 </head>
@@ -624,6 +637,12 @@ function fermerFormulaire() {
   <button onclick="envoyerMail()">Envoyer</button>
   <button onclick="fermerFormulaire()" class="btn-annuler">Annuler</button>
 </div>
-   
+
+<div class="info-box"> 
+  <h1>Contact</h1> 
+  <p>Email : <a href="mailto:association.mazavaseed@gmail.com">association.mazavaseed@gmail.com</a></p>
+  <p>Téléphone : +261 32 82 497 10 / +261 34 89 318 38</p> 
+</div> 
+    
 </body>
 </html>
