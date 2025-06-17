@@ -24,9 +24,12 @@ body {
     letter-spacing: 2px; /* Espacement entre les lettres */}
 .projects-container {
     display: flex;
+     flex-wrap: nowrap; /* 👉 empêche les projets de passer à la ligne */
+     overflow-x: auto;   /* 👉 active un scroll horizontal si débordement */
     background-color: linear-gradient(to right, #FFC107, #006699);
     padding: 20px; /* Ajoute de l’espace autour des projets */
     border-radius: 10px; /* Coins arrondis */
+     justify-content: flex-start; /* ⚠️ 'center' pourrait bloquer l'espace de décalage */
     justify-content: center;
     align-items: flex-start;
     gap: 30px;
@@ -35,11 +38,11 @@ body {
     transition: margin-bottom 0.5s ease-in-out;}
 /* Style des projets */
 .project {
-    position: relative;
-    width: 100%;
-    height: 550px;
-    text-align: center;
-    transition: transform 0.5s ease-in-out;}
+  width: 350px;
+  height: 550px;
+  flex-shrink: 0;
+  transition: transform 0.5s ease-in-out;
+  position: relative;}
 
 /* Images principales */
 .project img.main-img {
@@ -50,7 +53,7 @@ body {
 
 /* Zone de texte sous l'image */
 .project-name {
-    background-color: #006699;
+    background: linear-gradient(to right, #FFC107, #006699)
     color: white;
     font-size: 22px;
     font-weight: bold;
@@ -64,23 +67,21 @@ body {
 
 /* Explication sous forme d'image, cachée derrière le projet */
 .project .text-img {
-    position: absolute;
-    width: 350px;
-    height: 500px;
-    left: 100%;
-    top: 0;   
-    bottom: 0;
-    mix-blend-mode: multiply;
-    z-index: -1; /* Cachée derrière */
-    opacity: 0;
-    transform: translateX(0);
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;}
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 350px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;}
 
 /* Effet au survol : apparition de l'explication sous le projet */
 .project:hover .text-img {
-    opacity: 1;
-    z-index: 1; /* Passe devant */
-    transform: translateX(2%); /* Descend sous le projet */}
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 10;}
 /* Déplacer les projets vers la droite */
 .project:nth-child(1):hover ~ .project:nth-child(2),
 .project:nth-child(1):hover ~ .project:nth-child(3),
