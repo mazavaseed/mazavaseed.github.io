@@ -1,1 +1,32 @@
-
+[
+  {
+    "titre": "Accueil",
+    "lien": "index.html",
+    "contenu": "Mazava SEED est une initiative pour l’éducation, la lumière et l’inclusion sociale à Madagascar."
+  },
+  {
+    "titre": "Présentation",
+    "lien": "presentation.html",
+    "contenu": "Notre mission est de créer un avenir durable grâce à des actions concrètes, portées par une équipe engagée."
+  },
+  {
+    "titre": "Mazav’air",
+    "lien": "mazavair.html",
+    "contenu": "Mazav’air est un programme environnemental centré sur le reboisement, la formation et la sensibilisation aux énergies propres."
+  },
+  {
+    "titre": "Mizara Mazava",
+    "lien": "mizara_mazava.html",
+    "contenu": "Un projet solidaire pour partager des solutions d’éclairage durable dans les zones rurales isolées."
+  },
+  {
+    "titre": "Tantsaha Mazava",
+    "lien": "tantsaha_mazava.html",
+    "contenu": "Nous soutenons les agriculteurs avec des outils solaires et un accompagnement pour renforcer l’autonomie agricole."
+  },
+  {
+    "titre": "Femme Mazava",
+    "lien": "femme_mazava.html",
+    "contenu": "Ce programme accompagne les femmes vers l’indépendance à travers la formation, la sécurité énergétique et le leadership local."
+  }
+]
