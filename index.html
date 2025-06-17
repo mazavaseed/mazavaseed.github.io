@@ -295,11 +295,7 @@ h1, h2 {
 
 .btn-annuler:hover {
   background-color: #aaaaaa;}
-.search-icon {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;}
-
+        
 .search-bar {
   position: fixed;
   top: 70px;
@@ -312,6 +308,11 @@ h1, h2 {
   display: flex;
   align-items: center;
   gap: 10px;}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;}
 
 .search-bar input {
   padding: 8px;
@@ -354,10 +355,12 @@ mark.highlighted {
         </ul>
     </nav>
     
-<div class="search-bar" id="searchBar">
+<div class="search-bar" id="searchBar" style="display: none;">
   <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site..." oninput="rechercherSurPage()">
+  <button onclick="effectuerRecherche()">🔍</button>
+  <button onclick="fermerRecherche()">✖</button>
 </div>
-
+    
 </header>
   <div class="title-container"> 
     <span class="big-title"> <span class="yellow">Mazava</span> 
@@ -417,17 +420,50 @@ function fermerFormulaire() {
   document.getElementById("message-utilisateur").value = "";
 }
         
+function toggleSearch() {
+  const bar = document.getElementById("searchBar");
+  const input = document.getElementById("siteSearchInput");
+
+  if (bar.style.display === "none") {
+    bar.style.display = "flex";
+    input.focus();
+  } else {
+    bar.style.display = "none";
+    input.value = "";
+    enleverSurbrillance(document.body);
+  }
+}
+
+function fermerRecherche() {
+  const bar = document.getElementById("searchBar");
+  const input = document.getElementById("siteSearchInput");
+
+  bar.style.display = "none";
+  input.value = "";
+  enleverSurbrillance(document.body);
+}
+
 function rechercherSurPage() {
   const terme = document.getElementById("siteSearchInput").value.toLowerCase().trim();
   const contenu = document.body;
   const surbrillance = '<mark class="highlighted">$&</mark>';
 
-  // Nettoie les anciennes marques
   enleverSurbrillance(contenu);
 
-  if (terme.length < 2) return;
+  if (terme.length >= 2) {
+    surlignerTexte(contenu, terme, surbrillance);
+  }
+}
 
-  surlignerTexte(contenu, terme, surbrillance);
+function effectuerRecherche() {
+  const input = document.getElementById("siteSearchInput");
+  const terme = input.value.toLowerCase().trim();
+
+  enleverSurbrillance(document.body);
+
+  if (terme.length >= 2) {
+    surlignerTexte(document.body, terme, '<mark class="highlighted">$&</mark>');
+  }
 }
 
 function surlignerTexte(noeud, terme, surbrillance) {
@@ -439,7 +475,11 @@ function surlignerTexte(noeud, terme, surbrillance) {
       span.innerHTML = texte.replace(regex, surbrillance);
       noeud.replaceWith(span);
     }
-  } else if (noeud.nodeType === 1 && noeud.childNodes && !['SCRIPT', 'STYLE', 'INPUT', 'TEXTAREA'].includes(noeud.tagName)) {
+  } else if (
+    noeud.nodeType === 1 &&
+    noeud.childNodes &&
+    !['SCRIPT', 'STYLE', 'INPUT', 'TEXTAREA'].includes(noeud.tagName)
+  ) {
     [...noeud.childNodes].forEach(child => surlignerTexte(child, terme, surbrillance));
   }
 }
