@@ -456,53 +456,74 @@ function fermerFormulaire() {
   document.getElementById("message-utilisateur").value = "";
 }
         
-async function effectuerRecherche() {
-  const input = document.getElementById("siteSearchInput");
-  const terme = input.value.toLowerCase().trim();
-  const box = document.getElementById("resultatsRecherche");
+  function toggleSearch() {
+    const bar = document.getElementById("searchBar");
+    const input = document.getElementById("siteSearchInput");
+    const box = document.getElementById("resultatsRecherche");
 
-  box.innerHTML = "";
-  box.style.display = "none";
-  if (terme.length < 2) return;
-
-  try {
-    const res = await fetch("recherche.json");
-    const data = await res.json();
-
-    const resultats = data.filter(item =>
-      item.contenu.toLowerCase().includes(terme)
-    );
-
-    if (resultats.length === 0) {
-      box.innerHTML = "<p>Aucun résultat trouvé.</p>";
+    if (bar.style.display === "none") {
+      bar.style.display = "flex";
+      input.focus();
     } else {
-      resultats.forEach(item => {
-        const extrait = item.contenu.replace(
-          new RegExp(`(${terme})`, "gi"),
-          "<mark>$1</mark>"
-        );
-
-        const ligne = `
-          <div class="result-item">
-            <a href="${item.lien}">${item.titre}</a>
-            <div class="extrait">${extrait}</div>
-          </div>
-        `;
-        box.innerHTML += ligne;
-      });
+      bar.style.display = "none";
+      input.value = "";
+      box.style.display = "none";
+      box.innerHTML = "";
     }
-
-    box.style.display = "block";
-  } catch (error) {
-    console.error("Erreur lors du chargement des données :", error);
   }
-}
 
-function fermerRecherche() {
-  document.getElementById("searchBar").style.display = "none";
-  document.getElementById("resultatsRecherche").style.display = "none";
-  document.getElementById("siteSearchInput").value = "";
-}
+  function fermerRecherche() {
+    const bar = document.getElementById("searchBar");
+    const input = document.getElementById("siteSearchInput");
+    const box = document.getElementById("resultatsRecherche");
+
+    bar.style.display = "none";
+    input.value = "";
+    box.style.display = "none";
+    box.innerHTML = "";
+  }
+
+  async function effectuerRecherche() {
+    const input = document.getElementById("siteSearchInput");
+    const terme = input.value.toLowerCase().trim();
+    const box = document.getElementById("resultatsRecherche");
+
+    box.innerHTML = "";
+    box.style.display = "none";
+    if (terme.length < 2) return;
+
+    try {
+      const res = await fetch("recherche.json");
+      const data = await res.json();
+
+      const resultats = data.filter(item =>
+        item.contenu.toLowerCase().includes(terme)
+      );
+
+      if (resultats.length === 0) {
+        box.innerHTML = "<p>Aucun résultat trouvé.</p>";
+      } else {
+        resultats.forEach(item => {
+          const extrait = item.contenu.replace(
+            new RegExp(`(${terme})`, "gi"),
+            "<mark>$1</mark>"
+          );
+
+          const ligne = `
+            <div class="result-item">
+              <a href="${item.lien}" target="_blank">${item.titre}</a>
+              <div class="extrait">${extrait}</div>
+            </div>
+          `;
+          box.innerHTML += ligne;
+        });
+      }
+
+      box.style.display = "block";
+    } catch (error) {
+      console.error("Erreur lors du chargement de recherche.json :", error);
+    }
+  }
 
     </script>
 
