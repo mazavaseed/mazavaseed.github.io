@@ -320,6 +320,11 @@ h1, h2 {
   border: 1px solid #ccc;
   width: 250px;}
 
+mark.highlighted {
+  background-color: yellow;
+  color: #000;
+  font-weight: bold;}
+
     </style>
 </head>
 <body>
@@ -348,10 +353,11 @@ h1, h2 {
             </li>
         </ul>
     </nav>
-<div class="search-bar" id="searchBar" style="display: none;">
-  <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site...">
-  <button onclick="effectuerRecherche()">🔍</button>
+    
+<div class="search-bar" id="searchBar">
+  <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site..." oninput="rechercherSurPage()">
 </div>
+
 </header>
   <div class="title-container"> 
     <span class="big-title"> <span class="yellow">Mazava</span> 
@@ -410,18 +416,41 @@ function fermerFormulaire() {
   form.style.display = "none";
   document.getElementById("message-utilisateur").value = "";
 }
-function toggleSearch() {
-  const bar = document.getElementById("searchBar");
-  bar.style.display = (bar.style.display === "none") ? "flex" : "none";
+        
+function rechercherSurPage() {
+  const terme = document.getElementById("siteSearchInput").value.toLowerCase().trim();
+  const contenu = document.body;
+  const surbrillance = '<mark class="highlighted">$&</mark>';
+
+  // Nettoie les anciennes marques
+  enleverSurbrillance(contenu);
+
+  if (terme.length < 2) return;
+
+  surlignerTexte(contenu, terme, surbrillance);
 }
 
-function effectuerRecherche() {
-  const query = document.getElementById("siteSearchInput").value.toLowerCase().trim();
-  if (!query) return;
-
-  // Tu peux remplacer cela par une vraie recherche interne plus tard
-  alert("Recherche lancée pour : " + query);
+function surlignerTexte(noeud, terme, surbrillance) {
+  if (noeud.nodeType === 3) {
+    const texte = noeud.nodeValue;
+    const regex = new RegExp(terme, 'gi');
+    if (regex.test(texte)) {
+      const span = document.createElement('span');
+      span.innerHTML = texte.replace(regex, surbrillance);
+      noeud.replaceWith(span);
+    }
+  } else if (noeud.nodeType === 1 && noeud.childNodes && !['SCRIPT', 'STYLE', 'INPUT', 'TEXTAREA'].includes(noeud.tagName)) {
+    [...noeud.childNodes].forEach(child => surlignerTexte(child, terme, surbrillance));
+  }
 }
+
+function enleverSurbrillance(contenu) {
+  const marques = contenu.querySelectorAll('mark.highlighted');
+  marques.forEach(el => {
+    el.replaceWith(document.createTextNode(el.textContent));
+  });
+}
+
     </script>
 
 <div class="section-title">Notre raison d'être</div>
