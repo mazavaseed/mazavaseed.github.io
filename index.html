@@ -378,6 +378,34 @@ mark {
     border-radius: 10px;
     line-height: 0.3; /* Espacement réduit entre les lignes */
     object-fit: cover; /* Ajuste l’image sans distorsion */} 
+
+.valeurs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.valeur-bloc {
+  flex: 1 1 300px;
+  max-width: 350px;
+  background-color: #f6f6f6;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.valeur-bloc:hover {
+  transform: translateY(-5px);
+}
+
+.valeur-icone {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
         
 </style>
     
@@ -570,19 +598,34 @@ function fermerFormulaire() {
 </div>
 
 <div class="section-title">Nos valeurs</div>
-<div class="value-container">
-    <div class="value-box">
-        <img src="initiative1.jpg" alt="Initiative">
-    </div>
+<div class="section-title">Nos valeurs</div>
 
-    <div class="value-box">
-        <img src="integrite1.jpg" alt="Intégrité">
-    </div>
+<div class="valeurs-container">
+  <div class="valeur-bloc">
+    <div class="valeur-icone">🌱</div>
+    <h3>Initiative</h3>
+    <p>
+      Chez Mazava SEED, nous croyons fermement qu’aucun changement durable ne peut voir le jour sans le courage du premier pas... <!-- tronqué pour clarté -->
+    </p>
+  </div>
 
-    <div class="value-box">
-        <img src="partage1.jpg" alt="Partage">
-    </div>
+  <div class="valeur-bloc">
+    <div class="valeur-icone">🧭</div>
+    <h3>Intégrité</h3>
+    <p>
+      Ce qui unit les membres de Mazava SEED, c’est une volonté sincère de faire avancer les choses avec honnêteté...
+    </p>
+  </div>
+
+  <div class="valeur-bloc">
+    <div class="valeur-icone">🤝</div>
+    <h3>Partage</h3>
+    <p>
+      Parce que « partager donne la paix », nous croyons que la solidarité est la véritable richesse d’une société...
+    </p>
+  </div>
 </div>
+
     
 <div class="section-title">Actualités</div> 
     
