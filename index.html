@@ -174,7 +174,58 @@ h1, h2 {
 .glow-mazava:hover {
   text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00;
   color: #fff200;}
-       
+
+.actualites-marquee {
+  overflow: hidden;
+  background-color: #fdfdfd;
+  padding: 20px 0;
+  border-radius: 10px;
+  margin: 30px auto;
+  max-width: 100%;}
+
+.actualites-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 25s linear infinite;
+  gap: 40px;
+  align-items: center;
+  padding-left: 100%; /* Pour démarrer hors champ */}
+
+ /* Mise à joir des actualités */
+.actualite-slide {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 10px;
+  text-align: center;}
+
+.actualite-slide img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;}
+
+.actualite-slide span {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #006699;
+  font-size: 14px;}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }}
+
+.actualites-marquee:hover .actualites-marquee-track {
+  animation-play-state: paused; /* pause si survol */}
+        
+.actu-lien {
+  text-decoration: none;}
+
     </style>
 </head>
 <body>
@@ -241,7 +292,6 @@ h1, h2 {
   <p class="slogan">Mazava SEED, c’est semer aujourd’hui pour éclairer demain.</p>
 </div>
 
-    
 <div class="section-title">Nos valeurs</div>
 <div class="value-container">
     <div class="value-box">
@@ -256,6 +306,41 @@ h1, h2 {
         <img src="partage1.jpg" alt="Partage">
     </div>
 </div>
-   
+    
+<div class="section-title">Actualités</div> 
+    
+<div class="actualites-marquee">
+<div class="actualites-marquee-track">
+
+<a href="actualite1.html" class="actu-lien">
+<div class="actualite-slide">
+      <img src="actu1.jpg" alt="Actu 1">
+      <span>Lancement de Mazav’air 2025</span>
+    </div>
+</a>
+
+<a href="actualite2.html" class="actu-lien">
+<div class="actualite-slide">
+      <img src="actu2.jpg" alt="Actu 2">
+      <span>Distribution de kits scolaires</span>
+    </div>
+</a>
+    
+<a href="actualite3.html" class="actu-lien">
+<div class="actualite-slide">
+      <img src="actu3.jpg" alt="Actu 3">
+      <span>Formation des relais communautaires</span>
+    </div>
+ </a>
+    
+<a href="actualite4.html" class="actu-lien">
+<div class="actualite-slide">
+      <img src="actu4.jpg" alt="Actu 4">
+      <span>Nouvelle pépinière dans l’Itasy</span>
+    </div>
+</a>
+  </div>
+</div>
+    
 </body>
 </html>
