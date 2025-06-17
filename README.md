@@ -1,1 +1,1 @@
-# mazavaseed.github.io
+# mazavaseed.mg
