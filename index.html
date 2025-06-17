@@ -113,7 +113,13 @@ h1, h2 {
     background-color: white; /* Fond blanc pour éviter la fusion */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
      z-index: 1001;}
-
+.title-container { position: absolute; 
+                  top: 20%; /* Aligné en bas de l'image */ 
+                  left: 50%; 
+                  transform: translateX(-50%); 
+                  text-align: center; 
+                  width: 100%; 
+                  z-index: 10; /* Assure que le texte passe au-dessus */ } 
 .big-title { font-size: 100px; 
             font-weight: bold; 
             line-height: 0.2; /* Supprime l'espacement */ } 
