@@ -263,7 +263,7 @@ h1, h2 {
 
 .formulaire-contact textarea {
   width: 90%;
-  height: 110px;
+  height: 200px;
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -282,6 +282,19 @@ h1, h2 {
 
 .formulaire-contact button:hover {
   background-color: #004d80;}
+
+.btn-annuler {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #cccccc;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;}
+
+.btn-annuler:hover {
+  background-color: #aaaaaa;}
 
     </style>
 </head>
@@ -360,6 +373,12 @@ h1, h2 {
     const mailto = `mailto:association.mazavaseed@gmail.com?subject=${encodeURIComponent(sujetCourant)}&body=${encodeURIComponent(message)}`;
     window.location.href = mailto;
   }
+
+function fermerFormulaire() {
+  const form = document.getElementById("zone-formulaire");
+  form.style.display = "none";
+  document.getElementById("message-utilisateur").value = "";
+}
     </script>
 
 <div class="section-title">Notre raison d'être</div>
@@ -451,6 +470,7 @@ h1, h2 {
   <textarea id="message-utilisateur" placeholder="Votre message ici..."></textarea>
   <br>
   <button onclick="envoyerMail()">Envoyer</button>
+  <button onclick="fermerFormulaire()" class="btn-annuler">Annuler</button>
 </div>
    
 </body>
