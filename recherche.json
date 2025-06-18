@@ -1,54 +1,79 @@
 [
   {
-    "titre": "Accueil",
-    "lien": "index.html",
-    "contenu": "Mazava SEED est une initiative pour l’éducation, la lumière et l’inclusion sociale à Madagascar."
-  },
-  {
-    "titre": "Présentation",
-    "lien": "presentation.html",
-    "contenu": "Notre mission est de créer un avenir durable grâce à des actions concrètes, portées par une équipe engagée."
-  },
-  {
-    "titre": "Mazav’air",
-    "lien": "mazavair.html",
-    "contenu": "Mazav’air est un programme environnemental centré sur le reboisement, la formation et la sensibilisation aux énergies propres."
-  },
-  {
-    "titre": "Mizara Mazava",
-    "lien": "mizara_mazava.html",
-    "contenu": "Un projet solidaire pour partager des solutions d’éclairage durable dans les zones rurales isolées."
-  },
-  {
-    "titre": "Tantsaha Mazava",
-    "lien": "tantsaha_mazava.html",
-    "contenu": "Nous soutenons les agriculteurs avec des outils solaires et un accompagnement pour renforcer l’autonomie agricole."
-  },
-  {
-    "titre": "Femme Mazava",
-    "lien": "femme_mazava.html",
-    "contenu": "Ce programme accompagne les femmes vers l’indépendance à travers la formation, la sécurité énergétique et le leadership local."
-  }
-]
-[
+    "titre": "Notre raison d'être",
+    "lien": "index.html#raison-etre",
+    "contenu": "Dans un pays où l’éducation se fragilise, où l’accès aux soins devient un luxe, et où l’île verte d’hier cède peu à peu la place à une île rouge, il n’est plus temps d’attendre. Face à la pauvreté, à la marginalisation et à la dégradation environnementale, nous avons choisi de nous lever et d’agir.
+Mazava, qui signifie lumière en malgache, symbolise l’espoir, l’éveil et la clarté que nous souhaitons apporter dans les zones oubliées. C’est la lumière de la solidarité, de la dignité retrouvée, et de l’action collective.
+SEED, en anglais graine, représente la promesse du changement. Car chaque action que nous menons est comme une graine semée dans la terre : elle a vocation à germer, grandir, et porter des fruits durables dans la vie des bénéficiaires.
+Notre nom Mazava SEED est ainsi porteur de sens et de direction. Il reflète nos quatre domaines d’intervention prioritaires :
+S pour Social : Nous œuvrons pour l’accès à l’éducation, aux soins de santé, à l’information, et à la justice sociale. Chaque enfant à l’école, chaque famille accompagnée, est une lumière qui s’allume.
+E pour Economic : Nous soutenons l’autonomisation économique, en particulier des femmes et des jeunes, à travers des formations, des appuis à la microentreprise et des coopératives rurales.
+E pour Environnement : Parce que sans nature vivante, aucun avenir n’est possible, nous menons des actions de reboisement, de verdissement urbain, de sensibilisation à l’écologie et de gestion durable des ressources.
+D pour Deed (Action) : Nous sommes sur le terrain, dans les villages, les écoles, les forêts, les quartiers… Là où les besoins sont urgents, nous agissons. Parce que l’action est la seule voie vers le changement."},
   {
     "titre": "Nos valeurs",
     "lien": "index.html#valeurs",
-    "contenu": "Initiative, Intégrité et Partage sont les piliers fondateurs de Mazava SEED."
+    "contenu": "Initiative
+Chez Mazava SEED, nous croyons fermement qu’aucun changement durable ne peut voir le jour sans le courage du premier pas. Atteindre un objectif commence par une décision simple mais puissante : agir avec ce que l’on a, là où l’on est. Nous refusons d’attendre des conditions parfaites ou l’intervention de forces extérieures. Chaque action, même modeste, a le pouvoir de transformer une vie, une communauté, un territoire. L’initiative, c’est semer sans certitude de récolte, mais avec la conviction que le mouvement crée l’opportunité. C’est ainsi que nous avançons, jour après jour, aux côtés de ceux qui n’attendent plus, mais qui construisent.
+Intégrité
+Ce qui unit les membres de Mazava SEED, c’est une volonté sincère de faire avancer les choses avec honnêteté, transparence et engagement profond. L’intégrité est pour nous plus qu’un principe moral : c’est un engagement personnel. Chaque membre agit avec conscience, donne le meilleur de lui-même et reste fidèle aux valeurs humaines qui fondent notre action. Nous croyons qu’un projet n’a de sens que s’il est porté avec cohérence entre les paroles et les actes, entre l’intention et la réalité du terrain. C’est ce qui nous permet de mériter la confiance des communautés, des partenaires et de tous ceux qui marchent avec nous.
+Partage
+Parce que « partager donne la paix », nous croyons que la solidarité est la véritable richesse d’une société. Le partage n’est pas pour nous un acte ponctuel, mais une philosophie de vie : celle de tendre la main, de donner sans attendre, d'agir pour les autres comme on aimerait qu’ils agissent pour nous. Dans un contexte marqué par la précarité, le partage devient un acte de résistance face à l’indifférence, un levier concret pour briser le cycle de la pauvreté. C’est en unissant nos forces, nos savoirs, nos ressources, que nous créons un avenir plus juste et plus humain. Partager, c’est semer l’espoir. C’est construire, ensemble, un monde où chacun a sa place et ses chances."
   },
   {
-    "titre": "Notre équipe",
-    "lien": "presentation.html#equipe",
-    "contenu": "L’équipe Mazava est composée de femmes et d’hommes engagés à Madagascar."
+    "titre": "Nos domaines d’expertise et services",
+    "lien": "presentation.html#domaines",
+    "contenu": "Développement social & inclusion
+À travers le projet Mizara Mazava :
+Parrainage scolaire, appui aux écoles rurales
+Accès à la santé communautaire (projets Arahaba Ririnina)
+Sensibilisation à l’hygiène, santé maternelle, nutrition
+Accompagnement d’orphelinats et familles vulnérables
+Autonomisation économique & entrepreneuriat local
+Formation en leadership et entrepreneuriat féminin (Femme Mazava)
+Mise en place de coopératives rurales (production, transformation, vente)
+Accompagnement des jeunes et agriculteurs en insertion économique
+Appui à la structuration de filières locales: produits agricoles, provendes (Tantsaha Mazava)
+Environnement, reboisement & résilience climatique
+Reboisement participatif et création de pépinières (Mazav’air)
+Verdissement urbain à Antananarivo (capitalisation espaces verts)
+Intégration communautaire dans la gestion des ressources naturelles
+Appui à la résilience climatique rurale : adaptation agricole, lutte contre l’érosion, sensibilisation éco-citoyenne
+Conception de plans de gestion, fiches de zonage et documents cadres pour la conservation et la gestion participative des aires protégées
+⚙️ Coordination de projet & gestion opérationnelle
+Conception de projets multi-acteurs à fort ancrage local
+Mise en œuvre, coordination logistique et suivi-évaluation
+Formation des relais communautaires, encadrement technique
+Rédaction de documents techniques, administratifs et rapports pour partenaires, bailleurs et administrations publiques"
   },
   {
     "titre": "Nos projets phares",
     "lien": "presentation.html#projets-phares",
-    "contenu": "Découvrez les grandes actions menées par Mazava SEED sur le terrain."
+    "contenu": "Découvrez nos grands projets structurants : Mazav’air, Mizara Mazava, Tantsaha Mazava, et Femme Mazava."
   },
   {
     "titre": "Contact",
     "lien": "contact.html#contact",
-    "contenu": "Pour nous joindre, proposer un partenariat ou poser une question, rendez-vous sur notre page contact."
+    "contenu": "Pour toute prise de contact, demande de partenariat ou question, accédez à notre page Contact."
+  },
+  {
+    "titre": "Mazav’air",
+    "lien": "mazavair.html",
+    "contenu": "Un projet environnemental qui relie reboisement, sensibilisation, et éducation à l’énergie durable."
+  },
+  {
+    "titre": "Mizara Mazava",
+    "lien": "mizara_mazva.html",
+    "contenu": "Mizara Mazava vise à partager des solutions d’éclairage solaire abordable dans les zones reculées de Madagascar."
+  },
+  {
+    "titre": "Tantsaha Mazava",
+    "lien": "tantsaha_mazava.html",
+    "contenu": "Ce programme accompagne les agriculteurs vers plus d’autonomie grâce à l’énergie solaire et la formation technique."
+  },
+  {
+    "titre": "Femme Mazava",
+    "lien": "femme_mazava.html",
+    "contenu": "Un programme d’émancipation pour les femmes à travers l’énergie propre, la formation et le leadership communautaire."
   }
 ]
