@@ -139,7 +139,7 @@ h1, h2 {
     letter-spacing: 2px; /* Espacement entre les lettres */}
 
 .raison-texte {
-  max-width: 1100px; /* 🔍 plus large qu'avant */
+  max-width: 1100px; 
   margin: 30px auto;
   padding: 20px 40px;
   font-size: 18px;
@@ -436,7 +436,7 @@ mark {
     </nav>
     
 <div class="search-bar" id="searchBar" style="display: none;">
-  <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site..." oninput="rechercherSurPage()">
+  <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site..."
   <button onclick="effectuerRecherche()">🔍</button>
   <button onclick="fermerRecherche()">✖</button>
 </div>
@@ -516,7 +516,16 @@ function fermerFormulaire() {
       box.innerHTML = "";
     }
   }
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("siteSearchInput");
 
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // empêche la soumission du formulaire si présent
+      effectuerRecherche();
+    }
+  });
+});
   function fermerRecherche() {
     const bar = document.getElementById("searchBar");
     const input = document.getElementById("siteSearchInput");
