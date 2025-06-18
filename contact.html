@@ -282,7 +282,14 @@ mark {
       console.error("Erreur lors du chargement de recherche.json :", error);
     }
   }
-
+document.addEventListener("DOMContentLoaded", () => {
+  if (location.hash) {
+    const cible = document.querySelector(location.hash);
+    if (cible) {
+      cible.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+});
         
     </script>
 
