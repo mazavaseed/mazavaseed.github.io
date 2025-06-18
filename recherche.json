@@ -30,3 +30,25 @@
     "contenu": "Ce programme accompagne les femmes vers l’indépendance à travers la formation, la sécurité énergétique et le leadership local."
   }
 ]
+[
+  {
+    "titre": "Nos valeurs",
+    "lien": "index.html#valeurs",
+    "contenu": "Initiative, Intégrité et Partage sont les piliers fondateurs de Mazava SEED."
+  },
+  {
+    "titre": "Notre équipe",
+    "lien": "presentation.html#equipe",
+    "contenu": "L’équipe Mazava est composée de femmes et d’hommes engagés à Madagascar."
+  },
+  {
+    "titre": "Nos projets phares",
+    "lien": "presentation.html#projets-phares",
+    "contenu": "Découvrez les grandes actions menées par Mazava SEED sur le terrain."
+  },
+  {
+    "titre": "Contact",
+    "lien": "contact.html#contact",
+    "contenu": "Pour nous joindre, proposer un partenariat ou poser une question, rendez-vous sur notre page contact."
+  }
+]
