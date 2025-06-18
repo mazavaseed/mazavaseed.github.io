@@ -419,7 +419,7 @@ mark {
 </nav> 
 
 <div class="search-bar" id="searchBar" style="display: none;">
-  <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site..." oninput="rechercherSurPage()">
+  <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site...">
   <button onclick="effectuerRecherche()">🔍</button>
   <button onclick="fermerRecherche()">✖</button>
 </div>
@@ -683,7 +683,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });         
-     
+// Active la recherche quand l’utilisateur appuie sur Entrée
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("siteSearchInput");
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // empêche la soumission du formulaire si présent
+      effectuerRecherche();
+    }
+  });
+});
+   
 </script>
     
 <div class="projects-container">
