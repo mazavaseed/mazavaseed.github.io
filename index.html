@@ -586,6 +586,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+// Active la recherche quand l’utilisateur appuie sur Entrée
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("siteSearchInput");
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // empêche la soumission du formulaire si présent
+      effectuerRecherche();
+    }
+  });
+});
+        
     </script>
 
 <div class="section-title" id="raison-etre">Notre raison d'être</div>
