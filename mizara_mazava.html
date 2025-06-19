@@ -194,6 +194,24 @@ mark {
   color: #0077aa;
   font-size: 20px;}
         
+.media-position {
+  position: relative;}
+
+.floating-images {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  gap: 10px;
+  padding: 10px;}
+
+.floating-images img {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover;}
+
 </style>
     
 </head>
@@ -389,7 +407,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </script>
 <div class="section-title" id="axes">Axes d'action</div>
 <h2>🎒 Back to School – Pour une rentrée scolaire sans barrières</h2>
-<div class="content">
+<div class="content media-position">
 <p>
   Back to School est un projet phare de Mazava SEED qui vise à accompagner les enfants issus de milieux défavorisés dans leur parcours scolaire, en allégeant le fardeau financier des familles rurales ou précaires lors de la rentrée.
 </p>
@@ -404,10 +422,14 @@ document.addEventListener("DOMContentLoaded", () => {
 </p>
 <p>
   <strong>Historique :</strong><br>
-  • Back to School 1.0 – 6 nov. 2023 : Miadanimerina<br>
-  • Back to School 2.0 – 14 sept. 2024 : 71 bénéficiaires<br>
-  • Back to School 3.0 – Septembre 2025 : objectif de doublement
+  • Back to School 1 – 6 nov. 2023 : Miadanimerina<br>
+  • Back to School 2 – 14 sept. 2024 : 71 bénéficiaires<br>
+  • Back to School 3 – Septembre 2025 : objectif de doublement
 </p>
+    <div class="floating-images">
+        <img src="images/1.jpg" alt="Back to School - photo 1">
+        <img src="images/2.jpg" alt="Back to School - photo 2">
+    </div>
  </div>   
     
 <h2>❄️ Arahaba Ririnina – Campagne de circoncision de masse médicalisée</h2>
