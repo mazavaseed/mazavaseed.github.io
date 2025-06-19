@@ -17,7 +17,9 @@ body {
     color: #333;}
 
 .header-image {
-    width: 100%;
+    width: auto;
+    min-width: 100%;
+    max-width: 150%;
     height: 300px; 
     mix-blend-mode: multiply; /* Effet de fusion avec le background */
     object-fit: block;}
@@ -63,8 +65,10 @@ body {
                         padding: 10px;
                         border-radius: 10px;}
                             nav ul li:hover ul {display: block;}
+
 h1, h2 {
     color: #006699;}
+
 .sticky-logo {
     position: fixed; /* Fixe le logo à une position stable */
     top: 10px; /* Position en haut */
@@ -91,6 +95,17 @@ h1, h2 {
 .blue-dark { color: darkblue; } 
 .small-text { font-size: 20px; 
              line-height: 0; /* Supprime l'espacement */ }
+
+.section-title {
+    margin-top: 50px; /* Ajoute un espace avant */
+    font-family: "Playfair Display", serif; /* Police raffinée */
+    font-size: 36px; /* Taille plus grande */
+    font-weight: bold;
+    color: #006699; /* Bleu profond */
+    text-align: center; /* Centrer le titre */
+    text-transform: uppercase; /* Mettre en majuscules */
+    letter-spacing: 2px; /* Espacement entre les lettres */}
+        
 .search-bar {
   position: fixed;
   top: 70px;
@@ -154,17 +169,9 @@ mark.highlighted {
 mark {
   background-color: yellow;
   font-weight: bold;}
-.section-title {
-    margin-top: 50px; /* Ajoute un espace avant */
-    font-family: "Playfair Display", serif; /* Police raffinée */
-    font-size: 36px; /* Taille plus grande */
-    font-weight: bold;
-    color: #006699; /* Bleu profond */
-    text-align: center; /* Centrer le titre */
-    text-transform: uppercase; /* Mettre en majuscules */
-    letter-spacing: 2px; /* Espacement entre les lettres */}
         
-    </style>
+</style>
+    
 </head>
 <body>
 <a href="index.html">
@@ -187,25 +194,27 @@ mark {
                 </ul>
             </li>
             <li><a href="contact.html">CONTACT</a></li>
-            <li class="search-toggle">
+                <li class="search-toggle">
                 <img src="loupe.webp" alt="Recherche" class="search-icon" onclick="toggleSearch()">
             </li>
         </ul>
     </nav>
+    
 <div class="search-bar" id="searchBar" style="display: none;">
-  <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site...">
+  <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site..."
   <button onclick="effectuerRecherche()">🔍</button>
   <button onclick="fermerRecherche()">✖</button>
 </div>
 <div id="resultatsRecherche" class="result-box" style="display: none;"></div>
-    
+ 
 </header>
   <div class="title-container"> 
     <span class="big-title"> <span class="yellow">Mazava</span> 
     <span class="blue-dark">SEED</span> </span> 
     <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> 
     <em class="small-text">Bring light everywhere!!!</em> 
-  </div>
+  </div> 
+    
     <script>
         document.getElementById("projectsToggle").addEventListener("click", function() {
             var menu = document.getElementById("projectsMenu");
@@ -214,7 +223,50 @@ mark {
             } else {
                 menu.style.display = "block";
             }
-        });function toggleSearch() {
+        });
+  let sujetCourant = "";
+
+  function ouvrirFormulaire(type) {
+    const form = document.getElementById("zone-formulaire");
+    const titre = document.getElementById("form-title");
+
+    switch(type) {
+      case 'partenaire':
+        sujetCourant = "Avis de partenariat avec MazavaSEED";
+        titre.innerText = "🤝 Devenir partenaire";
+        break;
+      case 'don':
+        sujetCourant = "Faire une donation à MazavaSEED";
+        titre.innerText = "💸 Faire un don";
+        break;
+      case 'benevole':
+        sujetCourant = "Je veux devenir bénévole pour MazavaSEED";
+        titre.innerText = "🧑‍🌾 Devenir bénévole";
+        break;
+    }
+
+    form.style.display = "block";
+    document.getElementById("message-utilisateur").focus();
+  }
+
+  function envoyerMail() {
+    const message = document.getElementById("message-utilisateur").value.trim();
+    if (message === "") {
+      alert("Merci d’écrire un message avant l’envoi.");
+      return;
+    }
+
+    const mailto = `mailto:association.mazavaseed@gmail.com?subject=${encodeURIComponent(sujetCourant)}&body=${encodeURIComponent(message)}`;
+    window.location.href = mailto;
+  }
+
+function fermerFormulaire() {
+  const form = document.getElementById("zone-formulaire");
+  form.style.display = "none";
+  document.getElementById("message-utilisateur").value = "";
+}
+        
+  function toggleSearch() {
     const bar = document.getElementById("searchBar");
     const input = document.getElementById("siteSearchInput");
     const box = document.getElementById("resultatsRecherche");
@@ -229,7 +281,16 @@ mark {
       box.innerHTML = "";
     }
   }
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("siteSearchInput");
 
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // empêche la soumission du formulaire si présent
+      effectuerRecherche();
+    }
+  });
+});
   function fermerRecherche() {
     const bar = document.getElementById("searchBar");
     const input = document.getElementById("siteSearchInput");
@@ -300,8 +361,10 @@ document.addEventListener("DOMContentLoaded", () => {
       effectuerRecherche();
     }
   });
-});        
+});
+        
     </script>
 
+    
 </body>
 </html>
