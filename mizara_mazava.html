@@ -1,1 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mazava SEED</title>
+    <style>
+body {
+    background-image: url('fond.jpg'); /* Remplace par ton image */
+    background-size: cover; /* Couvre toute la page */
+    background-position: center; /* Centre l’image */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #333;}
 
+.header-image {
+    width: 100%;
+    height: 300px; 
+    mix-blend-mode: multiply; /* Effet de fusion avec le background */
+    object-fit: block;}
+
+.sticky-header {
+    width: 700px; /* Largeur fixe */
+    height: 50px; /* Hauteur ajustée */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 51, 102, 0.8); /* Bleu profond transparent */
+    padding: 10px 20px;
+    border-radius: 30px; /* Bords arrondis */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrer la navigation */}
+/* Adapter la navigation */
+        nav { width: 100%; /* Occupe toute la largeur du header */}
+         nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Centrer les éléments */
+            gap: 15px;}
+                nav ul li a {
+                    text-decoration: none;
+                    color: white; /* Texte blanc */
+                    font-weight: bold;
+                    padding: 8px 12px;
+                    display: inline-block;
+                    border-radius: 20px;
+                    transition: background 0.3s ease-in-out;}
+                nav ul li a:hover {background-color: #FFC107; /* Effet jaune au survol */}
+/* Ajustement du menu déroulant */
+                    nav ul li ul {
+                        display: none;
+                        position: absolute;
+                        background-color: #006699;
+                        text-align: center;
+                        padding: 10px;
+                        border-radius: 10px;}
+                            nav ul li:hover ul {display: block;}
+h1, h2 {
+    color: #006699;}
+.sticky-logo {
+    position: fixed; /* Fixe le logo à une position stable */
+    top: 10px; /* Position en haut */
+    left: 10px; /* Position à gauche */
+    width: 150px; /* Taille fixe */
+    height: 150px;
+    border-radius: 50%; /* Forme arrondie */
+    object-fit: cover; /* Ajuste l’image sans distorsion */
+    cursor: pointer; /* Rend le logo cliquable */
+    background-color: white; /* Fond blanc pour éviter la fusion */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+     z-index: 1001;}
+.title-container { position: absolute; 
+                  top: 20%; /* Aligné en bas de l'image */ 
+                  left: 50%; 
+                  transform: translateX(-50%); 
+                  text-align: center; 
+                  width: 100%; 
+                  z-index: 10; /* Assure que le texte passe au-dessus */ } 
+.big-title { font-size: 100px; 
+            font-weight: bold; 
+            line-height: 0.2; /* Supprime l'espacement */ } 
+.yellow { color: yellow; } 
+.blue-dark { color: darkblue; } 
+.small-text { font-size: 20px; 
+             line-height: 0; /* Supprime l'espacement */ }
+.search-bar {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: #ffffffee;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;}
+
+.search-bar input {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 250px;}
+
+mark.highlighted {
+  background-color: yellow;
+  color: #000;
+  font-weight: bold;}
+
+.result-box {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  width: 320px;
+  max-height: 350px;
+  overflow-y: auto;
+  z-index: 998;
+  padding: 15px;}
+
+.result-box .result-item {
+  margin-bottom: 12px;}
+
+.result-box .result-item a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #006699;}
+
+.result-box .result-item a:hover {
+  text-decoration: underline;}
+
+.result-box .extrait {
+  font-size: 14px;
+  color: #444;
+  margin-top: 4px;}
+
+mark {
+  background-color: yellow;
+  font-weight: bold;}
+.section-title {
+    margin-top: 50px; /* Ajoute un espace avant */
+    font-family: "Playfair Display", serif; /* Police raffinée */
+    font-size: 36px; /* Taille plus grande */
+    font-weight: bold;
+    color: #006699; /* Bleu profond */
+    text-align: center; /* Centrer le titre */
+    text-transform: uppercase; /* Mettre en majuscules */
+    letter-spacing: 2px; /* Espacement entre les lettres */}
+        
+    </style>
+</head>
+<body>
+<a href="index.html">
+    <img src="Logo.jpg" alt="Logo Mazava SEED" class="sticky-logo">
+</a>
+    <img src="band.jpg" alt="Bannière Mazava SEED" class="header-image">
+
+<header class="sticky-header">
+    <nav>
+        <ul>
+            <li><a href="index.html">ACCUEIL</a></li>
+            <li><a href="presentation.html">QUI NOUS SOMMES?</a></li>
+            <li>
+                <a id="projectsToggle">NOS PROJETS ▼</a>
+                <ul id="projectsMenu">
+                    <li><a href="mazavair.html">Mazav'air</a></li>
+                    <li><a href="mizara_mazava.html">Mizara Mazava</a></li>
+                    <li><a href="tantsaha_mazava.html">Tantsaha Mazava</a></li>
+                    <li><a href="femme_mazava.html">Femme Mazava</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li class="search-toggle">
+                <img src="loupe.webp" alt="Recherche" class="search-icon" onclick="toggleSearch()">
+            </li>
+        </ul>
+    </nav>
+<div class="search-bar" id="searchBar" style="display: none;">
+  <input type="text" id="siteSearchInput" placeholder="Rechercher sur le site...">
+  <button onclick="effectuerRecherche()">🔍</button>
+  <button onclick="fermerRecherche()">✖</button>
+</div>
+<div id="resultatsRecherche" class="result-box" style="display: none;"></div>
+    
+</header>
+  <div class="title-container"> 
+    <span class="big-title"> <span class="yellow">Mazava</span> 
+    <span class="blue-dark">SEED</span> </span> 
+    <p class="small-text"><strong>Social, Economic and Environment Deed</strong></p> 
+    <em class="small-text">Bring light everywhere!!!</em> 
+  </div>
+    <script>
+        document.getElementById("projectsToggle").addEventListener("click", function() {
+            var menu = document.getElementById("projectsMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        });function toggleSearch() {
+    const bar = document.getElementById("searchBar");
+    const input = document.getElementById("siteSearchInput");
+    const box = document.getElementById("resultatsRecherche");
+
+    if (bar.style.display === "none") {
+      bar.style.display = "flex";
+      input.focus();
+    } else {
+      bar.style.display = "none";
+      input.value = "";
+      box.style.display = "none";
+      box.innerHTML = "";
+    }
+  }
+
+  function fermerRecherche() {
+    const bar = document.getElementById("searchBar");
+    const input = document.getElementById("siteSearchInput");
+    const box = document.getElementById("resultatsRecherche");
+
+    bar.style.display = "none";
+    input.value = "";
+    box.style.display = "none";
+    box.innerHTML = "";
+  }
+
+  async function effectuerRecherche() {
+    const input = document.getElementById("siteSearchInput");
+    const terme = input.value.toLowerCase().trim();
+    const box = document.getElementById("resultatsRecherche");
+
+    box.innerHTML = "";
+    box.style.display = "none";
+    if (terme.length < 2) return;
+
+    try {
+      const res = await fetch("recherche.json");
+      const data = await res.json();
+
+      const resultats = data.filter(item =>
+        item.contenu.toLowerCase().includes(terme)
+      );
+
+      if (resultats.length === 0) {
+        box.innerHTML = "<p>Aucun résultat trouvé.</p>";
+      } else {
+        resultats.forEach(item => {
+          const extrait = item.contenu.replace(
+            new RegExp(`(${terme})`, "gi"),
+            "<mark>$1</mark>"
+          );
+
+          const ligne = `
+            <div class="result-item">
+              <a href="${item.lien}" target="_blank">${item.titre}</a>
+              <div class="extrait">${extrait}</div>
+            </div>
+          `;
+          box.innerHTML += ligne;
+        });
+      }
+
+      box.style.display = "block";
+    } catch (error) {
+      console.error("Erreur lors du chargement de recherche.json :", error);
+    }
+  }
+document.addEventListener("DOMContentLoaded", () => {
+  if (location.hash) {
+    const cible = document.querySelector(location.hash);
+    if (cible) {
+      cible.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+});
+// Active la recherche quand l’utilisateur appuie sur Entrée
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("siteSearchInput");
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // empêche la soumission du formulaire si présent
+      effectuerRecherche();
+    }
+  });
+});        
+    </script>
+
+</body>
+</html>
