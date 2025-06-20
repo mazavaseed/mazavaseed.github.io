@@ -194,25 +194,30 @@ mark {
   color: #0077aa;
   font-size: 20px;}
         
-.media-position {
-  position: relative;
-  padding-bottom: 140px; /* espace pour ne pas que les images flottantes mangent le texte */
+.content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.text-block {
+  flex: 1 1 60%;
 }
 
 .image-corner-grid {
-  position: absolute;
-  bottom: 0;
-  right: 0;
   display: grid;
-  grid-template-columns: repeat(2, 70px);
-  grid-template-rows: repeat(2, 55px);
-  gap: 6px;
-  padding: 8px;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(2, 70px);
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .image-corner-grid img {
-  width: 70px;
-  height: 55px;
+  width: 100px;
+  height: 70px;
   object-fit: cover;
   border-radius: 5px;
   box-shadow: 0 1px 6px rgba(0,0,0,0.15);
@@ -224,11 +229,13 @@ mark {
 }
 
 @media (max-width: 768px) {
+  .content-row {
+    flex-direction: column;
+  }
+
   .image-corner-grid {
-    position: static;
-    margin-top: 16px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+    margin-top: 20px;
     justify-items: center;
   }
 
@@ -438,6 +445,8 @@ document.addEventListener("DOMContentLoaded", () => {
   Back to School est un projet phare de Mazava SEED qui vise à accompagner les enfants issus de milieux défavorisés dans leur parcours scolaire, en allégeant le fardeau financier des familles rurales ou précaires lors de la rentrée.
 </p>
 <p><strong>Objectif :</strong> favoriser l’accès et le maintien à l’école des enfants vulnérables, en répondant aux besoins immédiats liés à la rentrée (fournitures, uniformes, appui administratif), et en valorisant la réussite scolaire.</p>
+<div class="content-row">
+  <div class="text-block">
 <p>
   <strong>Activités principales :</strong><br>
   📦 Dons de fournitures scolaires (cahiers, stylos, sacs…)<br>
@@ -452,6 +461,7 @@ document.addEventListener("DOMContentLoaded", () => {
   • Back to School 2 – 14 sept. 2024 : 71 bénéficiaires<br>
   • Back to School 3 – Septembre 2025 : objectif de doublement
 </p>
+    </div>
     <div class="image-corner-grid">
         <img src="1.jpg" alt="Back to School - photo 1">
         <img src="2.jpg" alt="Back to School - photo 2">
