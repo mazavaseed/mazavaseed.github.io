@@ -195,40 +195,47 @@ mark {
   font-size: 20px;}
         
 .media-position {
-  position: relative;}
+  position: relative;
+  padding-bottom: 140px; /* espace pour ne pas que les images flottantes mangent le texte */
+}
 
 .image-corner-grid {
   position: absolute;
   bottom: 0;
   right: 0;
   display: grid;
-  grid-template-columns: repeat(2, 80px);
-  grid-template-rows: repeat(2, 60px);
+  grid-template-columns: repeat(2, 70px);
+  grid-template-rows: repeat(2, 55px);
   gap: 6px;
-  padding: 8px;}
+  padding: 8px;
+}
 
 .image-corner-grid img {
-  width: 80px;
-  height: 60px;
+  width: 70px;
+  height: 55px;
   object-fit: cover;
   border-radius: 5px;
   box-shadow: 0 1px 6px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;}
+  transition: transform 0.3s ease;
+}
 
 .image-corner-grid img:hover {
-  transform: scale(1.05);}
+  transform: scale(1.05);
+}
 
 @media (max-width: 768px) {
   .image-corner-grid {
     position: static;
-    margin-top: 20px;
+    margin-top: 16px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
-    justify-items: center;}
+    justify-items: center;
+  }
 
   .image-corner-grid img {
     width: 90%;
-    height: auto;}
+    height: auto;
+  }
 }
 
 
@@ -446,7 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
   • Back to School 2 – 14 sept. 2024 : 71 bénéficiaires<br>
   • Back to School 3 – Septembre 2025 : objectif de doublement
 </p>
-    <div class="image-grid">
+    <div class="image-corner-grid">
         <img src="1.jpg" alt="Back to School - photo 1">
         <img src="2.jpg" alt="Back to School - photo 2">
         <img src="3.jpg" alt="Back to School - photo 3">
