@@ -214,9 +214,11 @@ mark {
         
 .image-grid {
   display: grid;
+  bottom: 0;
+  right: 0; /* au lieu de left: 0 */
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 20px;}
+  gap: 10px;
+  padding: 10px;}
 
 .image-grid img {
   width: 120px;
