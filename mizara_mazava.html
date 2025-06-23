@@ -216,8 +216,6 @@ mark {
 }
 
 .image-corner-grid img {
-  width: 300px;
-  height: 100px;
   object-fit: cover;
   border-radius: 5px;
   box-shadow: 0 1px 6px rgba(0,0,0,0.15);
@@ -243,6 +241,15 @@ mark {
     width: 90%;
     height: auto;
   }
+}
+.portrait {
+  width: 70px;
+  height: 100px;
+}
+
+.landscape {
+  width: 100px;
+  height: 70px;
 }
 
 </style>
@@ -463,10 +470,10 @@ document.addEventListener("DOMContentLoaded", () => {
 </p>
     </div>
     <div class="image-corner-grid">
-        <img src="1.jpg" alt="Back to School - photo 1">
-        <img src="2.jpg" alt="Back to School - photo 2">
-        <img src="3.jpg" alt="Back to School - photo 3">
-        <img src="4.jpg" alt="Back to School - photo 4">
+        <img src="1.jpg" class="landscape" alt="Back to School - photo 1">
+        <img src="2.jpg" class="portrait" alt="Back to School - photo 2">
+        <img src="3.jpg" class="portrait" alt="Back to School - photo 3">
+        <img src="4.jpg" class="portrait" alt="Back to School - photo 4">
     </div>
  </div>   
     
